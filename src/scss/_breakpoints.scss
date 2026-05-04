@@ -1,0 +1,64 @@
+@use "sass:map";
+
+$breakpoints: (
+    "Small": 576px,
+    "XSmall": 768px,
+    "Medium": 1080px,
+    "Large": 1680px,
+    "XLarge": 1920px,
+    "XXLarge": 3840px,
+);
+
+@function breakpoint($key) {
+    @return map.get($breakpoints, $key);
+}
+
+@mixin media-up($key) {
+    $size: breakpoint($key);
+    @if $size != 0 {
+        @media (max-width: $size) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+/*=============================
+=            Media            =
+=============================*/
+
+//$main-grid: (
+//	columns: 12,
+//	gutter: 0
+//);
+//
+//$second-grid: (
+//	columns: 12,
+//	gutter: 2rem
+//);
+//
+//$third-grid: (
+//	columns: 12,
+//	gutter: 1rem
+//);
+//
+//$imac27 : 2559px;
+//$imac21 : 1920px;
+//$cinema : 1680px;
+//$laptop : 1440px;
+//$pad_g : 1024px;
+//$pad_v : 768px;
+//$mobile : 570px;
+//
+//$XXLarge: (media: "(min-width: #{$imac27})");
+//$XLarge: (media: "(min-width: #{$cinema}) and (max-width: #{$imac27})");
+//$Large: (media: "(min-width: #{$laptop}) and (max-width: #{$cinema})");
+//$Medium: (media: "(min-width: #{$pad_g}) and (max-width: #{$laptop})");
+//$XSmall: (media: "(max-width: #{$pad_g})");
+//$Small: (media: "(max-width: #{$mobile})");
+//$HSmall: (media: "(max-height: 420px)");
+//$Landscape: (media: "(max-width: #{$pad_v}) and (orientation: landscape)");
+//$XPortrait: (media: "(min-width: #{$pad_v}) and (max-width: calc(#{$pad_g} - 1px))");
+
+/*=====  End of Media  ======*/
