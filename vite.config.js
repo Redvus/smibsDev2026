@@ -8,7 +8,7 @@ export default defineConfig({
     root: path.resolve(__dirname, "src"),
     base: "/",
     build: {
-        outDir: path.resolve(__dirname, "modx/assets"),
+        outDir: path.resolve(__dirname, "modx/assets/build"),
         emptyOutDir: true,
         cssCodeSplit: false,
         rollupOptions: {
