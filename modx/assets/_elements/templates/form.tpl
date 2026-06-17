@@ -4,6 +4,9 @@
 {'head'|chunk}
 <body>
 <div class="wrapper">
+    {if $_modx->resource.id == 11}
+        {'select-literature'|chunk}
+    {/if}
 
 </div>
     {* {'preloader'|chunk} *}

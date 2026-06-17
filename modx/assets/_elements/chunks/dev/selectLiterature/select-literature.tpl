@@ -1,0 +1,596 @@
+// https://bibloid.ru/
+
+<div class="main-wrapper">
+    <div class="general">
+        <div class="general__container">
+            <div class="general__info">
+                <h2 class="general__title general__title--first">Первый шаг к написанию работы</h2>
+                <h2 class="general__title general__title--second">Подбор литературы</h2>
+                <p class="general__text general__text--first regular-text"> Реферат, курсовая, диплом, научная статья
+                    или диссертация начинается с&nbsp;поиска источников и&nbsp;составления списка литературы. </p>
+                <p class="general__text general__text--second regular-text"> Мы&nbsp;помогаем&nbsp;&mdash;
+                    вы&nbsp;пишете. </p>
+                <a href="#form" class="general__btn btn btn--yellow-maize">ПОДОБРАТЬ ЛИТЕРАТУРУ</a>
+            </div>
+            <div class="general__img-bg">
+                <picture>
+                    <source media="(max-width: 422px)" srcset="
+                /static/illo@1x.7T3CXVVL.webp 1x,
+                /static/illo@2x.MN7YYDV3.webp 2x,
+                /static/illo@3x.QMMPOX87.webp 3x
+              " type="image/webp" />
+                    <source media="(max-width: 422px)" srcset="
+                /static/illo@1x.K56LQIDH.png 1x,
+                /static/illo@2x.E8DRTYSD.png 2x,
+                /static/illo@3x.LV6HJ5UF.png 3x
+              " type="image/png" />
+                    <img width="422px" height="288" src="/static/illo@1x.4H4SIBSI.png" srcset="
+                /static/illo@2x.QS8AOT04.png 2x,
+                /static/illo@3x.2M31NZCT.png 3x
+              " class="general__img" alt="Поиск источников" />
+                </picture>
+            </div>
+        </div>
+    </div>
+    <div class="teaser-list">
+        <ul class="teaser-list__container">
+            <li class="teaser">
+                <div class="teaser__container">
+                    <div class="teaser__img">
+                        <img width="51.98px" height="57px" src="/static/ic-expert.V6QJMIME.svg"
+                            alt="Профессиональные библиографы" />
+                    </div>
+                    <h3 class="teaser__title">Профессиональные библиографы</h3>
+                    <p class="teaser__text regular-text"> составят список использованной литературы для вашей работы
+                        <nobr>за&nbsp;1&ndash;3 дня</nobr>
+                    </p>
+                </div>
+            </li>
+            <li class="teaser">
+                <div class="teaser__container">
+                    <div class="teaser__img">
+                        <img width="49px" height="49px" src="/static/ic-search.S816RQHV.svg"
+                            alt="Поиск по всей доступной базе современного научного знания " />
+                    </div>
+                    <h3 class="teaser__title"> Поиск по&nbsp;всей доступной базе современного научного знания </h3>
+                    <p class="teaser__text regular-text"> 10&nbsp;млн русскоязычных и&nbsp;200 млн англоязычных
+                        источников </p>
+                </div>
+            </li>
+            <li class="teaser">
+                <div class="teaser__container">
+                    <div class="teaser__img">
+                        <img width="38px" height="52px" src="/static/ic-standard.U73R0562.svg"
+                            alt="Библиографический список, оформленный по ГОСТ" />
+                    </div>
+                    <h3 class="teaser__title">Библиографический список, оформленный по ГОСТ</h3>
+                    <p class="teaser__text regular-text">бесплатно в качестве бонуса</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="examples" id="examples"></div>
+    <div class="courses" id="courses">
+        <h3 class="courses__title simple-title">Наши курсы</h3>
+        <div class="courses__list">
+            <div class="course-preview">
+                <div class="course-preview__container">
+                    <a href="https://bibloid.ru/kursach/" class="course-preview__link" rel="noopener" rel="noreferrer"
+                        target="_blank" title="Как написать курсовую работу и остаться личностью">
+                        <div class="course-preview__picture">
+                            <div class="course-preview__circuit course-preview__circuit--blue"></div>
+                            <picture>
+                                <source media="(max-width: 237.25px)" srcset="
+                      /static/Illustration1@1x.V02DQJU4.webp 1x,
+                      /static/Illustration1@2x.4XP5S352.webp 2x,
+                      /static/Illustration1@3x.5W0J2PX2.webp 3x
+                    " type="image/webp" />
+                                <source media="(max-width: 237.25px)" srcset="
+                      /static/Illustration1@1x.019PNX64.png 1x,
+                      /static/Illustration1@2x.B5B9OVL7.png 2x,
+                      /static/Illustration1@3x.OPNRM7TA.png 3x
+                    " type="image/png" />
+                                <img width="237.25px" height="135px" src="/static/Illustration1@1x.BGG7MN8C.png" srcset="
+                      /static/Illustration1@2x.6VHFPRVJ.png 2x,
+                      /static/Illustration1@3x.PH2JVHOU.png 3x
+                    " class="course-preview__img course-preview__img--first"
+                                    alt="Как написать курсовую работу и остаться личностью" />
+                            </picture>
+                        </div>
+                        <span class="course-preview__title">КиберКурсач</span>
+                    </a>
+                    <p class="course-preview__text regular-text"> Практические тонкости создания курсовой на&nbsp;всех
+                        этапах: от&nbsp;идеи до&nbsp;оформления готовой работы, навыки оригинального мышления, полезные
+                        инструменты </p>
+                </div>
+            </div>
+            <div class="course-preview">
+                <div class="course-preview__container">
+                    <a href="https://bibloid.ru/diplom/" rel="noopener" rel="noreferrer" target="_blank"
+                        class="course-preview__link"
+                        title="Как написать дипломную работу и стать настоящим исследователем">
+                        <div class="course-preview__picture">
+                            <div class="course-preview__circuit course-preview__circuit--green"></div>
+                            <picture>
+                                <source media="(max-width: 205px)" srcset="
+                      /static/Illustration2@1x.T8T8ZF3M.webp 1x,
+                      /static/Illustration2@2x.6IGWEA2G.webp 2x,
+                      /static/Illustration2@3x.G34ON9Q3.webp 3x
+                    " type="image/webp" />
+                                <source media="(max-width: 205px)" srcset="
+                      /static/Illustration2@1x.BGXW0OCK.png 1x,
+                      /static/Illustration2@2x.GY1EZEBL.png 2x,
+                      /static/Illustration2@3x.603VHRKV.png 3x
+                    " type="image/png" />
+                                <img width="205px" height="152px" src="/static/Illustration2@1x.1IVROXS5.png" srcset="
+                      /static/Illustration2@2x.OABSXU4T.png 2x,
+                      /static/Illustration2@3x.8V44Z93P.png 3x
+                    " class="course-preview__img"
+                                    alt="Как написать дипломную работу и стать настоящим исследователем" />
+                            </picture>
+                        </div>
+                        <span class="course-preview__title">КиберДиплом</span>
+                    </a>
+                    <p class="course-preview__text regular-text"> Использование инструментов стратегического управления,
+                        основные принципы работы с данными, ВКР как проект, который станет первой ступенью на&nbsp;пути
+                        построения карьерной стратегии </p>
+                </div>
+            </div>
+            <div class="course-preview">
+                <div class="course-preview__container">
+                    <a href="https://bibloid.ru/article/" rel="noopener" rel="noreferrer" target="_blank"
+                        class="course-preview__link" title="Как написать научную статью на благо общества">
+                        <div class="course-preview__picture">
+                            <div class="course-preview__circuit course-preview__circuit--yellow"></div>
+                            <picture>
+                                <source media="(max-width: 213px)" srcset="
+                      /static/Illustration3@1x.MOEQEPBI.webp 1x,
+                      /static/Illustration3@2x.8W0C3CDG.webp 2x,
+                      /static/Illustration3@3x.VG034QIC.webp 3x
+                    " type="image/webp" />
+                                <source media="(max-width: 213px)" srcset="
+                      /static/Illustration3@1x.6OPZMQYE.png 1x,
+                      /static/Illustration3@2x.CXF2NEJ4.png 2x,
+                      /static/Illustration3@3x.3MDC92LU.png 3x
+                    " type="image/png" />
+                                <img width="213px" height="152px" src="/static/Illustration3@1x.MC7NB9CM.png" srcset="
+                      /static/Illustration3@2x.62X5C518.png 2x,
+                      /static/Illustration3@3x.1ZRMG8JO.png 3x
+                    " class="course-preview__img" alt="КиберСтатья" />
+                            </picture>
+                        </div>
+                        <span class="course-preview__title">КиберСтатья</span>
+                    </a>
+                    <p class="course-preview__text regular-text"> Полезные практические навыки проведения исследования
+                        и&nbsp;написания сильных текстов для полноценной статьи, которую можно опубликовать
+                        в&nbsp;научном журнале </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="opinions">
+        <h3 class="opinions__title">60&nbsp;000+</h3>
+        <h3 class="opinions__sub-title simple-title">составленных списков</h3>
+        <p class="opinions__text regular-text"> Слово учащимся и&nbsp;исследователям, уже получившим свои готовые списки
+            литературы </p>
+        <div class="opinions__items" id="messages-carousel">
+            <div class="lazyload-wrapper " style="position: relative;">
+                <div class="slick-slider messages-carousel slick-initialized" dir="ltr"><button
+                        class="slick-arrow-left slick-arrow slick-prev" aria-label="button"
+                        style="display: block;"></button>
+                    <div class="slick-list">
+                        <div class="slick-track"
+                            style="width: 5740px; opacity: 1; transform: translate3d(-1640px, 0px, 0px);">
+                            <div data-index="-2" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Отличный сервис! выполняют заказ быстро и качественно, главное ПОДРОБНО и ПОНЯТНО донести им что вам нужно!:)">
+                                                    Отличный сервис! выполняют заказ быстро и качественно, главное
+                                                    ПОДРОБНО и ПОНЯТНО донести им что вам нужно!:)</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Сергей К.">Сергей К.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="-1" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Понравился очень сервис. Заказывала подбор для аттестационной работы по рентгенологии. Собрали хороший список. по времени примерно два дня ждала. Удачи всем">
+                                                    Понравился очень сервис. Заказывала подбор для аттестационной работы
+                                                    по рентгенологии. Собрали хороший список. по времени примерно два
+                                                    дня ждала. Удачи всем</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Екатерина Д.">Екатерина Д.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="0" class="slick-slide" tabindex="-1" aria-hidden="true"
+                                style="outline: none; width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Первый раз воспользовалась данным ресурсом. Цель: подбор новых источников по редкой теме для научной статьи. Источники на русском и английском языках. Работа сделана добросовестно, быстро. Найдены авторы, которых я по своей теме не находила. Спасибо еще раз, буду обращаться! Развития проекту!">
+                                                    Первый раз воспользовалась данным ресурсом. Цель: подбор новых
+                                                    источников по редкой теме для научной статьи. Источники на русском и
+                                                    английском языках. Работа сделана добросовестно, быстро. Найдены
+                                                    авторы, которых я по своей теме не находила. Спасибо еще раз, буду
+                                                    обращаться! Развития проекту!</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Екатерина Лютик">Екатерина
+                                                        Лютик</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="1" class="slick-slide" tabindex="-1" aria-hidden="true"
+                                style="outline: none; width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Мне очень помогли списки литературы по моим темам, готовлю реферат по истории и философии науки. Точно буду обращаться к вам и дальше. Спасибо. С уважением Александр, аспирант ИМЦ">
+                                                    Мне очень помогли списки литературы по моим темам, готовлю реферат
+                                                    по истории и философии науки. Точно буду обращаться к вам и дальше.
+                                                    Спасибо. С уважением Александр, аспирант ИМЦ</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Александр С.">Александр С.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="2" class="slick-slide slick-active slick-current" tabindex="-1"
+                                aria-hidden="false" style="outline: none; width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Воспользовалась сервисом Библоид, потому что понадобилось в кратчайшие сроки написать научную статью, а времени искать литературу особо не было) Нашла данный сервис, действительно крутой) Нашли материал за пару часов, не скажу, что все источники мне в итоге пригодились, но сработали четко, все по теме. Спасибо! Обязательно обращусь еще, когда буду писать диссертацию">
+                                                    Воспользовалась сервисом Библоид, потому что понадобилось в
+                                                    кратчайшие сроки написать научную статью, а времени искать
+                                                    литературу особо не было) Нашла данный сервис, действительно крутой)
+                                                    Нашли материал за пару часов, не скажу, что все источники мне в
+                                                    итоге пригодились, но сработали четко, все по теме. Спасибо!
+                                                    Обязательно обращусь еще, когда буду писать диссертацию</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Alexandra">Alexandra</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="3" class="slick-slide slick-active" tabindex="-1" aria-hidden="false"
+                                style="outline: none; width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Оперативное и качественное выполнение запроса на формирование списка литературы по заданной теме, что полностью отвечает заявленному в описании услуги">
+                                                    Оперативное и качественное выполнение запроса на формирование списка
+                                                    литературы по заданной теме, что полностью отвечает заявленному в
+                                                    описании услуги</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Виктор Я.">Виктор Я.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="4" class="slick-slide" tabindex="-1" aria-hidden="true"
+                                style="outline: none; width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Отличный сервис! выполняют заказ быстро и качественно, главное ПОДРОБНО и ПОНЯТНО донести им что вам нужно!:)">
+                                                    Отличный сервис! выполняют заказ быстро и качественно, главное
+                                                    ПОДРОБНО и ПОНЯТНО донести им что вам нужно!:)</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Сергей К.">Сергей К.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="5" class="slick-slide" tabindex="-1" aria-hidden="true"
+                                style="outline: none; width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Понравился очень сервис. Заказывала подбор для аттестационной работы по рентгенологии. Собрали хороший список. по времени примерно два дня ждала. Удачи всем">
+                                                    Понравился очень сервис. Заказывала подбор для аттестационной работы
+                                                    по рентгенологии. Собрали хороший список. по времени примерно два
+                                                    дня ждала. Удачи всем</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Екатерина Д.">Екатерина Д.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="6" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Первый раз воспользовалась данным ресурсом. Цель: подбор новых источников по редкой теме для научной статьи. Источники на русском и английском языках. Работа сделана добросовестно, быстро. Найдены авторы, которых я по своей теме не находила. Спасибо еще раз, буду обращаться! Развития проекту!">
+                                                    Первый раз воспользовалась данным ресурсом. Цель: подбор новых
+                                                    источников по редкой теме для научной статьи. Источники на русском и
+                                                    английском языках. Работа сделана добросовестно, быстро. Найдены
+                                                    авторы, которых я по своей теме не находила. Спасибо еще раз, буду
+                                                    обращаться! Развития проекту!</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Екатерина Лютик">Екатерина
+                                                        Лютик</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="7" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Мне очень помогли списки литературы по моим темам, готовлю реферат по истории и философии науки. Точно буду обращаться к вам и дальше. Спасибо. С уважением Александр, аспирант ИМЦ">
+                                                    Мне очень помогли списки литературы по моим темам, готовлю реферат
+                                                    по истории и философии науки. Точно буду обращаться к вам и дальше.
+                                                    Спасибо. С уважением Александр, аспирант ИМЦ</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Александр С.">Александр С.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="8" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Воспользовалась сервисом Библоид, потому что понадобилось в кратчайшие сроки написать научную статью, а времени искать литературу особо не было) Нашла данный сервис, действительно крутой) Нашли материал за пару часов, не скажу, что все источники мне в итоге пригодились, но сработали четко, все по теме. Спасибо! Обязательно обращусь еще, когда буду писать диссертацию">
+                                                    Воспользовалась сервисом Библоид, потому что понадобилось в
+                                                    кратчайшие сроки написать научную статью, а времени искать
+                                                    литературу особо не было) Нашла данный сервис, действительно крутой)
+                                                    Нашли материал за пару часов, не скажу, что все источники мне в
+                                                    итоге пригодились, но сработали четко, все по теме. Спасибо!
+                                                    Обязательно обращусь еще, когда буду писать диссертацию</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Alexandra">Alexandra</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="9" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Оперативное и качественное выполнение запроса на формирование списка литературы по заданной теме, что полностью отвечает заявленному в описании услуги">
+                                                    Оперативное и качественное выполнение запроса на формирование списка
+                                                    литературы по заданной теме, что полностью отвечает заявленному в
+                                                    описании услуги</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Виктор Я.">Виктор Я.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="10" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Отличный сервис! выполняют заказ быстро и качественно, главное ПОДРОБНО и ПОНЯТНО донести им что вам нужно!:)">
+                                                    Отличный сервис! выполняют заказ быстро и качественно, главное
+                                                    ПОДРОБНО и ПОНЯТНО донести им что вам нужно!:)</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Сергей К.">Сергей К.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-index="11" tabindex="-1" class="slick-slide slick-cloned" aria-hidden="true"
+                                style="width: 410px;">
+                                <div>
+                                    <div class="message-padding" tabindex="-1"
+                                        style="width: 100%; display: inline-block;">
+                                        <div class="message">
+                                            <div class="message__container">
+                                                <p class="message__text regular-text"
+                                                    title="Понравился очень сервис. Заказывала подбор для аттестационной работы по рентгенологии. Собрали хороший список. по времени примерно два дня ждала. Удачи всем">
+                                                    Понравился очень сервис. Заказывала подбор для аттестационной работы
+                                                    по рентгенологии. Собрали хороший список. по времени примерно два
+                                                    дня ждала. Удачи всем</p>
+                                                <div class="message__author">
+                                                    <p class="message__author-name" title="Екатерина Д.">Екатерина Д.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><button class="slick-arrow-right slick-arrow slick-next" aria-label="button"
+                        style="display: block;"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-form">
+        <div class="form-container form-ru" id="form">
+            <div class="lazyload-wrapper " style="position: relative;">
+                <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+                <form class="form form--loading">
+                    <h2 class="form__title simple-title">Заявка на подбор литературы</h2>
+                    <div class="form__body">
+                        <div class="field"><label class="field__label" for="8e73lnx2z9">Тема работы</label><input
+                                class="field__input  " name="name" type="text" id="8e73lnx2z9" placeholder=""
+                                autocomplete="off" autocorrect="off" spellcheck="false" value=""></div>
+                        <div class="field"><label class="field__label" for="81qc6nt92w">Аспекты, раскрывающие и
+                                конкретизирующие тему</label><textarea class="field__textarea" name="description"
+                                id="81qc6nt92w" placeholder="" autocomplete="off" autocorrect="off"
+                                spellcheck="false"></textarea></div>
+                        <div class="field"><label class="field__label" for="ba85igjtsh">Ключевые слова, область знаний
+                                или специальность</label><input class="field__input  " name="keywords" type="text"
+                                id="ba85igjtsh" placeholder="" autocomplete="off" autocorrect="off" spellcheck="false"
+                                value=""></div>
+                        <div class="field"><label class="field__label" for="7f3hxdzaic">Количество источников</label>
+                            <div class="slider__container">
+                                <div class="slider"><span class="slider__min">5</span><label
+                                        class="slider__input-container"><input name="need_refs" type="range" min="5"
+                                            max="200" step="5" class="slider__input" value="10"><span
+                                            class="slider__input-track"></span><span class="slider__input-progress"
+                                            style="width: 5%;"></span></label><span class="slider__max">200</span></div>
+                                <input id="7f3hxdzaic" name="need_refs" type="text" class="slider__current" value="10">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="work-variants">
+                                <div class="variant-container"><label class="variant"><input type="radio"
+                                            class="variant__radio" name="work_type" value="referat" checked=""><span
+                                            class="variant__name">Реферат</span></label></div>
+                                <div class="variant-container"><label class="variant"><input type="radio"
+                                            class="variant__radio" name="work_type" value="kursovaya"><span
+                                            class="variant__name">Курсовая</span></label></div>
+                                <div class="variant-container"><label class="variant"><input type="radio"
+                                            class="variant__radio" name="work_type" value="paper"><span
+                                            class="variant__name">Научная статья</span></label></div>
+                                <div class="variant-container"><label class="variant"><input type="radio"
+                                            class="variant__radio" name="work_type" value="diplom"><span
+                                            class="variant__name">Диплом</span></label></div>
+                                <div class="variant-container"><label class="variant"><input type="radio"
+                                            class="variant__radio" name="work_type" value="thesis"><span
+                                            class="variant__name">Диссертация</span></label></div>
+                            </div>
+                        </div><label class="field select--label"><span class="field__label">Возраст источника</span>
+                            <div class=" css-b62m3t-container"><span id="react-select-2-live-region"
+                                    class="css-7pg0cj-a11yText"></span><span aria-live="polite" aria-atomic="false"
+                                    aria-relevant="additions text" class="css-7pg0cj-a11yText"></span>
+                                <div class=" css-1gint64-control">
+                                    <div class=" css-1d8n9bt">
+                                        <div class=" css-1t7xiof-singleValue">Не важно</div><input
+                                            id="react-select-2-input" tabindex="0" inputmode="none"
+                                            aria-autocomplete="list" aria-expanded="false" aria-haspopup="true"
+                                            aria-controls="react-select-2-listbox" aria-owns="react-select-2-listbox"
+                                            role="combobox" aria-readonly="true" class="css-1hac4vs-dummyInput"
+                                            value="">
+                                    </div>
+                                    <div class=" css-1rclea9"><span class=" css-43ykx9-indicatorSeparator"></span>
+                                        <div class=" css-tlfecz-indicatorContainer" aria-hidden="true"><img
+                                                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAgMEw1IDYgMCAweiIgZmlsbD0iIzJEMzAzNiIgZmlsbC1ydWxlPSJldmVub2RkIi8+PC9zdmc+"
+                                                alt=""></div>
+                                    </div>
+                                </div><input name="refs_max_age" type="hidden" value="0">
+                            </div>
+                        </label>
+                        <div class="checkbox-group field"><span class="field__label">Язык источника</span>
+                            <div class="checkbox"><label class="checkbox__label">Русский<input type="checkbox"
+                                        class="checkbox__input" name="lang_ru" checked=""><span
+                                        class="checkbox__checkmark"></span></label></div>
+                            <div class="checkbox"><label class="checkbox__label">Английский<input type="checkbox"
+                                        class="checkbox__input" name="lang_en"><span
+                                        class="checkbox__checkmark"></span></label></div>
+                        </div>
+                        <div class="checkbox-group field"><span class="field__label">Срочность</span>
+                            <div class="checkbox"><label class="checkbox__label">Библиография нужна завтра<input
+                                        type="checkbox" class="checkbox__input" name="urgent"><span
+                                        class="checkbox__checkmark"></span></label></div>
+                        </div>
+                        <div class="checkbox-group field"><span class="field__label">Патенты</span>
+                            <div class="checkbox"><label class="checkbox__label">Включить патенты в список
+                                    литературы<input type="checkbox" class="checkbox__input" name="search_patents"><span
+                                        class="checkbox__checkmark"></span></label></div>
+                        </div>
+                        <div class="checkbox-group field"><span class="field__label">Открытый доступ</span>
+                            <div class="checkbox"><label class="checkbox__label">Все источники доступны по ссылке для
+                                    скачивания<input type="checkbox" class="checkbox__input" name="open_access"><span
+                                        class="checkbox__checkmark"></span></label></div>
+                        </div>
+                        <div class="field"><label class="field__label" for="dh1h2yean1">Ваш Email для
+                                связи</label><input class="field__input  " name="email" type="text" id="dh1h2yean1"
+                                placeholder="" autocomplete="off" autocorrect="off" spellcheck="false" value=""></div>
+                        <div class="field recaptcha__field">
+
+                        </div>
+                    </div>
+                    <div class="form__footer">
+                        <div class="payment">
+                            <div class="price"><span class="price-label">Стоимость:</span><span><span
+                                        class="price-value">500&nbsp;₽</span><a href="/price"
+                                        class="price-helper">?</a></span></div>
+                            <div class="btn-container"><button type="submit"
+                                    class="btn btn-freshgreen btn--withLoader">ОПЛАТИТЬ</button></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
