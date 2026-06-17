@@ -651,6 +651,10 @@ function copyToClipboard() {
 }
 
 function addMessage(sender, text) {
+    if (typeof text === "string") {
+        text = text.replace(/\n/g, "<br>"); // ← Здесь происходит магия
+    }
+
     const messagesDiv = document.getElementById("chat-messages");
     const messageDiv = document.createElement("div");
     messageDiv.className = "message " + sender;
