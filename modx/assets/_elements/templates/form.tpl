@@ -5,7 +5,10 @@
 <body>
 <div class="wrapper">
     {if $_modx->resource.id == 11}
-        {'select-literature'|chunk}
+        <div class="main-content__block">
+            {'select-literature'|chunk}
+        </div>
+
     {/if}
 
 </div>

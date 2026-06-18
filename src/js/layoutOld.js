@@ -51,6 +51,11 @@ class Plugins {
         this.wrapper.appendChild(this.mainContent);
         this.mainContent.appendChild(this.breadcrumbs);
         this.mainContent.appendChild(this.mainContentInside);
+
+        this.mainContentBlock = document.querySelector(".main-content__block");
+        if (this.mainContentBlock) {
+            this.mainContentInside.appendChild(this.mainContentBlock);
+        }
     }
 }
 
