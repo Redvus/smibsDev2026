@@ -7,7 +7,7 @@
                 или диссертация начинается с&nbsp;поиска источников и&nbsp;составления списка литературы. </p>
             <p class="general__text general__text--second regular-text"> Мы&nbsp;помогаем&nbsp;&mdash;
                 вы&nbsp;пишете. </p>
-            <a href="#form" class="general__btn btn btn--yellow-maize">ПОДОБРАТЬ ЛИТЕРАТУРУ</a>
+            <a href="#form" class="general__btn btn btn--base">ПОДОБРАТЬ ЛИТЕРАТУРУ</a>
         </div>
         <div class="general__img-bg">
             <picture>
@@ -38,7 +38,7 @@
                     <img width="51.98px" height="57px" src="/assets/images/selectLib/ic-expert.V6QJMIME.svg"
                         alt="Профессиональные библиографы" />
                 </div>
-                <h3 class="teaser__title">Профессиональные библиографы</h3>
+                <h3 class="teaser__title">Профессиональные<br>библиографы</h3>
                 <p class="teaser__text regular-text"> составят список использованной литературы для вашей работы
                     <nobr>за&nbsp;1&ndash;3 дня</nobr>
                 </p>
@@ -70,13 +70,13 @@
 
 <div class="wrapper__part examples" id="examples">
     <div class="lazyload-wrapper " style="position: relative;">
-        <h3 class="examples__title simple-title">Примеры готовых списков литературы</h3>
+        <h2 class="examples__title simple-title">Примеры готовых списков литературы</h2>
 
         <div class="examples__list">
-            <button type="button" class="example" title="Курсовая" data-worktype="kursach">
-                <div class="example__container">
-                    <div class="example__name">Курсовая</div>
-                    <div class="example__preview">
+            <div type="button" class="example" title="Курсовая" data-worktype="kursach">
+                <div class="examples__container">
+                    <h4 class="examples__name">Курсовая</h4>
+                    <div class="examples__preview">
                         <picture>
                             <source media="(max-width: 192px)" srcset="
                                 /assets/images/selectLib/preview_1.webp 1x,
@@ -95,12 +95,12 @@
                         <div class="example__circuit"></div>
                     </div>
                 </div>
-            </button>
+            </div>
 
-            <button type="button" class="example" title="Научная статья" data-typework="article">
-                <div class="example__container">
-                    <div class="example__name">Научная статья</div>
-                    <div class="example__preview">
+            <div type="button" class="example" title="Научная статья" data-typework="article">
+                <div class="examples__container">
+                    <h4 class="examples__name">Научная статья</h4>
+                    <div class="examples__preview">
                         <picture>
                             <source media="(max-width: 192px)" srcset="
                                 /assets/images/selectLib/preview_2.webp 1x,
@@ -119,12 +119,12 @@
                         <div class="example__circuit"></div>
                     </div>
                 </div>
-            </button>
+            </div>
 
-            <button type="button" class="example" title="Диплом" data-typework="diplom">
-                <div class="example__container">
-                    <div class="example__name">Диплом</div>
-                    <div class="example__preview">
+            <div type="button" class="example" title="Диплом" data-typework="diplom">
+                <div class="examples__container">
+                    <h4 class="examples__name">Диплом</h4>
+                    <div class="examples__preview">
                         <picture>
                             <source media="(max-width: 192px)" srcset="
                                 /assets/images/selectLib/preview_3.webp 1x,
@@ -143,12 +143,12 @@
                         <div class="example__circuit"></div>
                     </div>
                 </div>
-            </button>
+            </div>
 
-            <button type="button" class="example" title="Диссертация" data-typework="dissertation">
-                <div class="example__container">
-                    <div class="example__name">Диссертация</div>
-                    <div class="example__preview">
+            <div type="button" class="example" title="Диссертация" data-typework="dissertation">
+                <div class="examples__container">
+                    <h4 class="examples__name">Диссертация</h4>
+                    <div class="examples__preview">
                         <picture>
                             <source media="(max-width: 192px)" srcset="
                                 /assets/images/selectLib/preview_4.webp 1x,
@@ -167,20 +167,20 @@
                         <div class="example__circuit"></div>
                     </div>
                 </div>
-            </button>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="wrapper__part courses" id="courses">
-    <h3 class="courses__title simple-title">Наши курсы</h3>
+    <h2 class="courses__title simple-title">Наши курсы</h2>
     <div class="courses__list">
-        <div class="course-preview">
-            <div class="course-preview__container">
-                <a href="https://bibloid.ru/kursach/" class="course-preview__link" rel="noopener" rel="noreferrer"
+        <div class="courses__preview">
+            <div class="courses__preview_container">
+                <a href="https://bibloid.ru/kursach/" class="courses__preview_link" rel="noopener" rel="noreferrer"
                     target="_blank" title="Как написать курсовую работу и остаться личностью">
-                    <div class="course-preview__picture">
-                        <div class="course-preview__circuit course-preview__circuit--blue"></div>
+                    <div class="courses__preview_picture">
+                        <div class="courses__preview_circuit courses__preview_circuit--blue"></div>
                         <picture>
                             <source media="(max-width: 237.25px)" srcset="
                     /assets/images/selectLib/Illustration1@1x.V02DQJU4.webp 1x,
@@ -195,24 +195,24 @@
                             <img width="237.25px" height="135px" src="/assets/images/selectLib/Illustration1@1x.BGG7MN8C.png" srcset="
                     /assets/images/selectLib/Illustration1@2x.6VHFPRVJ.png 2x,
                     /assets/images/selectLib/Illustration1@3x.PH2JVHOU.png 3x
-                " class="course-preview__img course-preview__img--first"
+                " class="courses__preview_img courses__preview_img--first"
                                 alt="Как написать курсовую работу и остаться личностью" />
                         </picture>
                     </div>
-                    <span class="course-preview__title">КиберКурсач</span>
+                    <h3 class="courses__preview_title">КиберКурсач</h3>
                 </a>
-                <p class="course-preview__text regular-text"> Практические тонкости создания курсовой на&nbsp;всех
+                <p class="courses__preview_text regular-text"> Практические тонкости создания курсовой на&nbsp;всех
                     этапах: от&nbsp;идеи до&nbsp;оформления готовой работы, навыки оригинального мышления, полезные
                     инструменты </p>
             </div>
         </div>
-        <div class="course-preview">
-            <div class="course-preview__container">
+        <div class="courses__preview">
+            <div class="courses__preview_container">
                 <a href="https://bibloid.ru/diplom/" rel="noopener" rel="noreferrer" target="_blank"
-                    class="course-preview__link"
+                    class="courses__preview_link"
                     title="Как написать дипломную работу и стать настоящим исследователем">
-                    <div class="course-preview__picture">
-                        <div class="course-preview__circuit course-preview__circuit--green"></div>
+                    <div class="courses__preview_picture">
+                        <div class="courses__preview_circuit courses__preview_circuit--green"></div>
                         <picture>
                             <source media="(max-width: 205px)" srcset="
                     /assets/images/selectLib/Illustration2@1x.T8T8ZF3M.webp 1x,
@@ -227,23 +227,23 @@
                             <img width="205px" height="152px" src="/assets/images/selectLib/Illustration2@1x.1IVROXS5.png" srcset="
                     /assets/images/selectLib/Illustration2@2x.OABSXU4T.png 2x,
                     /assets/images/selectLib/Illustration2@3x.8V44Z93P.png 3x
-                " class="course-preview__img"
+                " class="courses__preview_img"
                                 alt="Как написать дипломную работу и стать настоящим исследователем" />
                         </picture>
                     </div>
-                    <span class="course-preview__title">КиберДиплом</span>
+                    <h3 class="courses__preview_title">КиберДиплом</h3>
                 </a>
-                <p class="course-preview__text regular-text"> Использование инструментов стратегического управления,
+                <p class="courses__preview_text regular-text"> Использование инструментов стратегического управления,
                     основные принципы работы с данными, ВКР как проект, который станет первой ступенью на&nbsp;пути
                     построения карьерной стратегии </p>
             </div>
         </div>
-        <div class="course-preview">
-            <div class="course-preview__container">
+        <div class="courses__preview">
+            <div class="courses__preview_container">
                 <a href="https://bibloid.ru/article/" rel="noopener" rel="noreferrer" target="_blank"
-                    class="course-preview__link" title="Как написать научную статью на благо общества">
-                    <div class="course-preview__picture">
-                        <div class="course-preview__circuit course-preview__circuit--yellow"></div>
+                    class="courses__preview_link" title="Как написать научную статью на благо общества">
+                    <div class="courses__preview_picture">
+                        <div class="courses__preview_circuit courses__preview_circuit--yellow"></div>
                         <picture>
                             <source media="(max-width: 213px)" srcset="
                     /assets/images/selectLib/Illustration3@1x.MOEQEPBI.webp 1x,
@@ -258,12 +258,12 @@
                             <img width="213px" height="152px" src="/assets/images/selectLib/Illustration3@1x.MC7NB9CM.png" srcset="
                     /assets/images/selectLib/Illustration3@2x.62X5C518.png 2x,
                     /assets/images/selectLib/Illustration3@3x.1ZRMG8JO.png 3x
-                " class="course-preview__img" alt="КиберСтатья" />
+                " class="courses__preview_img" alt="КиберСтатья" />
                         </picture>
                     </div>
-                    <span class="course-preview__title">КиберСтатья</span>
+                    <h3 class="courses__preview_title">КиберСтатья</h3>
                 </a>
-                <p class="course-preview__text regular-text"> Полезные практические навыки проведения исследования
+                <p class="courses__preview_text regular-text"> Полезные практические навыки проведения исследования
                     и&nbsp;написания сильных текстов для полноценной статьи, которую можно опубликовать
                     в&nbsp;научном журнале </p>
             </div>
@@ -586,13 +586,13 @@
     </div>
 </div>
 
-<div class="wrapper__part main-form">
-    <div class="form-container form-ru" id="form">
-        <div class="lazyload-wrapper " style="position: relative;">
+<div class="wrapper__part form-payment">
+    <h2 class="form-payment__title simple-title">Заявка на подбор литературы</h2>
+    <div class="form-payment__container form-payment__ru" id="form">
+        <div class="lazyload-wrapper" style="position: relative;">
             <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
-            <form class="form form--loading">
-                <h2 class="form__title simple-title">Заявка на подбор литературы</h2>
-                <div class="form__body">
+            <form class="form form-payment--loading">
+                <div class="form-payment__container_body">
                     <div class="field"><label class="field__label" for="8e73lnx2z9">Тема работы</label><input
                             class="field__input  " name="name" type="text" id="8e73lnx2z9" placeholder=""
                             autocomplete="off" autocorrect="off" spellcheck="false" value=""></div>
@@ -683,7 +683,7 @@
 
                     </div>
                 </div>
-                <div class="form__footer">
+                <div class="form-payment__container_footer">
                     <div class="payment">
                         <div class="price"><span class="price-label">Стоимость:</span><span><span
                                     class="price-value">500&nbsp;₽</span><a href="/price"
@@ -701,17 +701,17 @@
     const teaserList = document.querySelector('.teaser-list');
     const examples = document.querySelector('.examples');
     const opinions = document.querySelector('.opinions');
-    const mainForm = document.querySelector('.main-form');
+    const mainForm = document.querySelector('.form-payment__payment');
     const courses = document.querySelector('.courses');
 
-    teaserList.style.opacity = '0';
-    teaserList.style.display = 'none';
-    examples.style.opacity = '0';
-    examples.style.display = 'none';
+    // teaserList.style.opacity = '0';
+    // teaserList.style.display = 'none';
+    // examples.style.opacity = '0';
+    // examples.style.display = 'none';
+    // courses.style.opacity = '0';
+    // courses.style.display = 'none';
     opinions.style.opacity = '0';
     opinions.style.display = 'none';
-    mainForm.style.opacity = '0';
-    mainForm.style.display = 'none';
-    courses.style.opacity = '0';
-    courses.style.display = 'none';
+    // mainForm.style.opacity = '0';
+    // mainForm.style.display = 'none';
 </script>

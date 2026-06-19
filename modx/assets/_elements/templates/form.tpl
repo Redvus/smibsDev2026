@@ -4,12 +4,30 @@
 {'head'|chunk}
 <body>
 <div class="wrapper">
-    {if $_modx->resource.id == 11}
-        <div class="main-content__block">
-            {'select-literature'|chunk}
+    <div class="sidebar"></div>
+    <div class="sidebar-static"></div>
+    <div class="header header--desktop">
+        <div class="header__nav">
+            <div class="header__top"></div>
+            <div class="header__bottom"></div>
         </div>
+        <a href="javascript:void(0);" class="header__blind" id="blindButton">
+            <i class="fa fa-eye"></i>
+            <p>Контрастная версия</p>
+        </a>
+    </div>
 
-    {/if}
+    <div class="main-content">
+        <div class="main-content__inside">
+            {if $_modx->resource.id == 11}
+                <div class="main-content__block">
+                    {'select-literature'|chunk}
+                </div>
+            {/if}
+        </div>
+    </div>
+
+    <div class="footer"></div>
 
 </div>
     {* {'preloader'|chunk} *}

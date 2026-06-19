@@ -43,13 +43,13 @@
 
     {if $_modx->config.vite_dev_mode}
         <script type="module" src="http://localhost:5173/@vite/client"></script>
-        <link rel="stylesheet" href="http://localhost:5173/scss/main.scss">
-
         {* Старые стили *}
         <link rel="stylesheet" href="/assets/main.css">
 
+        <link rel="stylesheet" href="http://localhost:5173/scss/main.scss">
+
+        {* <script type="module" src="http://localhost:5173/js/layoutOld.js"></script> *}
         <script type="module" src="http://localhost:5173/js/main.js"></script>
-        <script type="module" src="http://localhost:5173/js/layoutOld.js"></script>
     {else}
         <link rel="stylesheet" href="/assets/css/main.css">
         <script type="module" src="/assets/js/main.js"></script>
