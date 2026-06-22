@@ -35,6 +35,6 @@
     {* {'nav-main'|chunk} *}
     {* {'main-content'|chunk} *}
     {* {'footer'|chunk} *}
-    {* {'scripts'|chunk} *}
+    {'scripts'|chunk}
 </body>
 </html>
