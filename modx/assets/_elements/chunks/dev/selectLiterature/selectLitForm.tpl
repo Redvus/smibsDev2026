@@ -72,19 +72,23 @@
         </div>
 
         {* 4. Количество источников (слайдер) *}
-        {set $need_refs = $_modx->getPlaceholder('fi.need_refs') ?: 10}
+        {set $minCount = 1}
+        {set $maxCount = 50}
+        {set $priceCount = 30}
+        {set $need_refs = $_modx->getPlaceholder('fi.need_refs') ?: $minCount}
+
         <div class="field">
             <label class="field__label" for="7f3hxdzaic">Количество источников</label>
             <div class="slider__container field__count">
                 <div class="slider">
-                    <span class="slider__min">5</span>
+                    <span class="slider__min">{$minCount}</span>
                     <label class="slider__input-container">
-                        <input name="need_refs" type="range" min="5" max="200" step="1"
+                        <input name="need_refs" type="range" min="{$minCount}" max="{$maxCount}" step="1"
                             class="slider__input" value="{$need_refs}">
                         <span class="slider__input-track"></span>
-                        <span class="slider__input-progress" style="width: {($need_refs - 5) / (200 - 5) * 100}%;"></span>
+                        <span class="slider__input-progress" style="width: {($need_refs - $minCount) / ($maxCount - $minCount) * 100}%;"></span>
                     </label>
-                    <span class="slider__max">200</span>
+                    <span class="slider__max">{$maxCount}</span>
                 </div>
                 <input id="7f3hxdzaic" name="need_refs_display" type="text"
                     class="slider__current" value="{$need_refs}">
@@ -96,18 +100,20 @@
         <div class="field">
             <div class="work-variants">
                 {set $work_types = [
-                    'referat' => 'Реферат',
-                    'kursovaya' => 'Курсовая',
-                    'paper' => 'Научная статья',
-                    'diplom' => 'Диплом',
-                    'thesis' => 'Диссертация'
+                    'referat' => ['label' => 'Урок (семинар)', 'price' => 30],
+                    'kursovaya' => ['label' => 'Курсовая', 'price' => 40],
+                    'paper' => ['label' => 'Краеведение', 'price' => 50],
+                    'diplom' => ['label' => 'Юбилейная дата', 'price' => 100]
                 ]}
-                {foreach $work_types as $value => $label}
+                {foreach $work_types as $value => $data}
                     <div class="variant-container">
                         <label class="variant">
-                            <input type="radio" class="variant__radio" name="work_type"
-                                   value="{$value}" {$work_type == $value ? 'checked' : ''}>
-                            <span class="variant__name">{$label}</span>
+                            <input type="radio" class="variant__radio work-type-radio"
+                                   name="work_type"
+                                   value="{$value}"
+                                   data-price="{$data.price}"
+                                   {$work_type == $value ? 'checked' : ''}>
+                            <span class="variant__name">{$data.label}</span>
                         </label>
                     </div>
                 {/foreach}
@@ -227,10 +233,38 @@
             <div class="price">
                 <span class="price-label">Стоимость:</span>
                 <span>
-                    <span class="price-value">
-                        {$_modx->getPlaceholder('fi.price') ?: 500}&nbsp;₽
+                    <span class="price-value" id="priceValue">
+                        {($work_types[$work_type].price * $need_refs)}&nbsp;₽
                     </span>
-                    <a href="/price" class="price-helper">?</a>
+
+                    {* <a href="/price" class="price-helper">?</a> *}
+                    <span class="price-helper-wrapper">
+                        <span class="price-helper" role="button" aria-label="Информация о стоимости">?</span>
+                        <div class="price-helper-tooltip">
+                            <div class="tooltip-content">
+                                <div class="tooltip-row">
+                                    <span>Тип работы:</span>
+                                    <span id="tooltipWorkType">{$work_types[$work_type].label}
+                                </div>
+                                <div class="tooltip-row">
+                                    <span>Количество источников:</span>
+                                    <span id="tooltipRefs">{$need_refs}</span>
+                                </div>
+                                <div class="tooltip-row">
+                                    <span>Цена за источник:</span>
+                                    <span id="tooltipPricePerSource">{$work_types[$work_type].price} ₽</span>
+                                </div>
+                                {* <div class="tooltip-row">
+                                    <span>Базовая стоимость:</span>
+                                    <span>100 ₽</span>
+                                </div> *}
+                                {* <div class="tooltip-row tooltip-row--total">
+                                    <span>Итого:</span>
+                                    <span id="tooltipTotal">{($work_types[$work_type].price * $need_refs) + 100} ₽</span>
+                                </div> *}
+                            </div>
+                        </div>
+                    </span>
                 </span>
             </div>
             <div class="btn-container">

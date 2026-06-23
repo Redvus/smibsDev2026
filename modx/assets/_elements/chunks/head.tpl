@@ -63,5 +63,4 @@
 
     <!-- Modernizr if needed -->
     <!-- <script type="text/javascript" src="/assets/js/modernizr-custom.js"></script> -->
-    [[-$preloader-script]]
 </head>
