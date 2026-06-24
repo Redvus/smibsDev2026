@@ -11,20 +11,11 @@
         </div>
         <div class="general__img-bg">
             <picture>
-                <source media="(max-width: 422px)" srcset="
-            /assets/images/selectLib/illo@1x.7T3CXVVL.webp 1x,
-            /assets/images/selectLib/illo@2x.MN7YYDV3.webp 2x,
-            /assets/images/selectLib/illo@3x.QMMPOX87.webp 3x
-            " type="image/webp" />
-                <source media="(max-width: 422px)" srcset="
-            /assets/images/selectLib/illo@1x.K56LQIDH.png 1x,
-            /assets/images/selectLib/illo@2x.E8DRTYSD.png 2x,
-            /assets/images/selectLib/illo@3x.LV6HJ5UF.png 3x
-            " type="image/png" />
-                <img width="422px" height="288" src="/assets/images/selectLib/illo@1x.4H4SIBSI.png" srcset="
-            /assets/images/selectLib/illo@2x.QS8AOT04.png 2x,
-            /assets/images/selectLib/illo@3x.2M31NZCT.png 3x
-            " class="general__img" alt="Поиск источников" />
+                 <img width="422px" height="288"
+                 src="/assets/images/selectLib/s_sl_top_1.png"
+                 srcset="/assets/images/selectLib/s_sl_top_1.png 2x,
+                 /assets/images/selectLib/s_sl_top_1.png 3x"
+                 class="general__img" alt="Поиск источников" />
             </picture>
         </div>
     </div>

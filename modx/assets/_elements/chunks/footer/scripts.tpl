@@ -23,8 +23,6 @@
     {* 3. Подключаем FormIt JS *}
     <script src="assets/components/formit/js/web/formit.js" defer></script>
 
-    <script src="/assets/build/js/selectLitForm.js"></script>
-
     {* <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script> *}
 {/if}
 

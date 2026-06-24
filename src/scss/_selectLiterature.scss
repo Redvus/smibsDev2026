@@ -85,15 +85,15 @@ $transition-fast: all 0.2s ease;
 
     &__img-bg {
         position: absolute;
-        right: 40px;
-        bottom: -20px;
+        right: 5rem;
+        bottom: -1.5rem;
         padding: 0;
         margin: 0;
     }
 
     &__img {
-        width: 422px;
-        height: 288px;
+        width: auto;
+        height: 21rem;
         -o-object-fit: contain;
         object-fit: contain;
     }
