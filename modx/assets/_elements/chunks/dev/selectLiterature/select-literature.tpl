@@ -2,12 +2,13 @@
     <div class="general__container">
         <div class="general__info">
             <h2 class="general__title general__title--first">Первый шаг к написанию работы</h2>
-            <h2 class="general__title general__title--second">Подбор литературы</h2>
-            <p class="general__text general__text--first regular-text"> Реферат, курсовая, диплом, научная статья
-                или диссертация начинается с&nbsp;поиска источников и&nbsp;составления списка литературы. </p>
+            <h2 class="general__title general__title--second">{$_modx->resource.longtitle ?: $_modx->resource.pagetitle}</h2>
+            <p class="general__text general__text--first regular-text">
+                Подберём литературу к&nbsp;уроку или&nbsp;семинару, составим и&nbsp;оформим список источников по&nbsp;ГОСТу и&nbsp;привезём книгу в&nbsp;ближайшую к&nbsp;вам библиотеку, чтобы у&nbsp;вас осталось больше времени на&nbsp;чтение.
+            </p>
             <p class="general__text general__text--second regular-text"> Мы&nbsp;помогаем&nbsp;&mdash;
                 вы&nbsp;пишете. </p>
-            <a href="#form" class="general__btn btn btn--base">ПОДОБРАТЬ ЛИТЕРАТУРУ</a>
+            <a href="#form" class="general__btn btn btn--base" id="formBtn">ПОДОБРАТЬ ЛИТЕРАТУРУ</a>
         </div>
         <div class="general__img-bg">
             <picture>
@@ -59,7 +60,7 @@
     </ul>
 </div>
 
-<div class="wrapper__part examples" id="examples">
+{* <div class="wrapper__part examples" id="examples">
     <div class="lazyload-wrapper " style="position: relative;">
         <h2 class="examples__title simple-title">Примеры готовых списков литературы</h2>
 
@@ -161,9 +162,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> *}
 
-<div class="wrapper__part courses" id="courses">
+{* <div class="wrapper__part courses" id="courses">
     <h2 class="courses__title simple-title">Наши курсы</h2>
     <div class="courses__list">
         <div class="courses__preview">
@@ -260,9 +261,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> *}
 
-<div class="wrapper__part opinions">
+{* <div class="wrapper__part opinions">
     <h3 class="opinions__title">60&nbsp;000+</h3>
     <h3 class="opinions__sub-title simple-title">составленных списков</h3>
     <p class="opinions__text regular-text"> Слово учащимся и&nbsp;исследователям, уже получившим свои готовые списки
@@ -575,9 +576,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> *}
 
-<div class="wrapper__part form-payment">
+<div class="wrapper__part form-payment" id="formPayment">
     <h2 class="form-payment__title simple-title">Заявка на подбор литературы</h2>
     <div class="form-payment__container form-payment__ru" id="form">
         <div class="lazyload-wrapper" style="position: relative;">

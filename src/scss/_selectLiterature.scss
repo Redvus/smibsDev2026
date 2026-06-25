@@ -37,6 +37,13 @@ $transition-fast: all 0.2s ease;
     &__block {
         width: 100%;
         overflow: hidden;
+
+        &--links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: calc(#{$marginVert} / 2);
+            margin-top: 2rem;
+        }
     }
 }
 
@@ -49,10 +56,15 @@ $transition-fast: all 0.2s ease;
     &__container {
         position: relative;
         display: flex;
-        padding: 40px 60px 48px;
+        padding: 2rem 3rem 2rem;
         margin: 0;
         background-color: var(--primary);
-        border-radius: 24px;
+        border-radius: 1rem;
+
+        &--links {
+            flex-direction: column;
+            margin-top: 3rem;
+        }
     }
 
     &__title {
@@ -158,6 +170,41 @@ $transition-fast: all 0.2s ease;
         background-color: var(--secondary);
         color: var(--fourth);
         line-height: 56px;
+
+        &:after {
+            display: none;
+        }
+
+        &:hover {
+            // border: 1px solid #ffe431;
+            background: var(--secondary-darken-5);
+        }
+
+        &:focus-visible {
+            position: relative;
+            z-index: 0;
+
+            &:after {
+                position: absolute;
+                z-index: -1;
+                inset: -4px;
+                display: block;
+                border: 1px solid #ffd441;
+                box-shadow: none !important;
+                content: "";
+            }
+        }
+    }
+
+    &--simple {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        background-color: var(--secondary);
+        font-size: var(--font-size-base);
+        font-weight: normal;
+        color: var(--fourth);
 
         &:after {
             display: none;
@@ -443,7 +490,7 @@ $transition-fast: all 0.2s ease;
             box-sizing: border-box;
             padding: 2rem 3rem;
             background: var(--primary-lighten-5);
-            // border-radius: 16px;
+            border-radius: 1rem;
         }
     }
 }
@@ -920,9 +967,9 @@ $transition-fast: all 0.2s ease;
                 border-radius: 50%;
                 cursor: pointer;
 
-                &:active {
-                    box-shadow: 0 0 0 6px #4cceb033;
-                }
+                // &:active {
+                //     box-shadow: 0 0 0 6px #4cceb033;
+                // }
             }
 
             &::-moz-focus-outer {
@@ -941,9 +988,9 @@ $transition-fast: all 0.2s ease;
                 border-radius: 50%;
                 cursor: pointer;
 
-                &:active {
-                    box-shadow: 0 0 0 6px #4cceb033;
-                }
+                // &:active {
+                //     box-shadow: 0 0 0 6px #4cceb033;
+                // }
             }
 
             &::-moz-range-progress {
@@ -967,9 +1014,9 @@ $transition-fast: all 0.2s ease;
                 border-radius: 50%;
                 cursor: pointer;
 
-                &:active {
-                    box-shadow: 0 0 0 6px #4cceb033;
-                }
+                // &:active {
+                //     box-shadow: 0 0 0 6px #4cceb033;
+                // }
             }
         }
 

@@ -201,4 +201,168 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // ============================================
+    // ПРОКРУТКА К ФОРМЕ
+    // ============================================
+
+    const formElement = document.getElementById("formPayment");
+    const formBtn = document.getElementById("formBtn");
+    const formOffset = 100;
+
+    if (!formElement) return;
+
+    // Функция плавной прокрутки к форме
+    function scrollToForm(offset = formOffset) {
+        const elementPosition = formElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+        });
+
+        // Подсвечиваем форму
+        // formElement.classList.add("form-payment--highlight");
+        // setTimeout(function () {
+        //     formElement.classList.remove("form-payment--highlight");
+        // }, 2000);
+    }
+
+    // ============================================
+    // 1. ПРОКРУТКА ПО КЛИКУ НА formBtn
+    // ============================================
+    if (formBtn) {
+        formBtn.addEventListener("click", function (e) {
+            e.preventDefault(); // Если это ссылка
+
+            // Проверяем, видна ли форма
+            const rect = formElement.getBoundingClientRect();
+            const isVisible =
+                rect.top >= 0 &&
+                rect.bottom <=
+                    (window.innerHeight ||
+                        document.documentElement.clientHeight);
+
+            // Если форма уже видна - просто подсвечиваем
+            if (isVisible) {
+                formElement.classList.add("form-payment--highlight");
+                setTimeout(function () {
+                    formElement.classList.remove("form-payment--highlight");
+                }, 2000);
+                return;
+            }
+
+            // Иначе скроллим к форме
+            scrollToForm(formOffset);
+
+            // Фокусируем первое поле ввода после прокрутки
+            setTimeout(function () {
+                const firstInput = formElement.querySelector(
+                    'input:not([type="hidden"]), textarea, select',
+                );
+                if (firstInput) {
+                    firstInput.focus();
+                }
+            }, 600);
+        });
+    }
+
+    // ============================================
+    // 2. ПРОКРУТКА ПОСЛЕ УСПЕШНОЙ ОТПРАВКИ
+    // ============================================
+    // document.addEventListener("formit:success", function () {
+    //     setTimeout(function () {
+    //         scrollToForm(80);
+    //     }, 300);
+    // });
+
+    // ============================================
+    // 3. ПРОКРУТКА К ПЕРВОЙ ОШИБКЕ
+    // ============================================
+    document.addEventListener("formit:error", function () {
+        setTimeout(function () {
+            // Ищем первое поле с ошибкой
+            const errorSpans = document.querySelectorAll("[data-formit-error]");
+            let firstErrorField = null;
+
+            for (const span of errorSpans) {
+                if (span.textContent.trim()) {
+                    const field = span.closest(".field");
+                    if (field) {
+                        firstErrorField = field;
+                        break;
+                    }
+                }
+            }
+
+            if (firstErrorField) {
+                // Скроллим к полю с ошибкой
+                const headerOffset = formOffset;
+                const elementPosition =
+                    firstErrorField.getBoundingClientRect().top;
+                const offsetPosition =
+                    elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                });
+
+                // Подсвечиваем и фокусируем поле
+                const input = firstErrorField.querySelector(
+                    "input, textarea, select",
+                );
+                if (input) {
+                    setTimeout(function () {
+                        input.focus();
+                        input.classList.add("highlight-error");
+                        setTimeout(function () {
+                            input.classList.remove("highlight-error");
+                        }, 2000);
+                    }, 400);
+                }
+            } else {
+                // Если нет конкретного поля - скроллим к форме
+                scrollToForm(formOffset);
+            }
+        }, 400);
+    });
+
+    // ============================================
+    // 4. ПРОКРУТКА ПО ЯКОРЮ #formPayment
+    // ============================================
+    // document
+    //     .querySelectorAll('a[href="#formPayment"]')
+    //     .forEach(function (link) {
+    //         link.addEventListener("click", function (e) {
+    //             e.preventDefault();
+    //             scrollToForm(80);
+    //         });
+    //     });
+
+    // ============================================
+    // ОБНОВЛЕНИЕ АНАЛИТИКИ (опционально)
+    // ============================================
+    document.addEventListener("DOMContentLoaded", function () {
+        const formBtn = document.getElementById("formBtn");
+
+        if (formBtn) {
+            formBtn.addEventListener("click", function () {
+                // Отправляем событие в аналитику
+                if (typeof gtag !== "undefined") {
+                    gtag("event", "form_button_click", {
+                        event_category: "Form",
+                        event_label: 'Клик по кнопке "Оставить заявку"',
+                    });
+                }
+
+                if (typeof ym !== "undefined") {
+                    ym(12345678, "reachGoal", "FORM_BTN_CLICK");
+                }
+
+                console.log("📊 Аналитика: Клик по кнопке formBtn");
+            });
+        }
+    });
 });

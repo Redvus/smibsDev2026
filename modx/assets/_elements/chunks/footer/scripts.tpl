@@ -12,10 +12,10 @@
         // teaserList.style.display = 'none';
         // examples.style.opacity = '0';
         // examples.style.display = 'none';
-        courses.style.opacity = '0';
-        courses.style.display = 'none';
-        opinions.style.opacity = '0';
-        opinions.style.display = 'none';
+        // courses.style.opacity = '0';
+        // courses.style.display = 'none';
+        // opinions.style.opacity = '0';
+        // opinions.style.display = 'none';
         // mainForm.style.opacity = '0';
         // mainForm.style.display = 'none';
     </script>

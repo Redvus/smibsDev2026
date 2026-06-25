@@ -23,6 +23,14 @@
                 <div class="main-content__block">
                     {'select-literature'|chunk}
                 </div>
+                <div class="general__container general__container--links">
+                    <div class="general__info">
+                        <h2 class="general__title general__title--first">Другие услуги</h2>
+                    </div>
+                    <div class="main-content__block main-content__block--links">
+                        <a href="#form" class="general__btn btn btn--simple">Заказать книгу</a>
+                    </div>
+                </div>
             {/if}
         </div>
     </div>
