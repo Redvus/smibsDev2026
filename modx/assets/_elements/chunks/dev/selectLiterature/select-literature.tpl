@@ -27,10 +27,11 @@
         <li class="teaser">
             <div class="teaser__container">
                 <div class="teaser__img">
-                    <img width="51.98px" height="57px" src="/assets/images/selectLib/ic-expert.V6QJMIME.svg"
-                        alt="Профессиональные библиографы" />
+                    {* <img width="51.98px" height="57px" src="/assets/images/selectLib/ic-expert.V6QJMIME.svg"
+                        alt="Профессиональные библиографы" /> *}
+                    <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-                <h3 class="teaser__title">Профессиональные<br>библиографы</h3>
+                <h4 class="teaser__title">Тематическая<br>подборка&nbsp;книг</h4>
                 <p class="teaser__text regular-text"> составят список использованной литературы для вашей работы
                     <nobr>за&nbsp;1&ndash;3 дня</nobr>
                 </p>
@@ -39,10 +40,11 @@
         <li class="teaser">
             <div class="teaser__container">
                 <div class="teaser__img">
-                    <img width="49px" height="49px" src="/assets/images/selectLib/ic-search.S816RQHV.svg"
-                        alt="Поиск по всей доступной базе современного научного знания " />
+                    {* <img width="49px" height="49px" src="/assets/images/selectLib/ic-search.S816RQHV.svg"
+                        alt="Поиск по всей доступной базе современного научного знания " /> *}
+                        <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <h3 class="teaser__title"> Поиск по&nbsp;всей доступной базе современного научного знания </h3>
+                <h4 class="teaser__title">Редактирование библиографических описаний по ГОСТу</h4>
                 <p class="teaser__text regular-text"> 10&nbsp;млн русскоязычных и&nbsp;200 млн англоязычных
                     источников </p>
             </div>
@@ -50,10 +52,22 @@
         <li class="teaser">
             <div class="teaser__container">
                 <div class="teaser__img">
-                    <img width="38px" height="52px" src="/assets/images/selectLib/ic-standard.U73R0562.svg"
-                        alt="Библиографический список, оформленный по ГОСТ" />
+                    {* <img width="38px" height="52px" src="/assets/images/selectLib/ic-standard.U73R0562.svg"
+                        alt="Библиографический список, оформленный по ГОСТ" /> *}
+                    <i class="fa-solid fa-file-circle-check"></i>
                 </div>
-                <h3 class="teaser__title">Библиографический список, оформленный по ГОСТ</h3>
+                <h4 class="teaser__title">Межбиблиотечный<br>абонемент</h4>
+                <p class="teaser__text regular-text">Заказ и&nbsp;доставка документов из&nbsp;фондов библиотек МБУК г.о.&nbsp;Самара&nbsp;«СМИБС»</p>
+            </div>
+        </li>
+        <li class="teaser">
+            <div class="teaser__container">
+                <div class="teaser__img">
+                    {* <img width="38px" height="52px" src="/assets/images/selectLib/ic-standard.U73R0562.svg"
+                        alt="Библиографический список, оформленный по ГОСТ" /> *}
+                    <i class="fa-regular fa-file-lines"></i>
+                </div>
+                <h4 class="teaser__title">Составление<br>библиографического списка литературы</h4>
                 <p class="teaser__text regular-text">бесплатно в качестве бонуса</p>
             </div>
         </li>

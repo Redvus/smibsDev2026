@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         referat: 30,
         kursovaya: 80,
         paper: 100,
-        diplom: 100,
+        diplom: 150,
     };
 
     const workLabels = {

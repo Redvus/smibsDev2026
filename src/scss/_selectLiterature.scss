@@ -265,8 +265,8 @@ $transition-fast: all 0.2s ease;
 
         &__container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: calc(#{$marginVert} / 3);
+            grid-template-columns: repeat(4, 1fr);
+            gap: calc(#{$marginVert} / 1);
         }
     }
 
@@ -297,6 +297,11 @@ $transition-fast: all 0.2s ease;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        i {
+            font-size: calc(var(--font-size-h1) * 1.3);
+            color: var(--secondary);
+        }
     }
 }
 
