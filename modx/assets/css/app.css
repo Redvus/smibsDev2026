@@ -845,7 +845,6 @@ textarea {
   z-index: 2;
   height: 48px;
   box-sizing: border-box;
-  padding: 0 31px;
   color: #fff;
   cursor: pointer;
   font-size: 16px;
@@ -866,10 +865,10 @@ textarea {
   content: "";
 }
 .btn--base {
-  display: block;
-  width: 280px;
-  height: 56px;
-  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
   background-color: var(--secondary);
   color: var(--fourth);
   line-height: 56px;
@@ -968,7 +967,8 @@ textarea {
   justify-content: center;
 }
 .teaser__text {
-  margin-top: 10px;
+  height: 6rem;
+  margin: 1rem 0;
   text-align: center;
 }
 .teaser__img {
@@ -981,6 +981,10 @@ textarea {
 .teaser__img i {
   font-size: calc(var(--font-size-h1) * 1.3);
   color: var(--secondary);
+}
+.teaser__button {
+  width: 100%;
+  background-color: var(--primary);
 }
 
 .examples {
@@ -1787,4 +1791,28 @@ textarea {
 }
 .price .tooltip-row--total strong {
   color: #60A5FA;
+}
+
+.form-wrapper {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-wrapper.active {
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
+  animation: formSlideIn 0.5s ease;
+}
+
+@keyframes formSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

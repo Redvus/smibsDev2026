@@ -8,7 +8,6 @@
             </p>
             <p class="general__text general__text--second regular-text"> Мы&nbsp;помогаем&nbsp;&mdash;
                 вы&nbsp;пишете. </p>
-            <a href="#form" class="general__btn btn btn--base" id="formBtn">ПОДОБРАТЬ ЛИТЕРАТУРУ</a>
         </div>
         <div class="general__img-bg">
             <picture>
@@ -35,6 +34,7 @@
                 <p class="teaser__text regular-text"> составят список использованной литературы для вашей работы
                     <nobr>за&nbsp;1&ndash;3 дня</nobr>
                 </p>
+                <a href="#form_1" class="btn btn--base teaser__button" id="formBtn_1">Подобрать Литературу</a>
             </div>
         </li>
         <li class="teaser">
@@ -47,6 +47,7 @@
                 <h4 class="teaser__title">Редактирование библиографических описаний по ГОСТу</h4>
                 <p class="teaser__text regular-text"> 10&nbsp;млн русскоязычных и&nbsp;200 млн англоязычных
                     источников </p>
+                <a href="#form_2" class="btn btn--base teaser__button" id="formBtn_2">Редактировать</a>
             </div>
         </li>
         <li class="teaser">
@@ -58,6 +59,7 @@
                 </div>
                 <h4 class="teaser__title">Межбиблиотечный<br>абонемент</h4>
                 <p class="teaser__text regular-text">Заказ и&nbsp;доставка документов из&nbsp;фондов библиотек МБУК г.о.&nbsp;Самара&nbsp;«СМИБС»</p>
+                <a href="#form_3" class="btn btn--base teaser__button" id="formBtn_3">Заказать доставку</a>
             </div>
         </li>
         <li class="teaser">
@@ -69,6 +71,7 @@
                 </div>
                 <h4 class="teaser__title">Составление<br>библиографического списка литературы</h4>
                 <p class="teaser__text regular-text">бесплатно в качестве бонуса</p>
+                <a href="#form_4" class="btn btn--base teaser__button" id="formBtn_4">Составить список</a>
             </div>
         </li>
     </ul>
@@ -592,22 +595,57 @@
     </div>
 </div> *}
 
-<div class="wrapper__part form-payment" id="formPayment">
-    <h2 class="form-payment__title simple-title">Заявка на подбор литературы</h2>
-    <div class="form-payment__container form-payment__ru" id="form">
-        <div class="lazyload-wrapper" style="position: relative;">
-            {'!FormIt' | snippet: [
-                'hooks' => 'validate,email,redirect',
-                'validate' => 'name:required,description:required,keywords:required,email:email:required',
-                'form' => 'selectLitForm',
-                'emailTpl' => 'selectLitFormEmailTpl',
-                'emailSubject' => 'Новая заявка на подбор литературы',
-                'successMessage' => 'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.',
-                'validationErrorMessage' => 'Пожалуйста, заполните все обязательные поля'
-            ]}
+<div class="wrapper__part form-payment">
 
-            {* Подключаем форму *}
-            {'selectLitForm' | chunk}
+    {* ============================================
+        ВЫЗОВ FORMIT ДЛЯ ВСЕХ ФОРМ
+    ============================================ *}
+    {set $formit_params = [
+        'hooks' => 'validate,email,redirect',
+        'validate' => 'name:required,description:required,keywords:required,email:email:required',
+        'emailTpl' => 'selectLitFormEmailTpl',
+        'emailSubject' => 'Новая заявка на подбор литературы',
+        'emailTo' => '[[++bibliographer_email]]',
+        'redirectTo' => 123,
+        'successMessage' => 'Ваша заявка отправлена! Вы будете перенаправлены на страницу оплаты.',
+        'validationErrorMessage' => 'Пожалуйста, заполните все обязательные поля'
+    ]}
+{* 'hooks' => 'validate,SaveFormForPayment,email,redirect', *}
+{* 'emailTo' => '{if $form_type == "lit_selection"}bibliographer1@library.ru
+      {elseif $form_type == "edit_bibliography"}bibliographer2@library.ru
+      {else}bibliographer@library.ru{/if}', *}
+{* 'redirectParams' => '{"work_type":"[[+work_type]]","need_refs":"[[+need_refs]]","price":"[[+price]]"}', *}
+
+
+    {* Инициализация FormIt *}
+    {$_modx->runSnippet('!FormIt', $formit_params)}
+
+    {* ============================================
+        БЛОК С ФОРМАМИ
+    ============================================ *}
+    <div class="forms-container" id="formsContainer">
+        {* Форма 1: Тематическая подборка книг *}
+        <div class="form-wrapper form-wrapper--1 {$_modx->getPlaceholder('fi.active_form') == 'form_1' ? 'active' : ''}"
+            id="form_1" style="display: none;">
+            {$_modx->getChunk('selectLitForm')}
+        </div>
+
+        {* Форма 2: Редактирование библиографических описаний *}
+        <div class="form-wrapper form-wrapper--2 {$_modx->getPlaceholder('fi.active_form') == 'form_2' ? 'active' : ''}"
+            id="form_2" style="display: none;">
+            {$_modx->getChunk('FormEditBibliography')}
+        </div>
+
+        {* Форма 3: Межбиблиотечный абонемент *}
+        <div class="form-wrapper form-wrapper--3 {$_modx->getPlaceholder('fi.active_form') == 'form_3' ? 'active' : ''}"
+            id="form_3" style="display: none;">
+            {$_modx->getChunk('FormInterlibraryLoan')}
+        </div>
+
+        {* Форма 4: Составление списка литературы *}
+        <div class="form-wrapper form-wrapper--4 {$_modx->getPlaceholder('fi.active_form') == 'form_4' ? 'active' : ''}"
+            id="form_4" style="display: none;">
+            {$_modx->getChunk('FormBibliographyList')}
         </div>
     </div>
 </div>
