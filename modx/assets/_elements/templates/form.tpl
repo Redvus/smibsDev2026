@@ -18,9 +18,10 @@
     </div>
 
     <div class="main-content">
-        <div class="main-content__inside">
+        <div class="main-content__inside" style="overflow: visible; margin-top: 2rem;">
+            {'form'|chunk}
             {if $_modx->resource.id == 11}
-                <div class="main-content__block">
+                <div class="main-content__block" style="overflow: visible;">
                     {'select-literature'|chunk}
                 </div>
                 {* <div class="general__container general__container--links">

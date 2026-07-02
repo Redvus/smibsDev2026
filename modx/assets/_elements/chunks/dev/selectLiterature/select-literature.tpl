@@ -10,12 +10,12 @@
                 вы&nbsp;пишете. </p>
         </div>
         <div class="general__img-bg">
-            <picture>
-                 <img width="422px" height="288"
+            <picture class="general__img">
+                 <img
                  src="/assets/images/selectLib/s_sl_top_1.png"
                  srcset="/assets/images/selectLib/s_sl_top_1.png 2x,
                  /assets/images/selectLib/s_sl_top_1.png 3x"
-                 class="general__img" alt="Поиск источников" />
+                 alt="Поиск источников" />
             </picture>
         </div>
     </div>
@@ -31,8 +31,8 @@
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
                 <h4 class="teaser__title">Тематическая<br>подборка&nbsp;книг</h4>
-                <p class="teaser__text regular-text"> составят список использованной литературы для вашей работы
-                    <nobr>за&nbsp;1&ndash;3 дня</nobr>
+                <p class="teaser__text regular-text">Составят список использованной литературы для вашей работы
+                    <nobr>за&nbsp;3&nbsp;—&nbsp;5&nbsp;дней.</nobr>
                 </p>
                 <a href="#form_1" class="btn btn--base teaser__button" id="formBtn_1">Подобрать Литературу</a>
             </div>
@@ -45,8 +45,8 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <h4 class="teaser__title">Редактирование библиографических описаний по ГОСТу</h4>
-                <p class="teaser__text regular-text"> 10&nbsp;млн русскоязычных и&nbsp;200 млн англоязычных
-                    источников </p>
+                <p class="teaser__text regular-text">10&nbsp;млн русскоязычных и&nbsp;200 млн англоязычных
+                    источников</p>
                 <a href="#form_2" class="btn btn--base teaser__button" id="formBtn_2">Редактировать</a>
             </div>
         </li>
@@ -70,7 +70,7 @@
                     <i class="fa-regular fa-file-lines"></i>
                 </div>
                 <h4 class="teaser__title">Составление<br>библиографического списка литературы</h4>
-                <p class="teaser__text regular-text">бесплатно в качестве бонуса</p>
+                <p class="teaser__text regular-text">К урокам, семинарам и&nbsp;на&nbsp;любую тему до&nbsp;10&nbsp;источников</p>
                 <a href="#form_4" class="btn btn--base teaser__button" id="formBtn_4">Составить список</a>
             </div>
         </li>
@@ -627,25 +627,25 @@
         {* Форма 1: Тематическая подборка книг *}
         <div class="form-wrapper form-wrapper--1 {$_modx->getPlaceholder('fi.active_form') == 'form_1' ? 'active' : ''}"
             id="form_1" style="display: none;">
-            {$_modx->getChunk('selectLitForm')}
+            {$_modx->getChunk('FormSelectLit')}
         </div>
 
         {* Форма 2: Редактирование библиографических описаний *}
         <div class="form-wrapper form-wrapper--2 {$_modx->getPlaceholder('fi.active_form') == 'form_2' ? 'active' : ''}"
             id="form_2" style="display: none;">
-            {$_modx->getChunk('FormEditBibliography')}
+            {$_modx->getChunk('FormEditBiblio')}
         </div>
 
         {* Форма 3: Межбиблиотечный абонемент *}
         <div class="form-wrapper form-wrapper--3 {$_modx->getPlaceholder('fi.active_form') == 'form_3' ? 'active' : ''}"
             id="form_3" style="display: none;">
-            {$_modx->getChunk('FormInterlibraryLoan')}
+            {$_modx->getChunk('FormInterlibrary')}
         </div>
 
         {* Форма 4: Составление списка литературы *}
         <div class="form-wrapper form-wrapper--4 {$_modx->getPlaceholder('fi.active_form') == 'form_4' ? 'active' : ''}"
             id="form_4" style="display: none;">
-            {$_modx->getChunk('FormBibliographyList')}
+            {$_modx->getChunk('FormBiblioList')}
         </div>
     </div>
 </div>

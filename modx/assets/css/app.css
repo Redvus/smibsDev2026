@@ -112,26 +112,26 @@
   --fourth-lighten-60: hsl(0, 0%, 160%);
   --fourth-lighten-70: hsl(0, 0%, 170%);
   --fourth-lighten-85: hsl(0, 0%, 185%);
-  --five: #7a97ab;
-  --five-darken-5: rgb(106.3709677419, 138.7788018433, 161.1290322581);
-  --five-darken-7: rgb(100.1193548387, 133.8903225806, 157.1806451613);
-  --five-darken-8: rgb(97.6258064516, 131.3299539171, 154.5741935484);
-  --five-darken-10: rgb(93.6774193548, 126.0184331797, 148.3225806452);
-  --five-darken-13: rgb(87.7548387097, 118.0511520737, 138.9451612903);
-  --five-darken-20: rgb(73.935483871, 99.4608294931, 117.064516129);
-  --five-darken-30: rgb(54.1935483871, 72.9032258065, 85.8064516129);
-  --five-lighten-2: rgb(128.2516129032, 155.8884792627, 174.9483870968);
-  --five-lighten-5: rgb(137.6290322581, 163.2211981567, 180.8709677419);
-  --five-lighten-10: rgb(153.2580645161, 175.4423963134, 190.7419354839);
-  --five-lighten-13: rgb(162.635483871, 182.7751152074, 196.664516129);
-  --five-lighten-15: rgb(168.8870967742, 187.66359447, 200.6129032258);
-  --five-lighten-20: rgb(184.5161290323, 199.8847926267, 210.4838709677);
-  --five-lighten-25: rgb(200.1451612903, 212.1059907834, 220.3548387097);
-  --five-lighten-30: rgb(215.7741935484, 224.3271889401, 230.2258064516);
-  --five-lighten-50: hsl(204.4897959184, 22.5806451613%, 107.4509803922%);
-  --five-lighten-60: hsl(204.4897959184, 22.5806451613%, 117.4509803922%);
-  --five-lighten-70: hsl(204.4897959184, 22.5806451613%, 127.4509803922%);
-  --five-lighten-85: hsl(204.4897959184, 22.5806451613%, 142.4509803922%);
+  --five: #0099cc;
+  --five-darken-5: rgb(0, 133.875, 178.5);
+  --five-darken-7: rgb(0, 126.225, 168.3);
+  --five-darken-8: rgb(0, 122.4, 163.2);
+  --five-darken-10: rgb(0, 114.75, 153);
+  --five-darken-13: rgb(0, 103.275, 137.7);
+  --five-darken-20: rgb(0, 76.5, 102);
+  --five-darken-30: rgb(0, 38.25, 51);
+  --five-lighten-2: rgb(0, 160.65, 214.2);
+  --five-lighten-5: rgb(0, 172.125, 229.5);
+  --five-lighten-10: rgb(0, 191.25, 255);
+  --five-lighten-13: rgb(15.3, 195.075, 255);
+  --five-lighten-15: rgb(25.5, 197.625, 255);
+  --five-lighten-20: #33ccff;
+  --five-lighten-25: rgb(76.5, 210.375, 255);
+  --five-lighten-30: rgb(102, 216.75, 255);
+  --five-lighten-50: rgb(204, 242.25, 255);
+  --five-lighten-60: white;
+  --five-lighten-70: hsl(195, 100%, 110%);
+  --five-lighten-85: hsl(195, 100%, 125%);
   --six: #b60b00;
   --six-darken-5: rgb(156.5, 9.4587912088, 0);
   --six-darken-7: rgb(146.3, 8.8423076923, 0);
@@ -832,12 +832,21 @@ textarea {
   bottom: -1.5rem;
   padding: 0;
   margin: 0;
+  z-index: 1;
+  overflow: auto;
 }
 .general__img {
   width: auto;
   height: 21rem;
-  -o-object-fit: contain;
-  object-fit: contain;
+  display: block;
+}
+.general__img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  object-position: center;
+  object-fit: cover;
 }
 
 .btn {
@@ -980,11 +989,11 @@ textarea {
 }
 .teaser__img i {
   font-size: calc(var(--font-size-h1) * 1.3);
-  color: var(--secondary);
+  color: var(--primary-darken-13);
 }
 .teaser__button {
   width: 100%;
-  background-color: var(--primary);
+  background-color: var(--secondary-lighten-10);
 }
 
 .examples {
@@ -1618,8 +1627,6 @@ textarea {
   height: 4px;
   border: none;
   margin-bottom: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
 }
 .slider__input:focus-visible ~ .slider__input-progress {
   background: linear-gradient(180deg, #4a7af6, #4a7af6) 100% 50%/100% 4px no-repeat transparent;
@@ -1777,20 +1784,29 @@ textarea {
   flex-direction: column;
   gap: 2px;
 }
-.price .tooltip-row {
+.price .tooltip {
   display: flex;
   justify-content: space-between;
   padding: 2px 0;
   font-size: 13px;
 }
-.price .tooltip-row--total {
+.price .tooltip--total {
   margin-top: 6px;
   padding-top: 6px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-weight: 600;
 }
-.price .tooltip-row--total strong {
+.price .tooltip--total strong {
   color: #60A5FA;
+}
+.price .tooltip__label {
+  width: 50%;
+}
+.price .tooltip__value {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  text-align: right;
 }
 
 .form-wrapper {
