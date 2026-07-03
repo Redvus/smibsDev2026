@@ -49,7 +49,7 @@ export default defineConfig({
                 assetFileNames: (assetInfo) => {
                     const fileName = assetInfo.names[0];
                     if (fileName === "style.css") {
-                        return "css/main.css";
+                        return "main.css";
                     }
                     if (fileName && fileName.endsWith(".css")) {
                         return "css/[name][extname]";
@@ -65,8 +65,8 @@ export default defineConfig({
                     }
                     return "assets/[name][extname]";
                 },
-                chunkFileNames: "js/[name]-[hash].js",
-                entryFileNames: "js/[name].js",
+                chunkFileNames: "[name]-[hash].js",
+                entryFileNames: "[name].js",
             },
         },
     },
