@@ -36,7 +36,7 @@ $transition-fast: all 0.2s ease;
 
     &__block {
         width: 100%;
-        overflow: hidden;
+        // overflow: hidden;
 
         &--links {
             display: grid;
@@ -98,7 +98,7 @@ $transition-fast: all 0.2s ease;
     &__img-bg {
         position: absolute;
         right: 5rem;
-        bottom: -1.5rem;
+        bottom: -1rem;
         padding: 0;
         margin: 0;
         z-index: 1;
@@ -107,7 +107,7 @@ $transition-fast: all 0.2s ease;
 
     &__img {
         width: auto;
-        height: 21rem;
+        height: 22rem;
         display: block;
 
         img {
