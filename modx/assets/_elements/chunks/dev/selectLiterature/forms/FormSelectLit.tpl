@@ -6,8 +6,14 @@
 <div class="form-payment__container form-payment__ru">
     <h2 class="form-payment__title simple-title">Заявка на подбор литературы</h2>
 
-    <form class="form form-payment--loading" action="[[~[[*id]]]]" method="post"
-        data-formit-ajax-token="{$_modx->getPlaceholder('fi.ajaxToken')}" data-formit-ajax-redirect="{$fi.redirectTo}">
+    <form class="form form-payment--loading"
+        action="[[~[[*id]]]]"
+        method="post"
+        data-formit-ajax-token="{$_modx->getPlaceholder('fi.ajaxToken')}"
+        data-formit-ajax-redirect="{$fi.redirectTo}">
+
+        {* Скрытое поле для идентификации формы *}
+        <input type="hidden" name="form_type" value="selectLit">
 
         {* Общие сообщения *}
         <div data-formit-validation-error-message class="alert alert-danger" style="display:none;">
@@ -112,10 +118,10 @@
                         </div>
                     {/foreach}
                     {* Подсказка для договорной цены *}
-                    <div class="price-note" style="display: none;">
+                    {* <div class="price-note" style="display: none;">
                         💡 Для уточнения стоимости <strong>«Юбилейной даты»</strong>
                         свяжитесь с нашим библиографом по email: <a href="mailto:bibliographer@library.ru">bibliographer@library.ru</a>
-                    </div>
+                    </div> *}
                 </div>
             </div>
 
@@ -138,7 +144,7 @@
             </div>
 
             {* 7. Язык источника (чекбоксы) *}
-            <div class="checkbox-group field">
+            {* <div class="checkbox-group field">
                 <span class="field__label">Язык источника</span>
 
                 <div class="checkbox-group__row">
@@ -159,10 +165,10 @@
                         </label>
                     </div>
                 </div>
-            </div>
+            </div> *}
 
             {* 8. Срочность *}
-            <div class="checkbox-group field">
+            {* <div class="checkbox-group field">
                 <span class="field__label">Срочность</span>
                 <div class="checkbox">
                     <label class="checkbox__label">
@@ -172,10 +178,10 @@
                         <span class="checkbox__checkmark"></span>
                     </label>
                 </div>
-            </div>
+            </div> *}
 
             {* 9. Патенты *}
-            <div class="checkbox-group field">
+            {* <div class="checkbox-group field">
                 <span class="field__label">Патенты</span>
                 <div class="checkbox">
                     <label class="checkbox__label">
@@ -185,10 +191,10 @@
                         <span class="checkbox__checkmark"></span>
                     </label>
                 </div>
-            </div>
+            </div> *}
 
             {* 10. Открытый доступ *}
-            <div class="checkbox-group field">
+            {* <div class="checkbox-group field">
                 <span class="field__label">Открытый доступ</span>
                 <div class="checkbox">
                     <label class="checkbox__label">
@@ -198,7 +204,7 @@
                         <span class="checkbox__checkmark"></span>
                     </label>
                 </div>
-            </div>
+            </div> *}
 
             {* 11. Email *}
             {set $field = 'email'}

@@ -6,8 +6,14 @@
 <div class="form-payment__container form-payment__ru">
     <h2 class="form-payment__title simple-title">Заявка на составление<br>библиографического списка литературы</h2>
 
-    <form class="form form-payment--loading" action="[[~[[*id]]]]" method="post"
-        data-formit-ajax-token="{$_modx->getPlaceholder('fi.ajaxToken')}" data-formit-ajax-redirect="{$fi.redirectTo}">
+    <form class="form form-payment--loading"
+        action="[[~[[*id]]]]"
+        method="post"
+        data-formit-ajax-token="{$_modx->getPlaceholder('fi.ajaxToken')}"
+        data-formit-ajax-redirect="{$fi.redirectTo}">
+
+        {* Скрытое поле для идентификации формы *}
+        <input type="hidden" name="form_type" value="biblioList">
 
         {* Общие сообщения *}
         <div data-formit-validation-error-message class="alert alert-danger" style="display:none;">

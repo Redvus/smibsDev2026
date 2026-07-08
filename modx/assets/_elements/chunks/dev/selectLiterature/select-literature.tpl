@@ -31,10 +31,9 @@
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
                 <h4 class="teaser__title">Тематическая<br>подборка&nbsp;книг</h4>
-                <p class="teaser__text regular-text">Составят список использованной литературы для вашей работы
-                    <nobr>за&nbsp;3&nbsp;—&nbsp;5&nbsp;дней.</nobr>
+                <p class="teaser__text regular-text">К урокам, семинарам и&nbsp;на&nbsp;любую тему до&nbsp;10&nbsp;источников.<br>Срок от 3 до 5 дней.
                 </p>
-                <a href="#form_1" class="btn btn--base teaser__button" id="formBtn_1">Подобрать Литературу</a>
+                <a href="#form_1" class="btn btn--base teaser__button" id="formBtn_1">Подобрать литературу</a>
             </div>
         </li>
         <li class="teaser">
@@ -44,9 +43,8 @@
                         alt="Поиск по всей доступной базе современного научного знания " /> *}
                         <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
-                <h4 class="teaser__title">Редактирование библиографических описаний по ГОСТу</h4>
-                <p class="teaser__text regular-text">10&nbsp;млн русскоязычных и&nbsp;200 млн англоязычных
-                    источников</p>
+                <h4 class="teaser__title">Редактирование библиографических описаний по&nbsp;ГОСТу</h4>
+                <p class="teaser__text regular-text">В соответствии с&nbsp;актуальным ГОСТом.<br>Срок от 3 до 5 дней.</p>
                 <a href="#form_2" class="btn btn--base teaser__button" id="formBtn_2">Редактировать</a>
             </div>
         </li>
@@ -69,8 +67,8 @@
                         alt="Библиографический список, оформленный по ГОСТ" /> *}
                     <i class="fa-regular fa-file-lines"></i>
                 </div>
-                <h4 class="teaser__title">Составление<br>библиографического списка литературы</h4>
-                <p class="teaser__text regular-text">К урокам, семинарам и&nbsp;на&nbsp;любую тему до&nbsp;10&nbsp;источников</p>
+                <h4 class="teaser__title">Составление<br>библиографического</h4>
+                <p class="teaser__text regular-text">Библиографический список по&nbsp;ГОСТу до&nbsp;20&nbsp;источников.<br>Срок от 3 до 5 дней.</p>
                 <a href="#form_4" class="btn btn--base teaser__button" id="formBtn_4">Составить список</a>
             </div>
         </li>
@@ -600,6 +598,31 @@
     {* ============================================
         ВЫЗОВ FORMIT ДЛЯ ВСЕХ ФОРМ
     ============================================ *}
+    {* {set $formit_params = [
+        'hooks' => 'validate,email,redirect',
+        'validate' => 'name:required,description:required,keywords:required,email:email:required',
+        'emailTpl' => 'selectLitFormEmailTpl',
+        'emailSubject' => 'Новая заявка на подбор литературы',
+        'emailTo' => '[[++bibliographer_email]]',
+        'redirectTo' => 123,
+        'successMessage' => 'Ваша заявка отправлена! Вы будете перенаправлены на страницу оплаты.',
+        'validationErrorMessage' => 'Пожалуйста, заполните все обязательные поля'
+    ]} *}
+{* 'hooks' => 'validate,SaveFormForPayment,email,redirect', *}
+{* 'emailTo' => '{if $form_type == "lit_selection"}bibliographer1@library.ru
+      {elseif $form_type == "edit_bibliography"}bibliographer2@library.ru
+      {else}bibliographer@library.ru{/if}', *}
+{* 'redirectParams' => '{"work_type":"[[+work_type]]","need_refs":"[[+need_refs]]","price":"[[+price]]"}', *}
+
+
+    {* Инициализация FormIt *}
+    {* {$_modx->runSnippet('!FormIt', $formit_params)} *}
+
+    {* ============================================
+        ЕДИНСТВЕННЫЙ ВЫЗОВ FORMIT С УСЛОВНОЙ ЛОГИКОЙ
+    ============================================ *}
+    {set $form_type = $_modx->getPlaceholder('fi.form_type') ?: ''}
+
     {set $formit_params = [
         'hooks' => 'validate,email,redirect',
         'validate' => 'name:required,description:required,keywords:required,email:email:required',
@@ -610,15 +633,30 @@
         'successMessage' => 'Ваша заявка отправлена! Вы будете перенаправлены на страницу оплаты.',
         'validationErrorMessage' => 'Пожалуйста, заполните все обязательные поля'
     ]}
-{* 'hooks' => 'validate,SaveFormForPayment,email,redirect', *}
-{* 'emailTo' => '{if $form_type == "lit_selection"}bibliographer1@library.ru
-      {elseif $form_type == "edit_bibliography"}bibliographer2@library.ru
-      {else}bibliographer@library.ru{/if}', *}
-{* 'redirectParams' => '{"work_type":"[[+work_type]]","need_refs":"[[+need_refs]]","price":"[[+price]]"}', *}
 
+    {* ============================================
+        ВЫЗОВ FORMIT ДЛЯ ФОРМЫ 3 (отдельно)
+    ============================================ *}
+    {set $formit_params_form3 = [
+        'hooks' => 'validate,email,redirect',
+        'validate' => 'name:required,age:required,phone:required,author:required,title:required,numberLibrary:required,email:email:required',
+        'emailTpl' => 'interlibraryEmailTpl',
+        'emailSubject' => 'СМИБС. Заказ книг онлайн',
+        'emailFrom' => '[[++emailsender]]',
+        'emailFromName' => '[[++site_name]]',
+        'emailSelectTo' => 'osamlib@mail.ru;smibs1@yandex.ru;smibs2@yandex.ru;smibs3@yandex.ru;smibs.4@yandex.ru;smibs5@yandex.ru;smibs6@yandex.ru;smibs7@yandex.ru;smibs8@yandex.ru;smibs9@yandex.ru;smibs10@yandex.ru;smibs11@yandex.ru;smibs12@yandex.ru;smibs13@yandex.ru;smibs14@yandex.ru;smibs15@yandex.ru;smibs16@yandex.ru;smibs17@yandex.ru;smibs18@yandex.ru;smibs.19@yandex.ru;smibs20@yandex.ru;smibs21@yandex.ru;smibs22@yandex.ru;smibs23@yandex.ru;smibs24@yandex.ru;smibs25@yandex.ru;smibs26@yandex.ru;smibs27@yandex.ru;smibs28@yandex.ru;smibs-29@yandex.ru;smibs30@yandex.ru;smibs31@yandex.ru;smibs32@yandex.ru;smibs33@yandex.ru;smibs34@yandex.ru;smibs35@yandex.ru;a.suvorof@gmail.com',
+        'emailSelectToName' => 'ЦГБ;Библиотека №1;Библиотека №2;Библиотека №3;Библиотека №4;Библиотека №5;Библиотека №6;Библиотека №7;Библиотека №8;Библиотека №9;Библиотека №10;Библиотека №11;Библиотека №12;Библиотека №13;Библиотека №14;Библиотека №15;Библиотека №16;Библиотека №17;Библиотека №18;Библиотека №19;Библиотека №20;Библиотека №21;Библиотека №22;Библиотека №23;Библиотека №24;Библиотека №25;Библиотека №26;Библиотека №27;Библиотека №28;Библиотека №29;Библиотека №30;Библиотека №31;Библиотека №32;Библиотека №33;Библиотека №34;Библиотека №35;test',
+        'emailSelectField' => 'numberLibrary',
+        'redirectTo' => 456,
+        'successMessage' => 'Спасибо! Ваша заявка отправлена. В ближайшее время мы с Вами свяжемся!',
+        'validationErrorMessage' => 'Пожалуйста, заполните все обязательные поля'
+    ]}
 
-    {* Инициализация FormIt *}
-    {$_modx->runSnippet('!FormIt', $formit_params)}
+    {if $form_type != 'interlibrary'}
+        {$_modx->runSnippet('!FormIt', $formit_params)}
+    {else}
+        {$_modx->runSnippet('!FormIt', $formit_params_form3)}
+    {/if}
 
     {* ============================================
         БЛОК С ФОРМАМИ
