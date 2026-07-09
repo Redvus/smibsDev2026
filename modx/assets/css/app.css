@@ -1086,6 +1086,7 @@ textarea {
 
 .form-payment {
   margin-top: calc(2rem * 2);
+  overflow: hidden;
 }
 .form-payment__title {
   width: 100%;

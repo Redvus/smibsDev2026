@@ -53,7 +53,7 @@
                 <div class="teaser__img">
                     {* <img width="38px" height="52px" src="/assets/images/selectLib/ic-standard.U73R0562.svg"
                         alt="Библиографический список, оформленный по ГОСТ" /> *}
-                    <i class="fa-solid fa-file-circle-check"></i>
+                    <i class="fa-solid fa-truck"></i>
                 </div>
                 <h4 class="teaser__title">Межбиблиотечный<br>абонемент</h4>
                 <p class="teaser__text regular-text">Заказ и&nbsp;доставка документов из&nbsp;фондов библиотек МБУК г.о.&nbsp;Самара&nbsp;«СМИБС»</p>

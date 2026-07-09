@@ -429,6 +429,7 @@ $transition-fast: all 0.2s ease;
 .form-payment {
     margin-top: calc(#{$marginVert} * 2);
     // padding-top: calc(#{$marginVert} * 2);
+    overflow: hidden;
 
     &__title {
         width: 100%;

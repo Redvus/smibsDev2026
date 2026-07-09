@@ -147,9 +147,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (isCustom) {
                         priceElement.textContent = "Договорная";
                         priceElement.classList.add("price--custom");
-                        priceElement.style.color = "#3B82F6";
-                        priceElement.style.fontSize = "18px";
-                        priceElement.style.fontWeight = "600";
+                        // priceElement.style.color = "#3B82F6";
+                        // priceElement.style.fontSize = "18px";
+                        // priceElement.style.fontWeight = "600";
                     } else {
                         priceElement.textContent = price + " ₽";
                         priceElement.classList.remove("price--custom");
