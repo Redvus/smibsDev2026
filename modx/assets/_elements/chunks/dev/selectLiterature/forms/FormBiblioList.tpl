@@ -13,7 +13,8 @@
         data-formit-ajax-redirect="{$fi.redirectTo}">
 
         {* Скрытое поле для идентификации формы *}
-        <input type="hidden" name="form_type" value="biblioList">
+        <input type="hidden" name="active_form_id" value="form_4">
+        <input type="hidden" name="form_type" value="default">
 
         {* Общие сообщения *}
         <div data-formit-validation-error-message class="alert alert-danger" style="display:none;">

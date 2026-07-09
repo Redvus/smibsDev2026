@@ -13,6 +13,7 @@
         data-formit-ajax-redirect="{$fi.redirectTo}">
 
         {* Скрытое поле для идентификации формы *}
+        <input type="hidden" name="active_form_id" value="form_3">
         <input type="hidden" name="form_type" value="interlibrary">
 
         {* Общие сообщения *}

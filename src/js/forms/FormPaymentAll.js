@@ -1,7 +1,4 @@
 // assets/js/payment-form.js
-// ============================================
-// УНИВЕРСАЛЬНЫЙ СКРИПТ ДЛЯ ЛЮБЫХ ФОРМ
-// ============================================
 
 document.addEventListener("DOMContentLoaded", function () {
     // ============================================
@@ -12,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const formWrappers = document.querySelectorAll(".form-wrapper");
     const formBtns = document.querySelectorAll(".teaser__button");
     const formOffset = 100;
-    const sliderMax = 20; // Максимальное количество источников для слайдера
+    const sliderMax = 20;
     const dataPriceSlider = 50;
 
     const formMap = {
@@ -35,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 targetForm.classList.add("active");
             }, 50);
 
-            // Инициализируем форму, если она еще не инициализирована
             const formElement = targetForm.querySelector("form");
             if (formElement && !formElement.dataset.initialized) {
                 initForm(formElement);
@@ -86,9 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!formElement) return null;
         if (formElement.dataset.initialized === "true") return null;
 
-        // console.log(`✅ Инициализация формы: ${formElement.id || "без ID"}`);
+        console.log(`✅ Инициализация формы: ${formElement.id || "без ID"}`);
 
-        // --- ПОИСК ЭЛЕМЕНТОВ ВНУТРИ ФОРМЫ ---
         const slider = formElement.querySelector(".slider__input");
         const sliderDisplay = formElement.querySelector(".slider__current");
         const progress = formElement.querySelector(".slider__input-progress");
@@ -101,51 +96,43 @@ document.addEventListener("DOMContentLoaded", function () {
         );
         const workRadios = formElement.querySelectorAll(".work-type-radio");
 
-        // --- ОПРЕДЕЛЯЕМ ТИП ФОРМЫ ---
         const hasSlider = slider !== null;
         const hasRadios = workRadios.length > 0;
         const hasPrice = priceElement !== null;
 
-        // console.log(
-        //     `   📊 Тип формы: слайдер=${hasSlider}, радиокнопки=${hasRadios}, цена=${hasPrice}`,
-        // );
+        console.log(
+            `   📊 Тип формы: слайдер=${hasSlider}, радиокнопки=${hasRadios}, цена=${hasPrice}`,
+        );
 
         // --- ЕСЛИ ЕСТЬ РАДИОКНОПКИ И ЦЕНА (но нет слайдера) ---
         if (hasRadios && hasPrice && !hasSlider) {
-            // console.log("   📌 Форма с радиокнопками (без слайдера)");
+            console.log("   📌 Форма с радиокнопками (без слайдера)");
 
-            // --- Таблица цен (с поддержкой custom) ---
             const prices = {};
             const workLabels = {};
 
-            // Собираем цены из data-атрибутов радиокнопок
             workRadios.forEach(function (radio) {
                 const value = radio.value;
                 const priceAttr = radio.getAttribute("data-price");
-
-                // --- ВАЖНО: правильно обрабатываем custom ---
                 let price;
                 if (
                     priceAttr === "custom" ||
                     priceAttr === "null" ||
                     priceAttr === ""
                 ) {
-                    price = null; // null означает "Договорная"
+                    price = null;
                 } else {
                     price = parseInt(priceAttr) || 0;
                 }
-
                 const label =
                     radio.closest(".variant")?.querySelector(".variant__name")
                         ?.textContent || value;
 
                 prices[value] = price;
                 workLabels[value] = label;
-
-                // console.log(`   📌 ${value}: цена=${price}, метка=${label}`);
+                console.log(`   📌 ${value}: цена=${price}, метка=${label}`);
             });
 
-            // --- Функция обновления цены ---
             function updatePrice() {
                 const selectedRadio = formElement.querySelector(
                     'input[name="work_type"]:checked',
@@ -159,43 +146,38 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (priceElement) {
                     if (isCustom) {
                         priceElement.textContent = "Договорная";
-                        // priceElement.classList.add("price--custom");
-                        // priceElement.style.color = "#3B82F6";
-                        // priceElement.style.fontSize = "18px";
-                        // priceElement.style.fontWeight = "600";
+                        priceElement.classList.add("price--custom");
+                        priceElement.style.color = "#3B82F6";
+                        priceElement.style.fontSize = "18px";
+                        priceElement.style.fontWeight = "600";
                     } else {
                         priceElement.textContent = price + " ₽";
-                        // priceElement.classList.remove("price--custom");
-                        // priceElement.style.color = "";
-                        // priceElement.style.fontSize = "";
-                        // priceElement.style.fontWeight = "";
+                        priceElement.classList.remove("price--custom");
+                        priceElement.style.color = "";
+                        priceElement.style.fontSize = "";
+                        priceElement.style.fontWeight = "";
                     }
                 }
 
-                // Обновляем тултип
-                if (tooltipWorkType) {
+                if (tooltipWorkType)
                     tooltipWorkType.textContent =
                         workLabels[workType] || workType;
-                }
-                if (tooltipTotal) {
+                if (tooltipTotal)
                     tooltipTotal.textContent = isCustom
                         ? "Договорная"
                         : price + " ₽";
-                }
                 if (tooltipPricePerSource) {
                     tooltipPricePerSource.textContent = isCustom
                         ? "Договорная"
                         : price + " ₽";
                 }
 
-                // Показываем/скрываем подсказку для договорной цены
                 const priceNote = formElement.querySelector(".price-note");
                 if (priceNote) {
                     priceNote.style.display = isCustom ? "block" : "none";
                 }
             }
 
-            // --- События радиокнопок ---
             workRadios.forEach(function (radio) {
                 radio.addEventListener("change", function () {
                     if (this.checked) {
@@ -204,13 +186,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             });
 
-            // --- Инициализация ---
             updatePrice();
-
             formElement.dataset.initialized = "true";
-            // console.log(
-            //     `✅ Форма ${formElement.id || "без ID"} инициализирована (только радиокнопки)`,
-            // );
+            console.log(
+                `✅ Форма ${formElement.id || "без ID"} инициализирована (только радиокнопки)`,
+            );
 
             return {
                 form: formElement,
@@ -221,43 +201,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // --- ЕСЛИ ЕСТЬ СЛАЙДЕР + РАДИОКНОПКИ + ЦЕНА (полная версия) ---
         if (hasSlider && hasRadios && hasPrice) {
-            // console.log("   📌 Полная форма (слайдер + радиокнопки)");
+            console.log("   📌 Полная форма (слайдер + радиокнопки)");
 
-            // --- Таблица цен (с поддержкой custom) ---
             const prices = {};
             const workLabels = {};
 
             workRadios.forEach(function (radio) {
                 const value = radio.value;
                 const priceAttr = radio.getAttribute("data-price");
-
-                // --- ВАЖНО: правильно обрабатываем custom ---
                 let price;
                 if (
                     priceAttr === "custom" ||
                     priceAttr === "null" ||
                     priceAttr === ""
                 ) {
-                    price = null; // null означает "Договорная"
+                    price = null;
                 } else {
                     price = parseInt(priceAttr) || 30;
                 }
-
                 const label =
                     radio.closest(".variant")?.querySelector(".variant__name")
                         ?.textContent || value;
 
                 prices[value] = price;
                 workLabels[value] = label;
-
-                // console.log(`   📌 ${value}: цена=${price}, метка=${label}`);
+                console.log(`   📌 ${value}: цена=${price}, метка=${label}`);
             });
 
-            // --- Функция расчета цены ---
             function calculatePrice(workType, refs) {
                 const pricePerSource = prices[workType];
-
-                // Если цена не определена (null) - это договорная
                 if (pricePerSource === null || pricePerSource === undefined) {
                     return {
                         pricePerSource: null,
@@ -266,9 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         isCustom: true,
                     };
                 }
-
                 const total = pricePerSource * (refs || 1);
-
                 return {
                     pricePerSource: pricePerSource,
                     total: total,
@@ -277,7 +247,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
             }
 
-            // --- Функция обновления цены ---
             function updatePrice() {
                 const selectedRadio = formElement.querySelector(
                     'input[name="work_type"]:checked',
@@ -288,9 +257,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const refs = parseInt(slider ? slider.value : 1);
                 const result = calculatePrice(workType, refs);
 
-                // console.log(
-                //     `   📊 Обновление цены: ${workType}, refs=${refs}, isCustom=${result.isCustom}`,
-                // );
+                console.log(
+                    `   📊 Обновление цены: ${workType}, refs=${refs}, isCustom=${result.isCustom}`,
+                );
 
                 if (priceElement) {
                     if (result.isCustom) {
@@ -308,24 +277,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
 
-                if (tooltipRefs) {
+                if (tooltipRefs)
                     tooltipRefs.textContent = result.isCustom ? "—" : refs;
-                }
-                if (tooltipWorkType) {
-                    tooltipWorkType.textContent = result.label;
-                }
+                if (tooltipWorkType) tooltipWorkType.textContent = result.label;
                 if (tooltipPricePerSource) {
                     tooltipPricePerSource.textContent = result.isCustom
                         ? "Договорная"
                         : result.pricePerSource + " ₽";
                 }
-                if (tooltipTotal) {
+                if (tooltipTotal)
                     tooltipTotal.textContent = result.isCustom
                         ? "Договорная"
                         : result.total + " ₽";
-                }
 
-                // Показываем/скрываем подсказку для договорной цены
                 const priceNote = formElement.querySelector(".price-note");
                 if (priceNote) {
                     priceNote.style.display = result.isCustom
@@ -336,7 +300,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 return result;
             }
 
-            // --- События ---
             slider.addEventListener("input", function () {
                 const value = parseInt(this.value);
                 if (sliderDisplay) sliderDisplay.value = value;
@@ -359,7 +322,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             });
 
-            // --- Синхронизация слайдера ---
             if (slider && sliderDisplay) {
                 const min = parseInt(slider.min) || 1;
                 const max = parseInt(slider.max) || sliderMax;
@@ -445,7 +407,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
 
-            // --- Инициализация ---
             const initialValue = parseInt(slider.value) || 1;
             if (sliderDisplay) sliderDisplay.value = initialValue;
             if (progress) {
@@ -457,9 +418,9 @@ document.addEventListener("DOMContentLoaded", function () {
             updatePrice();
 
             formElement.dataset.initialized = "true";
-            // console.log(
-            //     `✅ Форма ${formElement.id || "без ID"} инициализирована (полная версия)`,
-            // );
+            console.log(
+                `✅ Форма ${formElement.id || "без ID"} инициализирована (полная версия)`,
+            );
 
             return {
                 form: formElement,
@@ -470,9 +431,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // --- ЕСЛИ ЕСТЬ ТОЛЬКО СЛАЙДЕР (без радиокнопок) ---
         if (hasSlider && hasPrice && !hasRadios) {
-            // console.log("   📌 Форма со слайдером (без радиокнопок)");
+            console.log("   📌 Форма со слайдером (без радиокнопок)");
 
-            // --- Функция обновления цены ---
             function updatePrice() {
                 const refs = parseInt(slider ? slider.value : 1);
                 const pricePerSource =
@@ -491,7 +451,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-            // --- События слайдера ---
             slider.addEventListener("input", function () {
                 const value = parseInt(this.value);
                 if (sliderDisplay) sliderDisplay.value = value;
@@ -506,7 +465,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 updatePrice();
             });
 
-            // --- Синхронизация слайдера ---
             if (slider && sliderDisplay) {
                 const min = parseInt(slider.min) || 1;
                 const max = parseInt(slider.max) || sliderMax;
@@ -592,7 +550,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
 
-            // --- Инициализация ---
             const initialValue = parseInt(slider.value) || 1;
             if (sliderDisplay) sliderDisplay.value = initialValue;
             if (progress) {
@@ -604,9 +561,9 @@ document.addEventListener("DOMContentLoaded", function () {
             updatePrice();
 
             formElement.dataset.initialized = "true";
-            // console.log(
-            //     `✅ Форма ${formElement.id || "без ID"} инициализирована (только слайдер)`,
-            // );
+            console.log(
+                `✅ Форма ${formElement.id || "без ID"} инициализирована (только слайдер)`,
+            );
 
             return {
                 form: formElement,
@@ -616,7 +573,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // --- ЕСЛИ НЕТ НИ СЛАЙДЕРА, НИ РАДИОКНОПОК ---
-        // console.log(`   📌 Простая форма (без расчета цены)`);
+        console.log(`   📌 Простая форма (без расчета цены)`);
         formElement.dataset.initialized = "true";
 
         return {
@@ -639,16 +596,33 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // console.log(`✅ Инициализировано форм: ${initializedForms.length}`);
+    console.log(`✅ Инициализировано форм: ${initializedForms.length}`);
 
     // ============================================
-    // 4. ОБРАБОТКА СОБЫТИЙ FORMIT (универсальная)
+    // 4. ОБРАБОТКА СОБЫТИЙ FORMIT (исправленная)
     // ============================================
 
+    // --- Функция поиска активной формы ---
+    function getActiveForm() {
+        const activeWrapper = document.querySelector(".form-wrapper.active");
+        if (activeWrapper) {
+            return activeWrapper.querySelector("form");
+        }
+        return null;
+    }
+
+    // --- Ошибка валидации ---
     document.addEventListener("formit:error", function (e) {
-        const activeForm = document.querySelector(".form-wrapper.active form");
-        if (!activeForm) return;
+        // Находим активную форму
+        const activeForm = getActiveForm();
+        if (!activeForm) {
+            console.warn("⚠️ Активная форма не найдена");
+            return;
+        }
 
+        console.log("❌ Ошибка валидации в форме:", activeForm.id || "без ID");
+
+        // Подсветка полей с ошибками ТОЛЬКО в активной форме
         const errorSpans = activeForm.querySelectorAll("[data-formit-error]");
         errorSpans.forEach(function (span) {
             if (span.textContent.trim()) {
@@ -665,37 +639,58 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
+        // --- Прокрутка к первому полю с ошибкой ТОЛЬКО в активной форме ---
         setTimeout(function () {
-            const firstError = activeForm.querySelector("[data-formit-error]");
-            if (firstError && firstError.textContent.trim()) {
-                const field = firstError.closest(".field");
-                if (field) {
-                    const headerOffset = formOffset;
-                    const elementPosition = field.getBoundingClientRect().top;
-                    const offsetPosition =
-                        elementPosition + window.pageYOffset - headerOffset;
+            // Ищем первую ошибку ТОЛЬКО в активной форме
+            const errorSpansInForm = activeForm.querySelectorAll(
+                "[data-formit-error]",
+            );
+            let firstErrorField = null;
+            let firstInput = null;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth",
-                    });
-
-                    const input = field.querySelector(
-                        "input, textarea, select",
-                    );
-                    if (input) {
-                        setTimeout(function () {
-                            input.focus();
-                            input.classList.add("highlight-error");
-                            setTimeout(function () {
-                                input.classList.remove("highlight-error");
-                            }, 2000);
-                        }, 400);
+            for (const span of errorSpansInForm) {
+                if (span.textContent.trim()) {
+                    const field = span.closest(".field");
+                    if (field) {
+                        firstErrorField = field;
+                        firstInput = field.querySelector(
+                            "input, textarea, select",
+                        );
+                        break;
                     }
                 }
             }
+
+            if (firstErrorField) {
+                console.log("📌 Прокрутка к полю с ошибкой в активной форме");
+
+                const headerOffset = formOffset;
+                const elementPosition =
+                    firstErrorField.getBoundingClientRect().top;
+                const offsetPosition =
+                    elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                });
+
+                if (firstInput) {
+                    setTimeout(function () {
+                        firstInput.focus();
+                        firstInput.classList.add("highlight-error");
+                        setTimeout(function () {
+                            firstInput.classList.remove("highlight-error");
+                        }, 2000);
+                    }, 400);
+                }
+            } else {
+                // Если нет ошибок в активной форме (может быть ошибка в другой форме)
+                console.log("⚠️ Нет полей с ошибками в активной форме");
+            }
         }, 400);
 
+        // Разблокируем кнопку в активной форме
         const submitBtn = activeForm.querySelector('button[type="submit"]');
         if (submitBtn) {
             submitBtn.disabled = false;
@@ -703,8 +698,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // --- Успешная отправка ---
     document.addEventListener("formit:success", function (e) {
-        const activeForm = document.querySelector(".form-wrapper.active form");
+        const activeForm = getActiveForm();
         if (activeForm) {
             const submitBtn = activeForm.querySelector('button[type="submit"]');
             if (submitBtn) {
@@ -729,8 +725,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // --- Перед отправкой ---
     document.addEventListener("formit:beforeSubmit", function (e) {
-        const activeForm = document.querySelector(".form-wrapper.active form");
+        const activeForm = getActiveForm();
         if (activeForm) {
             const submitBtn = activeForm.querySelector('button[type="submit"]');
             if (submitBtn) {
@@ -739,4 +736,364 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     });
+
+    // --- 1. МАСКА ТЕЛЕФОНА ---
+    function phoneMask(input) {
+        let phone = input.value.replace(/\D/g, "");
+        if (phone.length > 0 && phone[0] === "8")
+            phone = "7" + phone.substring(1);
+        if (phone.length > 0 && phone[0] === "9") phone = "7" + phone;
+        if (phone.length > 0 && phone[0] !== "7") phone = "7" + phone;
+
+        let formatted = "";
+        if (phone.length > 0) {
+            formatted = "+7";
+            if (phone.length > 1) {
+                formatted += " (" + phone.substring(1, 4);
+                if (phone.length > 4) {
+                    formatted += ") " + phone.substring(4, 7);
+                    if (phone.length > 7) {
+                        formatted += "-" + phone.substring(7, 9);
+                        if (phone.length > 9) {
+                            formatted += "-" + phone.substring(9, 11);
+                        }
+                    }
+                }
+            }
+        }
+        input.value = formatted;
+    }
+
+    // Применяем ко всем полям телефона
+    document.querySelectorAll('input[name="phone"]').forEach(function (input) {
+        input.addEventListener("input", function () {
+            phoneMask(this);
+        });
+        input.addEventListener("focus", function () {
+            if (!this.value) this.value = "+7 ";
+        });
+        input.addEventListener("blur", function () {
+            if (this.value.replace(/\D/g, "") === "7" || this.value === "") {
+                this.value = "";
+            }
+        });
+    });
+
+    // --- 2. ВАЛИДАЦИЯ ВОЗРАСТА ---
+    document.querySelectorAll('input[name="age"]').forEach(function (input) {
+        input.addEventListener("input", function () {
+            this.value = this.value.replace(/\D/g, "");
+            if (this.value.length > 3) this.value = this.value.substring(0, 3);
+
+            const val = parseInt(this.value);
+            this.classList.remove("is-valid", "is-invalid");
+
+            if (this.value && !isNaN(val)) {
+                if (val >= 1 && val <= 150) {
+                    this.classList.add("is-valid");
+                } else {
+                    this.classList.add("is-invalid");
+                }
+            }
+        });
+    });
+
+    // --- 2. ВАЛИДАЦИЯ ГОДА ИЗДАНИЯ ---
+    document
+        .querySelectorAll('input[name="yearPublish"]')
+        .forEach(function (input) {
+            input.addEventListener("input", function () {
+                this.value = this.value.replace(/\D/g, "");
+                if (this.value.length > 4)
+                    this.value = this.value.substring(0, 4);
+
+                const val = parseInt(this.value);
+                this.classList.remove("is-valid", "is-invalid");
+
+                if (this.value && !isNaN(val)) {
+                    if (val >= 1 && val <= 2050) {
+                        this.classList.add("is-valid");
+                    } else {
+                        this.classList.add("is-invalid");
+                    }
+                }
+            });
+        });
+
+    // ============================================
+    // 8. МАСКА И ВАЛИДАЦИЯ EMAIL
+    // ============================================
+
+    // --- Функция валидации email ---
+    function validateEmail(input) {
+        const value = input.value.trim();
+        const field = input.closest(".field");
+        const errorSpan = field
+            ? field.querySelector('[data-formit-error="email"]')
+            : null;
+
+        // Убираем старые классы
+        input.classList.remove("is-valid", "is-invalid");
+
+        // Если поле пустое
+        if (!value) {
+            if (errorSpan) {
+                errorSpan.textContent = "Введите email";
+            }
+            input.classList.add("is-invalid");
+            return false;
+        }
+
+        // Регулярное выражение для проверки email
+        // Поддерживает: name@domain.com, name@domain.ru, name@sub.domain.com
+        const emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+
+        if (!emailRegex.test(value)) {
+            // Определяем тип ошибки
+            let errorMessage = "Введите корректный email";
+
+            if (!value.includes("@")) {
+                errorMessage = "Email должен содержать символ @";
+            } else if (!value.includes(".")) {
+                errorMessage = "Email должен содержать точку после @";
+            } else if (value.indexOf("@") === 0) {
+                errorMessage = "Введите имя пользователя перед @";
+            } else if (value.lastIndexOf(".") < value.indexOf("@")) {
+                errorMessage = "Введите домен после @ (например, .com, .ru)";
+            } else if (value.length < 5) {
+                errorMessage = "Email слишком короткий";
+            } else {
+                // Проверяем, что после точки есть буквы
+                const domainPart = value.substring(value.lastIndexOf(".") + 1);
+                if (domainPart.length < 2) {
+                    errorMessage =
+                        "Введите корректное расширение домена (например, .com, .ru)";
+                }
+            }
+
+            if (errorSpan) {
+                errorSpan.textContent = errorMessage;
+            }
+            input.classList.add("is-invalid");
+            return false;
+        }
+
+        // Дополнительная проверка на популярные домены
+        const allowedDomains = [
+            "com",
+            "ru",
+            "org",
+            "net",
+            "info",
+            "biz",
+            "io",
+            "me",
+            "gov",
+            "edu",
+        ];
+        const domain = value
+            .substring(value.lastIndexOf(".") + 1)
+            .toLowerCase();
+
+        // Если домен не в списке, но это не ошибка, просто предупреждение
+        // Можно раскомментировать, если нужно ограничить домены
+        /*
+        if (!allowedDomains.includes(domain)) {
+            if (errorSpan) {
+                errorSpan.textContent = 'Нестандартный домен. Убедитесь, что email корректен';
+            }
+            input.classList.add('is-valid');
+            input.classList.add('has-warning');
+            return true;
+        }
+        */
+
+        // Все хорошо
+        if (errorSpan) {
+            errorSpan.textContent = "";
+        }
+        input.classList.add("is-valid");
+        return true;
+    }
+
+    // --- Применяем валидацию ко всем полям email ---
+    const emailInputs = document.querySelectorAll(
+        'input[type="email"], input[name="email"]',
+    );
+    emailInputs.forEach(function (input) {
+        // При вводе - проверяем
+        input.addEventListener("input", function () {
+            // Если поле пустое, не показываем ошибку сразу
+            if (!this.value.trim()) {
+                this.classList.remove("is-valid", "is-invalid");
+                const field = this.closest(".field");
+                const errorSpan = field
+                    ? field.querySelector('[data-formit-error="email"]')
+                    : null;
+                if (errorSpan) {
+                    errorSpan.textContent = "";
+                }
+                return;
+            }
+            validateEmail(this);
+        });
+
+        // При потере фокуса
+        input.addEventListener("blur", function () {
+            if (this.value.trim()) {
+                validateEmail(this);
+            } else {
+                this.classList.remove("is-valid", "is-invalid");
+            }
+        });
+
+        // При вставке из буфера обмена
+        input.addEventListener("paste", function (e) {
+            setTimeout(function () {
+                if (input.value.trim()) {
+                    validateEmail(input);
+                }
+            }, 100);
+        });
+
+        // Автодополнение для популярных доменов (опционально)
+        input.addEventListener("input", function () {
+            const value = this.value;
+            if (
+                value.includes("@") &&
+                !value.includes(".") &&
+                value.indexOf("@") === value.length - 1
+            ) {
+                // Показываем подсказку с популярными доменами
+                // Можно реализовать выпадающий список
+            }
+        });
+    });
+
+    // --- Автодополнение для email (опционально) ---
+    // Создаем подсказку для популярных доменов
+    function createEmailSuggestion(input) {
+        const popularDomains = [
+            "gmail.com",
+            "yandex.ru",
+            "mail.ru",
+            "bk.ru",
+            "inbox.ru",
+            "list.ru",
+            "rambler.ru",
+            "yahoo.com",
+            "hotmail.com",
+            "outlook.com",
+        ];
+
+        // Проверяем, что введено имя пользователя и @
+        const value = input.value;
+        if (
+            value.includes("@") &&
+            !value.includes(".") &&
+            value.indexOf("@") === value.length - 1
+        ) {
+            // Показываем подсказку
+            const field = input.closest(".field");
+            let suggestionBox = field
+                ? field.querySelector(".email-suggestions")
+                : null;
+
+            if (!suggestionBox) {
+                suggestionBox = document.createElement("div");
+                suggestionBox.className = "email-suggestions";
+                if (field) field.appendChild(suggestionBox);
+            }
+
+            // Очищаем старые подсказки
+            suggestionBox.innerHTML = "";
+            suggestionBox.style.display = "block";
+
+            // Добавляем популярные домены
+            const username = value.substring(0, value.indexOf("@"));
+            popularDomains.slice(0, 5).forEach(function (domain) {
+                const suggestion = document.createElement("div");
+                suggestion.className = "email-suggestion";
+                suggestion.textContent = username + "@" + domain;
+                suggestion.addEventListener("click", function () {
+                    input.value = this.textContent;
+                    suggestionBox.style.display = "none";
+                    validateEmail(input);
+                });
+                suggestionBox.appendChild(suggestion);
+            });
+
+            // Скрываем подсказку при потере фокуса
+            setTimeout(function () {
+                document.addEventListener("click", function hideSuggestions(e) {
+                    if (
+                        !suggestionBox.contains(e.target) &&
+                        e.target !== input
+                    ) {
+                        suggestionBox.style.display = "none";
+                        document.removeEventListener("click", hideSuggestions);
+                    }
+                });
+            }, 100);
+        } else {
+            // Скрываем подсказку
+            const field = input.closest(".field");
+            const suggestionBox = field
+                ? field.querySelector(".email-suggestions")
+                : null;
+            if (suggestionBox) {
+                suggestionBox.style.display = "none";
+            }
+        }
+    }
+
+    // Добавляем автодополнение для email полей (опционально)
+    emailInputs.forEach(function (input) {
+        input.addEventListener("input", function () {
+            if (this.value.includes("@")) {
+                createEmailSuggestion(this);
+            }
+        });
+    });
+
+    // Скрываем подсказки при скролле
+    document.addEventListener("scroll", function () {
+        document
+            .querySelectorAll(".email-suggestions")
+            .forEach(function (suggestion) {
+                suggestion.style.display = "none";
+            });
+    });
+
+    // ============================================
+    // 9. КАСТОМНАЯ ВАЛИДАЦИЯ EMAIL (для FormIt)
+    // ============================================
+    const form = document.querySelector("form[data-formit-ajax-token]");
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            const emailInput = this.querySelector(
+                'input[type="email"], input[name="email"]',
+            );
+            if (emailInput) {
+                const isValid = validateEmail(emailInput);
+                if (!isValid) {
+                    e.preventDefault();
+                    // Прокручиваем к полю email
+                    setTimeout(function () {
+                        const headerOffset = 100;
+                        const elementPosition =
+                            emailInput.getBoundingClientRect().top;
+                        const offsetPosition =
+                            elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth",
+                        });
+                        emailInput.focus();
+                    }, 100);
+                    return false;
+                }
+            }
+        });
+    }
 });

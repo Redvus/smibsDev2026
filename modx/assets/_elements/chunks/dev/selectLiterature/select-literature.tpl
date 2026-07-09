@@ -625,21 +625,7 @@
 
     {set $formit_params = [
         'hooks' => 'validate,email,redirect',
-        'validate' => 'name:required,description:required,keywords:required,email:email:required',
-        'emailTpl' => 'selectLitFormEmailTpl',
-        'emailSubject' => 'Новая заявка на подбор литературы',
-        'emailTo' => '[[++bibliographer_email]]',
-        'redirectTo' => 123,
-        'successMessage' => 'Ваша заявка отправлена! Вы будете перенаправлены на страницу оплаты.',
-        'validationErrorMessage' => 'Пожалуйста, заполните все обязательные поля'
-    ]}
-
-    {* ============================================
-        ВЫЗОВ FORMIT ДЛЯ ФОРМЫ 3 (отдельно)
-    ============================================ *}
-    {set $formit_params_form3 = [
-        'hooks' => 'validate,email,redirect',
-        'validate' => 'name:required,age:required,phone:required,author:required,title:required,numberLibrary:required,email:email:required',
+        'validate' => 'name:required,age:required,phone:required,author:required,title:required,numberLibrary:required,email:email:required,description:required,keywords:required',
         'emailTpl' => 'interlibraryEmailTpl',
         'emailSubject' => 'СМИБС. Заказ книг онлайн',
         'emailFrom' => '[[++emailsender]]',
@@ -649,14 +635,19 @@
         'emailSelectField' => 'numberLibrary',
         'redirectTo' => 456,
         'successMessage' => 'Спасибо! Ваша заявка отправлена. В ближайшее время мы с Вами свяжемся!',
-        'validationErrorMessage' => 'Пожалуйста, заполните все обязательные поля'
+        'validationErrorMessage' => 'Пожалуйста, заполните все обязательные поля',
+        'name.vTextRequired' => 'Введите ваше имя',
+        'email.vTextRequired' => 'Введите корректный email',
+        'age.vTextRequired' => 'Укажите возраст',
+        'phone.vTextRequired' => 'Введите номер телефона',
+        'author.vTextRequired' => 'Укажите автора',
+        'title.vTextRequired' => 'Введите заглавие',
+        'numberLibrary.vTextRequired' => 'Выберите филиал',
+        'description.vTextRequired' => 'Опишите тему',
+        'keywords.vTextRequired' => 'Введите ключевые слова'
     ]}
 
-    {if $form_type != 'interlibrary'}
-        {$_modx->runSnippet('!FormIt', $formit_params)}
-    {else}
-        {$_modx->runSnippet('!FormIt', $formit_params_form3)}
-    {/if}
+    {$_modx->runSnippet('!FormIt', $formit_params)}
 
     {* ============================================
         БЛОК С ФОРМАМИ
