@@ -7,6 +7,7 @@
     <h2 class="form-payment__title simple-title">Заявка на&nbsp;список редактируемых источников</h2>
 
     <form class="form form-payment--loading"
+        id="formEditBiblio"
         action="[[~[[*id]]]]"
         method="post"
         data-formit-ajax-token="{$_modx->getPlaceholder('fi.ajaxToken')}"

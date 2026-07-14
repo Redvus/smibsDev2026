@@ -24,6 +24,8 @@ $colors: (
 :root {
     @each $name, $color in $colors {
         --#{$name}: #{$color};
+        --#{$name}-darken-2: #{color.adjust($color, $lightness: -2%)};
+        --#{$name}-darken-3: #{color.adjust($color, $lightness: -3%)};
         --#{$name}-darken-5: #{color.adjust($color, $lightness: -5%)};
         --#{$name}-darken-7: #{color.adjust($color, $lightness: -7%)};
         --#{$name}-darken-8: #{color.adjust($color, $lightness: -8%)};

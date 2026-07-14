@@ -620,7 +620,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        console.log("❌ Ошибка валидации в форме:", activeForm.id || "без ID");
+        // console.log("❌ Ошибка валидации в форме:", activeForm.id || "без ID");
 
         // Подсветка полей с ошибками ТОЛЬКО в активной форме
         const errorSpans = activeForm.querySelectorAll("[data-formit-error]");
@@ -1096,4 +1096,358 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+});
+
+// ============================================
+// ТАБЛИЦА КНИГ
+// ============================================
+
+document.addEventListener("DOMContentLoaded", function () {
+    const MAX_BOOKS = 10;
+    const PRICE_PER_BOOK = 50;
+
+    const booksTableBody = document.getElementById("booksTableBody");
+    const addBookBtn = document.getElementById("addBookBtn");
+    const maxWarning = document.getElementById("maxBooksWarning");
+    const bookCountInput = document.getElementById("bookCount");
+    const priceValue = document.getElementById("priceValue");
+    const tooltipBooks = document.getElementById("tooltipBooks");
+    const tooltipTotal = document.getElementById("tooltipTotal");
+
+    // Функция обновления цены
+    function updatePrice() {
+        const rows = booksTableBody.querySelectorAll(".books-table__row");
+        const count = rows.length;
+        const total = count * PRICE_PER_BOOK;
+
+        // Находим все элементы с ценой
+        const priceElements = document.querySelectorAll(
+            ".price-value, #priceValue",
+        );
+
+        priceElements.forEach(function (el) {
+            // Очищаем все содержимое
+            while (el.firstChild) {
+                el.removeChild(el.firstChild);
+            }
+            // Добавляем новый текст
+            el.appendChild(document.createTextNode(total + " ₽"));
+            console.log("✅ Обновлен элемент:", el, "на:", total + " ₽");
+        });
+
+        // После обновления цены
+        // if (priceValue) {
+        //     // Добавляем анимацию
+        //     priceValue.style.transition = "all 0.3s ease";
+        //     priceValue.style.color = "#3B82F6";
+        //     priceValue.style.transform = "scale(1.1)";
+
+        //     setTimeout(function () {
+        //         priceValue.style.color = "";
+        //         priceValue.style.transform = "scale(1)";
+        //     }, 300);
+        // }
+
+        if (tooltipBooks) {
+            tooltipBooks.textContent = count;
+        }
+        if (tooltipTotal) {
+            tooltipTotal.textContent = total + " ₽";
+        }
+        if (bookCountInput) {
+            bookCountInput.value = count;
+        }
+    }
+
+    // Функция добавления новой строки
+    function addBookRow() {
+        const rows = booksTableBody.querySelectorAll(".books-table__row");
+        const currentCount = rows.length;
+
+        if (currentCount >= MAX_BOOKS) {
+            if (maxWarning) {
+                maxWarning.style.display = "block";
+                setTimeout(function () {
+                    maxWarning.style.display = "none";
+                }, 3000);
+            }
+            return;
+        }
+
+        const newIndex = currentCount;
+
+        // Создаем новую строку
+        const row = document.createElement("div");
+        row.className = "books-table__row books-table__row--adding";
+        row.dataset.rowIndex = newIndex;
+
+        row.innerHTML = `
+            <span class="books-table__col books-table__col--number">${newIndex + 1}</span>
+            <div class="books-table__col books-table__col--author">
+                <input type="text" name="book_author[]" class="books-table__input" placeholder="Автор" data-error="book_author_${newIndex}">
+                <span class="field__error" data-formit-error="book_author_${newIndex}"></span>
+            </div>
+            <div class="books-table__col books-table__col--title">
+                <input type="text" name="book_title[]" class="books-table__input" placeholder="Заглавие" data-error="book_title_${newIndex}">
+                <span class="field__error" data-formit-error="book_title_${newIndex}"></span>
+            </div>
+            <div class="books-table__col books-table__col--year">
+                <input type="text" name="book_year[]" class="books-table__input" placeholder="Год">
+            </div>
+            <div class="books-table__col books-table__col--place">
+                <input type="text" name="book_place[]" class="books-table__input" placeholder="Место">
+            </div>
+            <div class="books-table__col books-table__col--volume">
+                <input type="text" name="book_volume[]" class="books-table__input" placeholder="Том">
+            </div>
+            <div class="books-table__col books-table__col--actions">
+                <button type="button" class="books-table__remove-btn" data-row-index="${newIndex}">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        `;
+
+        // Добавляем строку в таблицу
+        booksTableBody.appendChild(row);
+
+        // Обновляем нумерацию
+        updateRowNumbers();
+
+        // Обновляем цену
+        updatePrice();
+
+        // Показываем кнопку удаления у первой строки, если есть больше одной строки
+        updateRemoveButtons();
+
+        // Обновляем состояние кнопки "Добавить"
+        if (currentCount + 1 >= MAX_BOOKS) {
+            if (addBookBtn) {
+                addBookBtn.disabled = true;
+            }
+        }
+
+        // Убираем анимацию
+        setTimeout(function () {
+            row.classList.remove("books-table__row--adding");
+        }, 300);
+    }
+
+    // Функция удаления строки
+    function removeBookRow(button) {
+        const row = button.closest(".books-table__row");
+        const rows = booksTableBody.querySelectorAll(".books-table__row");
+
+        // Не удаляем последнюю строку
+        if (rows.length <= 1) {
+            return;
+        }
+
+        // Анимация удаления
+        row.classList.add("books-table__row--removing");
+
+        setTimeout(function () {
+            row.remove();
+            updateRowNumbers();
+            updatePrice();
+            updateRemoveButtons();
+
+            // Включаем кнопку "Добавить" если нужно
+            const currentRows =
+                booksTableBody.querySelectorAll(".books-table__row");
+            if (currentRows.length < MAX_BOOKS) {
+                if (addBookBtn) {
+                    addBookBtn.disabled = false;
+                }
+            }
+        }, 300);
+    }
+
+    // Функция обновления нумерации
+    function updateRowNumbers() {
+        const rows = booksTableBody.querySelectorAll(".books-table__row");
+        rows.forEach(function (row, index) {
+            const numberCol = row.querySelector(".books-table__col--number");
+            if (numberCol) {
+                numberCol.textContent = index + 1;
+            }
+            row.dataset.rowIndex = index;
+        });
+    }
+
+    // Функция обновления кнопок удаления
+    function updateRemoveButtons() {
+        const rows = booksTableBody.querySelectorAll(".books-table__row");
+        const removeBtns = booksTableBody.querySelectorAll(
+            ".books-table__remove-btn",
+        );
+
+        removeBtns.forEach(function (btn, index) {
+            if (rows.length <= 1) {
+                btn.style.display = "none";
+            } else {
+                btn.style.display = "flex";
+            }
+        });
+    }
+
+    // ============================================
+    // СОБЫТИЯ
+    // ============================================
+
+    // Добавление книги
+    if (addBookBtn) {
+        addBookBtn.addEventListener("click", addBookRow);
+    }
+
+    // Удаление книги (делегирование событий)
+    if (booksTableBody) {
+        booksTableBody.addEventListener("click", function (e) {
+            const removeBtn = e.target.closest(".books-table__remove-btn");
+            if (removeBtn) {
+                removeBookRow(removeBtn);
+            }
+        });
+    }
+
+    // Валидация полей книги при вводе
+    if (booksTableBody) {
+        booksTableBody.addEventListener("input", function (e) {
+            const input = e.target.closest(".books-table__input");
+            if (input) {
+                // Проверяем обязательные поля
+                const isAuthor = input.name === "book_author[]";
+                const isTitle = input.name === "book_title[]";
+
+                if (isAuthor || isTitle) {
+                    const errorSpan = input
+                        .closest(".books-table__col")
+                        .querySelector(".field__error");
+                    if (input.value.trim()) {
+                        input.classList.remove("is-invalid");
+                        if (errorSpan) {
+                            errorSpan.textContent = "";
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    // ============================================
+    // ДОПОЛНИТЕЛЬНАЯ ВАЛИДАЦИЯ ДЛЯ ТАБЛИЦЫ
+    // ============================================
+
+    // Проверка перед отправкой формы
+    const form = document.querySelector("#form_3 form");
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            const rows = booksTableBody.querySelectorAll(".books-table__row");
+            let hasErrors = false;
+
+            rows.forEach(function (row, index) {
+                const authorInput = row.querySelector(
+                    'input[name="book_author[]"]',
+                );
+                const titleInput = row.querySelector(
+                    'input[name="book_title[]"]',
+                );
+
+                // Проверяем автора
+                if (authorInput && !authorInput.value.trim()) {
+                    authorInput.classList.add("is-invalid");
+                    const errorSpan = authorInput
+                        .closest(".books-table__col")
+                        .querySelector(".field__error");
+                    if (errorSpan) {
+                        errorSpan.textContent = "Введите автора";
+                    }
+                    hasErrors = true;
+                }
+
+                // Проверяем заглавие
+                if (titleInput && !titleInput.value.trim()) {
+                    titleInput.classList.add("is-invalid");
+                    const errorSpan = titleInput
+                        .closest(".books-table__col")
+                        .querySelector(".field__error");
+                    if (errorSpan) {
+                        errorSpan.textContent = "Введите заглавие";
+                    }
+                    hasErrors = true;
+                }
+            });
+
+            if (hasErrors) {
+                e.preventDefault();
+                // Прокручиваем к таблице
+                const booksTable = document.querySelector(".books-table");
+                if (booksTable) {
+                    setTimeout(function () {
+                        const headerOffset = 100;
+                        const elementPosition =
+                            booksTable.getBoundingClientRect().top;
+                        const offsetPosition =
+                            elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth",
+                        });
+                    }, 100);
+                }
+            }
+        });
+    }
+
+    // --- 2. ВАЛИДАЦИЯ ГОДА ИЗДАНИЯ ---
+    document
+        .querySelectorAll('input[name="book_year[]"]')
+        .forEach(function (input) {
+            input.addEventListener("input", function () {
+                this.value = this.value.replace(/\D/g, "");
+                if (this.value.length > 4)
+                    this.value = this.value.substring(0, 4);
+
+                const val = parseInt(this.value);
+                this.classList.remove("is-valid", "is-invalid");
+
+                if (this.value && !isNaN(val)) {
+                    if (val >= 1 && val <= 2050) {
+                        this.classList.add("is-valid");
+                    } else {
+                        this.classList.add("is-invalid");
+                    }
+                }
+            });
+        });
+
+    // --- 2. ВАЛИДАЦИЯ ТОМА ИЗДАНИЯ ---
+    document
+        .querySelectorAll('input[name="book_volume[]"]')
+        .forEach(function (input) {
+            input.addEventListener("input", function () {
+                this.value = this.value.replace(/\D/g, "");
+                if (this.value.length > 3)
+                    this.value = this.value.substring(0, 3);
+
+                const val = parseInt(this.value);
+                this.classList.remove("is-valid", "is-invalid");
+
+                if (this.value && !isNaN(val)) {
+                    if (val >= 1 && val <= 100) {
+                        this.classList.add("is-valid");
+                    } else {
+                        this.classList.add("is-invalid");
+                    }
+                }
+            });
+        });
+
+    // Инициализация
+    updatePrice();
+    updateRemoveButtons();
+
+    // console.log("✅ Таблица книг инициализирована");
 });

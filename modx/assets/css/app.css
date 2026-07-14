@@ -13,6 +13,8 @@
 ================================*/
 :root {
   --primary: #feba8b;
+  --primary-darken-2: rgb(253.9128205128, 179.9846153846, 128.8871794872);
+  --primary-darken-3: rgb(253.8692307692, 176.9769230769, 123.8307692308);
   --primary-darken-5: rgb(253.7820512821, 170.9615384615, 113.7179487179);
   --primary-darken-7: rgb(253.6948717949, 164.9461538462, 103.6051282051);
   --primary-darken-8: rgb(253.6512820513, 161.9384615385, 98.5487179487);
@@ -33,6 +35,8 @@
   --primary-lighten-70: hsl(24.5217391304, 98.2905982906%, 147.0588235294%);
   --primary-lighten-85: hsl(24.5217391304, 98.2905982906%, 162.0588235294%);
   --secondary: #830800;
+  --secondary-darken-2: rgb(120.8, 7.3770992366, 0);
+  --secondary-darken-3: rgb(115.7, 7.065648855, 0);
   --secondary-darken-5: rgb(105.5, 6.4427480916, 0);
   --secondary-darken-7: rgb(95.3, 5.8198473282, 0);
   --secondary-darken-8: rgb(90.2, 5.5083969466, 0);
@@ -53,6 +57,8 @@
   --secondary-lighten-70: rgb(255, 234.3435114504, 233);
   --secondary-lighten-85: hsl(3.6641221374, 100%, 110.6862745098%);
   --secondary-num: rgb(131, 8, 0);
+  --secondary-num-darken-2: rgb(120.8, 7.3770992366, 0);
+  --secondary-num-darken-3: rgb(115.7, 7.065648855, 0);
   --secondary-num-darken-5: rgb(105.5, 6.4427480916, 0);
   --secondary-num-darken-7: rgb(95.3, 5.8198473282, 0);
   --secondary-num-darken-8: rgb(90.2, 5.5083969466, 0);
@@ -73,6 +79,8 @@
   --secondary-num-lighten-70: rgb(255, 234.3435114504, 233);
   --secondary-num-lighten-85: hsl(3.6641221374, 100%, 110.6862745098%);
   --third: #000;
+  --third-darken-2: hsl(0, 0%, -2%);
+  --third-darken-3: hsl(0, 0%, -3%);
   --third-darken-5: hsl(0, 0%, -5%);
   --third-darken-7: hsl(0, 0%, -7%);
   --third-darken-8: hsl(0, 0%, -8%);
@@ -93,6 +101,8 @@
   --third-lighten-70: rgb(178.5, 178.5, 178.5);
   --third-lighten-85: rgb(216.75, 216.75, 216.75);
   --fourth: #fff;
+  --fourth-darken-2: rgb(249.9, 249.9, 249.9);
+  --fourth-darken-3: rgb(247.35, 247.35, 247.35);
   --fourth-darken-5: rgb(242.25, 242.25, 242.25);
   --fourth-darken-7: rgb(237.15, 237.15, 237.15);
   --fourth-darken-8: rgb(234.6, 234.6, 234.6);
@@ -113,6 +123,8 @@
   --fourth-lighten-70: hsl(0, 0%, 170%);
   --fourth-lighten-85: hsl(0, 0%, 185%);
   --five: #0099cc;
+  --five-darken-2: rgb(0, 145.35, 193.8);
+  --five-darken-3: rgb(0, 141.525, 188.7);
   --five-darken-5: rgb(0, 133.875, 178.5);
   --five-darken-7: rgb(0, 126.225, 168.3);
   --five-darken-8: rgb(0, 122.4, 163.2);
@@ -133,6 +145,8 @@
   --five-lighten-70: hsl(195, 100%, 110%);
   --five-lighten-85: hsl(195, 100%, 125%);
   --six: #b60b00;
+  --six-darken-2: rgb(171.8, 10.3835164835, 0);
+  --six-darken-3: rgb(166.7, 10.0752747253, 0);
   --six-darken-5: rgb(156.5, 9.4587912088, 0);
   --six-darken-7: rgb(146.3, 8.8423076923, 0);
   --six-darken-8: rgb(141.2, 8.5340659341, 0);
@@ -153,6 +167,8 @@
   --six-lighten-70: hsl(3.6263736264, 100%, 105.6862745098%);
   --six-lighten-85: hsl(3.6263736264, 100%, 120.6862745098%);
   --CWcolor: #0099cc;
+  --CWcolor-darken-2: rgb(0, 145.35, 193.8);
+  --CWcolor-darken-3: rgb(0, 141.525, 188.7);
   --CWcolor-darken-5: rgb(0, 133.875, 178.5);
   --CWcolor-darken-7: rgb(0, 126.225, 168.3);
   --CWcolor-darken-8: rgb(0, 122.4, 163.2);
@@ -173,6 +189,8 @@
   --CWcolor-lighten-70: hsl(195, 100%, 110%);
   --CWcolor-lighten-85: hsl(195, 100%, 125%);
   --YBcolor: #ffcc33;
+  --YBcolor-darken-2: rgb(255, 201.45, 40.8);
+  --YBcolor-darken-3: rgb(255, 200.175, 35.7);
   --YBcolor-darken-5: rgb(255, 197.625, 25.5);
   --YBcolor-darken-7: rgb(255, 195.075, 15.3);
   --YBcolor-darken-8: rgb(255, 193.8, 10.2);
@@ -1830,5 +1848,305 @@ textarea {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+.books-table {
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.books-table__header {
+  display: grid;
+  grid-template-columns: 40px 1fr 1.5fr 80px 100px 70px 40px;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--primary-darken-2);
+  border-bottom: var(--border-thin) solid var(--primary-lighten-5);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--third);
+}
+.books-table__header-col {
+  display: flex;
+  align-items: center;
+}
+.books-table__header-col--number {
+  justify-content: center;
+}
+.books-table__header-col--actions {
+  justify-content: center;
+}
+.books-table__body {
+  overflow-y: auto;
+}
+.books-table__row {
+  display: grid;
+  grid-template-columns: 40px 1fr 1.5fr 80px 100px 70px 40px;
+  gap: 8px;
+  padding: 6px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+  transition: background 0.2s ease;
+  background: var(--primary-lighten-5);
+}
+.books-table__row:hover {
+  background: var(--primary-lighten-2);
+}
+.books-table__row:last-child {
+  border-bottom: none;
+}
+.books-table__col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.books-table__col--number {
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  color: var(--third);
+  font-size: 14px;
+}
+.books-table__col--actions {
+  justify-content: center;
+  align-items: center;
+}
+.books-table__input {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border: 1px solid #d7dbe5;
+  border-radius: 4px;
+  color: #2d3036;
+  font-size: 14px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 24px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  background: #ffffff;
+}
+.books-table__input::placeholder {
+  color: #d7dbe5;
+  font-size: 14px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 24px;
+}
+.books-table__input:hover {
+  border-color: #2d3036;
+}
+.books-table__input:focus {
+  border-color: #2d3036;
+  box-shadow: none;
+}
+.books-table__input.is-invalid {
+  border: 1px solid #fd6a6a !important;
+}
+.books-table__input.is-invalid:focus {
+  border: 1px solid #fd6a6a;
+  box-shadow: 0 0 10px rgba(253, 106, 106, 0.3) !important;
+}
+.books-table__input.is-valid {
+  border-color: #28a745;
+}
+.books-table__input.is-valid:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 10px rgba(40, 167, 69, 0.3);
+}
+.books-table__remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--third);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.books-table__remove-btn:hover {
+  background: #fd6a6a;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+.books-table__remove-btn:active {
+  transform: scale(0.95);
+}
+.books-table__remove-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+.books-table__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.books-table__add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2d3036;
+  background: var(--primary-darken-2);
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+.books-table__add-btn:hover {
+  background: var(--primary-darken-5);
+}
+.books-table__add-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.books-table__add-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+.books-table__max-warning {
+  font-size: 14px;
+  color: #fd6a6a;
+  font-weight: 500;
+}
+.books-table .field__error {
+  margin-top: 2px;
+  color: #fd6a6a;
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 16px;
+  min-height: 18px;
+}
+.books-table .field__error:empty {
+  display: none;
+}
+.books-table .field-required {
+  position: relative;
+}
+.books-table .field-required::after {
+  content: "*";
+  color: #fd6a6a;
+  margin-left: 4px;
+}
+
+@keyframes rowSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes rowSlideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 60px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    overflow: hidden;
+  }
+}
+.books-table__row--adding {
+  animation: rowSlideIn 0.3s ease;
+}
+.books-table__row--removing {
+  animation: rowSlideOut 0.3s ease forwards;
+}
+
+@media (max-width: 768px) {
+  .books-table__header {
+    display: none;
+  }
+  .books-table__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 12px;
+    border-bottom: 2px solid #d7dbe5;
+    position: relative;
+  }
+  .books-table__row:last-child {
+    border-bottom: none;
+  }
+  .books-table__col {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .books-table__col--number {
+    flex: 0 0 auto;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 12px;
+    color: #adb5bd;
+    background: #f8f9fa;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+  .books-table__col--author {
+    flex: 1 1 calc(50% - 4px);
+  }
+  .books-table__col--title {
+    flex: 1 1 100%;
+  }
+  .books-table__col--year {
+    flex: 1 1 calc(33% - 4px);
+  }
+  .books-table__col--place {
+    flex: 1 1 calc(33% - 4px);
+  }
+  .books-table__col--volume {
+    flex: 1 1 calc(33% - 4px);
+  }
+  .books-table__col--actions {
+    flex: 0 0 auto;
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+  }
+  .books-table__input {
+    font-size: 14px;
+    padding: 8px 10px;
+    height: 38px;
+  }
+  .books-table__footer {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .books-table__add-btn {
+    flex: 1 1 auto;
+    justify-content: center;
   }
 }

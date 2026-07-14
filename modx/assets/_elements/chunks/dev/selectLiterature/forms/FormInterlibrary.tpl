@@ -7,6 +7,7 @@
     <h2 class="form-payment__title simple-title">Заявка на межбиблиотечный абонемент</h2>
 
     <form class="form form-payment--loading"
+        id="formInterlibrary"
         action="[[~[[*id]]]]"
         method="post"
         data-formit-ajax-token="{$_modx->getPlaceholder('fi.ajaxToken')}"
@@ -62,65 +63,68 @@
                 </span>
             </div>
 
-            {* 4. Автор *}
-            {set $field = 'author'}
-            <div class="field">
-                <label class="field__label" for="{$field}">Автор *</label>
-                <input class="field__input {$_modx->getPlaceholder("fi.error.{$field}" ) ? 'is-invalid' : '' }"
-                    name="{$field}" type="text" id="{$field}" placeholder="Автор" autocomplete="off"
-                    autocorrect="off" spellcheck="false" value="{$_modx->getPlaceholder("fi.{$field}" )}">
-                <span data-formit-error="{$field}" class="field__error">
-                    {$_modx->getPlaceholder("fi.error.{$field}")}
-                </span>
+            {* ============================================
+                ТАБЛИЦА КНИГ
+            ============================================ *}
+            <div class="books-table">
+                <div class="books-table__header">
+                    <span class="books-table__col books-table__col--number">№</span>
+                    <span class="books-table__col books-table__col--author">Автор *</span>
+                    <span class="books-table__col books-table__col--title">Заглавие *</span>
+                    <span class="books-table__col books-table__col--year">Год</span>
+                    <span class="books-table__col books-table__col--place">Место</span>
+                    <span class="books-table__col books-table__col--volume">Том</span>
+                    <span class="books-table__col books-table__col--actions"></span>
+                </div>
+
+                <div class="books-table__body" id="booksTableBody">
+                    {* Первая строка по умолчанию *}
+                    <div class="books-table__row" data-row-index="0">
+                        <span class="books-table__col books-table__col--number">1</span>
+                        <div class="books-table__col books-table__col--author">
+                            <input type="text" name="book_author[]" class="books-table__input" placeholder="Автор" data-error="book_author_0">
+                            <span class="field__error" data-formit-error="book_author_0"></span>
+                        </div>
+                        <div class="books-table__col books-table__col--title">
+                            <input type="text" name="book_title[]" class="books-table__input" placeholder="Заглавие" data-error="book_title_0">
+                            <span class="field__error" data-formit-error="book_title_0"></span>
+                        </div>
+                        <div class="books-table__col books-table__col--year">
+                            <input type="text" name="book_year[]" class="books-table__input" placeholder="Год">
+                        </div>
+                        <div class="books-table__col books-table__col--place">
+                            <input type="text" name="book_place[]" class="books-table__input" placeholder="Место">
+                        </div>
+                        <div class="books-table__col books-table__col--volume">
+                            <input type="text" name="book_volume[]" class="books-table__input" placeholder="Том">
+                        </div>
+                        <div class="books-table__col books-table__col--actions">
+                            <button type="button" class="books-table__remove-btn" data-row-index="0" style="display:none;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"/>
+                                    <line x1="6" y1="6" x2="18" y2="18"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="books-table__footer">
+                    <button type="button" class="btn btn--secondary books-table__add-btn" id="addBookBtn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        Добавить книгу
+                    </button>
+                    <span class="books-table__max-warning" id="maxBooksWarning" style="display:none;">
+                        ⚠️ Максимум 10 книг
+                    </span>
+                </div>
             </div>
 
-            {* 5. Заглавие *}
-            {set $field = 'title'}
-            <div class="field">
-                <label class="field__label" for="{$field}">Заглавие *</label>
-                <input class="field__input {$_modx->getPlaceholder("fi.error.{$field}" ) ? 'is-invalid' : '' }"
-                    name="{$field}" type="text" id="{$field}" placeholder="Заглавие" autocomplete="off"
-                    autocorrect="off" spellcheck="false" value="{$_modx->getPlaceholder("fi.{$field}" )}">
-                <span data-formit-error="{$field}" class="field__error">
-                    {$_modx->getPlaceholder("fi.error.{$field}")}
-                </span>
-            </div>
-
-            {* 6. Год издания *}
-            {set $field = 'yearPublish'}
-            <div class="field">
-                <label class="field__label" for="{$field}">Год издания</label>
-                <input class="field__input {$_modx->getPlaceholder("fi.error.{$field}" ) ? 'is-invalid' : '' }"
-                    name="{$field}" type="text" id="{$field}" placeholder="Год издания" autocomplete="off"
-                    autocorrect="off" spellcheck="false" value="{$_modx->getPlaceholder("fi.{$field}" )}">
-                <span data-formit-error="{$field}" class="field__error">
-                    {$_modx->getPlaceholder("fi.error.{$field}")}
-                </span>
-            </div>
-
-            {* 7. Место издания *}
-            {set $field = 'placePublish'}
-            <div class="field">
-                <label class="field__label" for="{$field}">Место издания</label>
-                <input class="field__input {$_modx->getPlaceholder("fi.error.{$field}" ) ? 'is-invalid' : '' }"
-                    name="{$field}" type="text" id="{$field}" placeholder="Место издания" autocomplete="off"
-                    autocorrect="off" spellcheck="false" value="{$_modx->getPlaceholder("fi.{$field}" )}">
-                <span data-formit-error="{$field}" class="field__error">
-                    {$_modx->getPlaceholder("fi.error.{$field}")}
-                </span>
-            </div>
-
-            {* 8. Том (для многотомных изданий) *}
-            {set $field = 'numberBook'}
-            <div class="field">
-                <label class="field__label" for="{$field}">Том (для многотомных изданий)</label>
-                <input class="field__input {$_modx->getPlaceholder("fi.error.{$field}" ) ? 'is-invalid' : '' }"
-                    name="{$field}" type="text" id="{$field}" placeholder="Том (для многотомных изданий)" autocomplete="off"
-                    autocorrect="off" spellcheck="false" value="{$_modx->getPlaceholder("fi.{$field}" )}">
-                <span data-formit-error="{$field}" class="field__error">
-                    {$_modx->getPlaceholder("fi.error.{$field}")}
-                </span>
-            </div>
+            {* Скрытое поле для количества книг *}
+            <input type="hidden" name="book_count" id="bookCount" value="1">
 
             {* Филиал для доставки *}
             {set $field = 'numberLibrary'}
@@ -181,31 +185,6 @@
                 </span>
             </div>
 
-            {* 4. Количество источников (слайдер) *}
-            {set $minCount = 1}
-            {set $maxCount = 10}
-            {set $priceCount = 50}
-            {set $need_refs = $_modx->getPlaceholder('fi.need_refs') ?: $minCount}
-
-            <div class="field">
-                <label class="field__label" for="7f3hxdzaic">Количество источников</label>
-                <div class="slider__container field__count">
-                    <div class="slider">
-                        <span class="slider__min">{$minCount}</span>
-                        <label class="slider__input-container">
-                            <input name="need_refs" type="range" min="{$minCount}" max="{$maxCount}" step="1"
-                                class="slider__input" value="{$need_refs}">
-                            <span class="slider__input-track"></span>
-                            <span class="slider__input-progress"
-                                style="width: {($need_refs - $minCount) / ($maxCount - $minCount) * 100}%;"></span>
-                        </label>
-                        <span class="slider__max">{$maxCount}</span>
-                    </div>
-                    <input id="7f3hxdzaic" name="need_refs_display" type="text" class="slider__current"
-                        value="{$need_refs}">
-                </div>
-            </div>
-
             {* Email *}
             {set $field = 'email'}
             <div class="field">
@@ -232,19 +211,23 @@
                     <span class="price-label">Стоимость:</span>
                     <span>
                         <span class="price-value" id="priceValue">
-                            {$priceCount * $need_refs}&nbsp;₽
+                            50 ₽
                         </span>
                         <span class="price-helper-wrapper">
                             <span class="price-helper" role="button" aria-label="Информация о стоимости">?</span>
                             <div class="price-helper-tooltip">
                                 <div class="tooltip-content">
                                     <div class="tooltip">
-                                        <span class="tooltip__label">Количество источников:</span>
-                                        <span id="tooltipRefs" class="tooltip__value">{$need_refs}</span>
+                                        <span class="tooltip__label">Количество книг:</span>
+                                        <span id="tooltipBooks" class="tooltip__value">1</span>
                                     </div>
                                     <div class="tooltip">
-                                        <span class="tooltip__label">Цена за источник:</span>
-                                        <span id="tooltipPricePerSource" class="tooltip__value">{$priceCount} ₽</span>
+                                        <span class="tooltip__label">Цена за книгу:</span>
+                                        <span id="tooltipPricePerBook" class="tooltip__value">50 ₽</span>
+                                    </div>
+                                    <div class="tooltip tooltip--total">
+                                        <span class="tooltip__label">Итого:</span>
+                                        <span id="tooltipTotal" class="tooltip__value">50 ₽</span>
                                     </div>
                                 </div>
                             </div>

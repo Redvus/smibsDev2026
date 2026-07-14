@@ -7,6 +7,7 @@
     <h2 class="form-payment__title simple-title">Заявка на составление<br>библиографического списка литературы</h2>
 
     <form class="form form-payment--loading"
+        id="formBiblioList"
         action="[[~[[*id]]]]"
         method="post"
         data-formit-ajax-token="{$_modx->getPlaceholder('fi.ajaxToken')}"
