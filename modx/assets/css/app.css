@@ -1883,9 +1883,8 @@ textarea {
   display: grid;
   grid-template-columns: 40px 1fr 1.5fr 80px 100px 70px 40px;
   gap: 8px;
-  padding: 6px 12px;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid #f0f0f0;
-  align-items: center;
   transition: background 0.2s ease;
   background: var(--primary-lighten-5);
 }
