@@ -7,20 +7,20 @@
     <div class="chat-messages" id="chat-messages">
         <div class="message bot">
             <div class="message-content">
-                Здравствуйте! Я помогу вам разработать мероприятие или проверить его качество. Выберите режим работы:
+                Я помогу оценить готовность вашего мероприятия. При ответе на мои вопросы нажимайте на кнопки «да» или «нет». Если вы что-то упустили, я дам совет, как доработать этот пункт. Начнём.
             </div>
         </div>
     </div>
 
     <div class="chat-input-area">
         <div class="mode-selector" id="mode-selector">
-            <button onclick="startChat('planner')" class="mode-btn" id="plannerButton">
+            <button onclick="startChat('planner')" class="mode-btn" id="plannerButton" style="display: none; visibility: hidden;">
                 📝 Планировщик
             </button>
             <button onclick="startChat('expert')" class="mode-btn" id="expertButton">
                 ⭐ Эксперт
             </button>
-            <button onclick="startChat('constructor')" class="mode-btn" id="constructorButton">
+            <button onclick="startChat('constructor')" class="mode-btn" id="constructorButton" style="display: none; visibility: hidden;">
                 🛠 Конструктор
             </button>
         </div>
