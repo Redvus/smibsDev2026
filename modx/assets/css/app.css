@@ -1,9 +1,10 @@
 /* Error: Can't find stylesheet to import.
- *    ,
- * 46 | @use "chatbot";
- *    | ^^^^^^^^^^^^^^
- *    '
- *   src/scss/main.scss 46:1  root stylesheet */
+ *   ,
+ * 3 | @use "./fonts/fontawesome-free-7.0.0-web/scss/fontawesome.scss";
+ *   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ *   '
+ *   src/scss/_fonts.scss 3:1  @use
+ *   src/scss/main.scss 9:1    root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +14,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a    \2577 \a 46 \2502  @use \"chatbot\";\a    \2502  ^^^^^^^^^^^^^^\a    \2575 \a   src/scss/main.scss 46:1  root stylesheet";
+  content: "Error: Can't find stylesheet to import.\a   \2577 \a 3 \2502  @use \"./fonts/fontawesome-free-7.0.0-web/scss/fontawesome.scss\";\a   \2502  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   src/scss/_fonts.scss 3:1  @use\a   src/scss/main.scss 9:1    root stylesheet";
 }

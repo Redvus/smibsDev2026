@@ -22,6 +22,15 @@ function startChat(mode) {
 
             if (data.success) {
                 currentSessionId = data.data.sessionId;
+
+                // ✅ Добавляем приветствие для режима "Эксперт"
+                if (mode === "expert") {
+                    addMessage(
+                        "bot",
+                        "Я помогу оценить готовность вашего мероприятия. При ответе на мои вопросы нажимайте на кнопки «да» или «нет». Если вы что-то упустили, я дам совет, как доработать этот пункт. Начнём.",
+                    );
+                }
+
                 showQuestion(data.data.question);
                 document.getElementById("mode-selector").style.display = "none";
                 document.getElementById("input-area").style.display = "block";
@@ -39,6 +48,7 @@ function showQuestion(question) {
     const optionsContainer = document.getElementById("options-container");
     const userInput = document.getElementById("user-input");
     const textarea = document.getElementById("user-textarea");
+    const sendBtn = document.querySelector(".send-btn");
 
     currentQuestionId = question.id;
     questionText.innerHTML = "<strong>" + question.text + "</strong>";
@@ -48,8 +58,12 @@ function showQuestion(question) {
     optionsContainer.innerHTML = "";
     if (userInput) userInput.style.display = "none";
     if (textarea) textarea.style.display = "none";
+    // ✅ Скрываем кнопку "Отправить" по умолчанию
+    if (sendBtn) sendBtn.style.display = "none";
 
     if (question.type === "options" && question.options) {
+        // if (sendBtn) sendBtn.style.display = "inline-block";
+
         // Обычные кнопки-варианты
         question.options.forEach((opt) => {
             const btn = document.createElement("button");
@@ -66,6 +80,8 @@ function showQuestion(question) {
             optionsContainer.appendChild(btn);
         });
     } else if (question.type === "multiple" && question.options) {
+        // if (sendBtn) sendBtn.style.display = "inline-block";
+
         // Multiple choice с чекбоксами
         const selectedValues = [];
 
@@ -109,6 +125,8 @@ function showQuestion(question) {
         };
         optionsContainer.appendChild(doneBtn);
     } else if (question.type === "textarea") {
+        if (sendBtn) sendBtn.style.display = "inline-block";
+
         if (textarea) {
             textarea.style.display = "block";
             textarea.value = "";
@@ -143,6 +161,8 @@ function showQuestion(question) {
         question.type === "boolean" ||
         question.type === "boolean_with_na"
     ) {
+        if (sendBtn) sendBtn.style.display = "none";
+
         // Кнопки ДА/НЕТ (и возможно НЕ ТРЕБУЕТСЯ)
         optionsContainer.innerHTML = "";
         userInput.style.display = "none";
@@ -176,6 +196,8 @@ function showQuestion(question) {
             optionsContainer.appendChild(naBtn);
         }
     } else {
+        if (sendBtn) sendBtn.style.display = "inline-block";
+
         // Обычное текстовое поле
         if (userInput) {
             userInput.style.display = "block";
@@ -629,6 +651,10 @@ function copyToClipboard() {
 }
 
 function addMessage(sender, text) {
+    if (typeof text === "string") {
+        text = text.replace(/\n/g, "<br>"); // ← Здесь происходит магия
+    }
+
     const messagesDiv = document.getElementById("chat-messages");
     const messageDiv = document.createElement("div");
     messageDiv.className = "message " + sender;
