@@ -14,13 +14,13 @@
 
     <div class="chat-input-area">
         <div class="mode-selector" id="mode-selector">
-            <button onclick="startChat('planner')" class="mode-btn">
+            <button onclick="startChat('planner')" class="mode-btn" id="plannerButton">
                 📝 Планировщик
             </button>
-            <button onclick="startChat('expert')" class="mode-btn">
+            <button onclick="startChat('expert')" class="mode-btn" id="expertButton">
                 ⭐ Эксперт
             </button>
-            <button onclick="startChat('constructor')" class="mode-btn">
+            <button onclick="startChat('constructor')" class="mode-btn" id="constructorButton">
                 🛠 Конструктор
             </button>
         </div>

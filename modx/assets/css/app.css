@@ -791,6 +791,12 @@ textarea {
   line-height: 1.4;
 }
 
+#plannerButton,
+#constructorButton {
+  display: none;
+  visibility: hidden;
+}
+
 :root {
   --sliderSize: 2rem;
 }

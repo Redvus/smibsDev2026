@@ -258,7 +258,7 @@ function sendAnswer() {
         if (currentQuestionObject.advice) {
             addMessage(
                 "bot",
-                "💡 **Совет по доработке:**\n\n" + currentQuestionObject.advice,
+                "💡 Совет по доработке:\n\n" + currentQuestionObject.advice,
             );
         }
     }
