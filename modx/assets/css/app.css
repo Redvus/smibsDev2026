@@ -568,6 +568,17 @@ select {
   border-radius: 15px;
   line-height: 1.4;
 }
+.message-content ul {
+  padding-left: 2rem;
+}
+.message-content ul li {
+  list-style: disc;
+  margin-left: -1rem;
+  margin-bottom: 0.2rem;
+}
+.message-content br {
+  display: none;
+}
 
 .chat-input-area {
   padding: 15px;

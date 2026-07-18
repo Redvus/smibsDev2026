@@ -169,7 +169,7 @@ function showQuestion(question) {
 
         const yesBtn = document.createElement("button");
         yesBtn.className = "option-btn yes-btn";
-        yesBtn.textContent = "✅ Да";
+        yesBtn.textContent = "Да";
         yesBtn.onclick = () => {
             optionsContainer.innerHTML = "";
             selectOption("true", "Да");
@@ -178,7 +178,7 @@ function showQuestion(question) {
 
         const noBtn = document.createElement("button");
         noBtn.className = "option-btn no-btn";
-        noBtn.textContent = "❌ Нет";
+        noBtn.textContent = "Нет";
         noBtn.onclick = () => {
             optionsContainer.innerHTML = "";
             selectOption("false", "Нет");
