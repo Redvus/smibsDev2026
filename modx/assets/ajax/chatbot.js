@@ -188,7 +188,7 @@ function showQuestion(question) {
         if (question.type === "boolean_with_na") {
             const naBtn = document.createElement("button");
             naBtn.className = "option-btn na-btn";
-            naBtn.textContent = "➖ Не требуется";
+            naBtn.textContent = "Не требуется";
             naBtn.onclick = () => {
                 optionsContainer.innerHTML = "";
                 selectOption("na", "Не требуется");
