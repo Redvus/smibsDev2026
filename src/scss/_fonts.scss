@@ -1,50 +1,56 @@
+@use 'breakpoints' as bp;
 @use "sass:color";
-@use "breakpoints" as bp;
-// @use "./fonts/fontawesome-free-7.0.0-web/scss/fontawesome.scss";
-// @use "./fonts/fontawesome-free-7.0.0-web/scss/brands.scss";
-// @use "./fonts/fontawesome-free-7.0.0-web/scss/solid.scss";
+@use "../fonts/fontawesome-free-7.0.0-web/scss/fontawesome.scss";
+@use "../fonts/fontawesome-free-7.0.0-web/scss/brands.scss";
+@use "../fonts/fontawesome-free-7.0.0-web/scss/solid.scss";
 
 /*=============================
 =            Fonts            =
 =============================*/
+@font-face {
+    font-family: 'Stolzl-Thin';
+    src: local('Stolzl-Thin'), url('./stolzl_thin/stolzl_thin.woff2') format('woff2-variations');
+    src: local('Stolzl-Thin'), url('./stolzl_thin/stolzl_thin.woff2') format('woff2') tech('variations');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
 
-@import url("https://fonts.googleapis.com/css?family=PT+Mono&subset=cyrillic");
-// @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-// @import url('https://use.fontawesome.com/releases/v5.10.0/css/all.css');
-@import url("https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&subset=cyrillic");
-// @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-//
-//$primary-font      : Helvetica, serif;
-//$heading-font      : 'Oswald', sans-serif;
-//$heading-font-light: 'Oswald', sans-serif;
-//
-//$fa-font-path: 'webfonts/';
-//
-//$body-font-color: var(--primary-lighten-10);
-//
-//$body-font-size     : 1rem !default;
-//$body-font-weight   : normal !default;
-//$body-line-height   : 1.4 !default;
-//$heading-line-height: 1 !default;
-//
-//$heading-font-modular : 1rem !default;
-//
-//// $bourbon: (
-//// 	"modular-scale-base": $heading-font-modular,
-//// 	"modular-scale-ratio": $major-second //$major-second
-//// );
-//
-//$font-size-base:    $body-font-size !default;
-//$font-size-large:   $font-size-base + 0.2 !default; // ~18px
-//$font-size-small:   $font-size-base - 0.2 !default; // ~14px
-//
-//$font-size-h1:      calc(1rem + 1.1vmax) !default; // ~3rem 48px modular-scale(6)
-//$font-size-h2:      calc(1rem + 0.9vmax) !default; // ~2.5rem 40px modular-scale(5)
-//$font-size-h3:      calc(1rem + 0.7vmax) !default; // ~2rem 33px
-//$font-size-h4:      calc(1rem + 0.15vmax) !default; // ~1.728rem 28px
-//$font-size-h5:      calc(1rem + 0.13vmax) !default; // ~1.44rem 23px
-//$font-size-h6:      calc(1rem + 0.1vmax) !default; // ~1.2rem 19px
-/*=====  End of Fonts  ======*/
+@font-face {
+    font-family: 'Stolzl-Light';
+    src: local('Stolzl-Light'), url('./stolzl_light/stolzl_light.woff2') format('woff2-variations');
+    src: local('Stolzl-Light'), url('./stolzl_light/stolzl_light.woff2') format('woff2') tech('variations');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stolzl-Book';
+    src: local('Stolzl-Book'), url('./stolzl_book/stolzl_book.woff2') format('woff2-variations');
+    src: local('Stolzl-Book'), url('./stolzl_book/stolzl_book.woff2') format('woff2') tech('variations');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stolzl-Regular';
+    src: local('Stolzl-Regular'), url('./stolzl_regular/stolzl_regular.woff2') format('woff2-variations');
+    src: local('Stolzl-Regular'), url('./stolzl_regular/stolzl_regular.woff2') format('woff2') tech('variations');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Stolzl-Medium';
+    src: local('Stolzl-Medium'), url('./stolzl_medium/stolzl_medium.woff2') format('woff2-variations');
+    src: local('Stolzl-Medium'), url('./stolzl_medium/stolzl_medium.woff2') format('woff2') tech('variations');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
 
 // Weight axis (typically 100-900)
 $font-weight-thin: 100;
@@ -59,12 +65,12 @@ $font-width-normal: 100%;
 $font-width-extended: 125%;
 
 :root {
-    --primary-font: Helvetica, serif;
-    --heading-font: "Oswald", sans-serif;
-    --heading-font-light: "Oswald", sans-serif;
+    --primary-font: "Stolzl-Book", sans-serif;
+    --heading-font: "Stolzl-Regular", sans-serif;
+    --heading-font-light: "Stolzl-Light", sans-serif;
 
     --body-font-color: var(--third);
-    --heading-font-color: var(--secondary-lighten-30);
+    --heading-font-color: var(--primary);
 
     --body-font-size: 1rem;
     --body-font-weight: normal;
@@ -74,23 +80,22 @@ $font-width-extended: 125%;
     --font-size-base: var(--body-font-size);
     --font-size-large: calc(var(--font-size-base) + (var(--font-size-base) / 5));
     // --font-size-small:   calc(var(--font-size-base) - (var(--font-size-base) / 5));
-    --font-size-small: 0.7rem;
-    --font-size-small-adaptive: 1.55vmin;
-    --font-size-h1: calc(var(--font-size-base) + 1.3vmax);
-    --font-size-h2: calc(var(--font-size-base) + 0.9vmax);
-    --font-size-h3: calc(var(--font-size-base) + 0.5vmax);
-    --font-size-h4: calc(var(--font-size-base) + 0.2vmax);
-    --font-size-h5: calc(var(--font-size-base) + 0.05vmax);
-    --font-size-h6: calc(var(--font-size-base) + 0.03vmax);
+    --font-size-small: calc(var(--font-size-base) * 0.875);
+    --font-size-h1: calc(var(--font-size-base) + 2vmax);
+    --font-size-h2: calc(var(--font-size-base) + 1.5vmax);
+    --font-size-h3: calc(var(--font-size-base) * 1.4);
+    --font-size-h4: calc(var(--font-size-base) + 0.7vmax);
+    --font-size-h5: calc(var(--font-size-base) + 0.5vmax);
+    --font-size-h6: calc(var(--font-size-base) + 0.3vmax);
 }
 
-@include bp.media-up("XLarge") {
-    :root {
-        --font-size-small: 0.7rem;
-    }
-}
+// @include bp.media-up('XLarge') {
+//     :root {
+//         --font-size-small: 0.7vmax;
+//     }
+// }
 
-@include bp.media-up("Small") {
+@include bp.media-up('Small') {
     :root {
         --font-size-small: 2.5vmin;
     }
@@ -115,11 +120,11 @@ $font-width-extended: 125%;
     @else if $size ==small {
         font-size: var(--font-size-small);
 
-        @include bp.media-up("XLarge") {
+        @include bp.media-up('XLarge') {
             font-weight: $font-weight-medium;
         }
 
-        @include bp.media-up("Large") {
+        @include bp.media-up('Large') {
             font-weight: $font-weight-regular;
             line-height: 1.2;
         }
@@ -133,19 +138,24 @@ $font-width-extended: 125%;
     color: var(--heading-font-color);
     display: block;
     line-height: var(--heading-line-height);
-    margin-top: 0;
-    // margin-bottom: -(var(--border_thin));
+    margin: 0;
 
     @if $size ==h1 {
         font-size: var(--font-size-h1);
+        font-weight: $font-weight-medium;
+        font-stretch: $font-width-normal;
     }
 
     @else if $size ==h2 {
         font-size: var(--font-size-h2);
+        font-weight: $font-weight-regular;
+        font-stretch: $font-width-normal;
     }
 
     @else if $size ==h3 {
         font-size: var(--font-size-h3);
+        font-weight: $font-weight-regular;
+        font-stretch: $font-width-normal;
     }
 
     @else if $size ==h4 {
@@ -163,20 +173,14 @@ $font-width-extended: 125%;
 
 h1 {
     @include hx(h1);
-    font-weight: $font-weight-medium;
-    font-stretch: $font-width-normal;
 }
 
 h2 {
     @include hx(h2);
-    font-weight: $font-weight-regular;
-    font-stretch: $font-width-normal;
 }
 
 h3 {
     @include hx(h3);
-    font-weight: $font-weight-thin;
-    font-stretch: $font-width-extended;
 }
 
 h4 {
@@ -196,12 +200,10 @@ ul {
     padding: 0;
     list-style: none;
 
-    // li {
-
-    //     @include grid-media($Medium) {
-    //         font-size: var(--font-size-large;
-    //     }
-    // }
+    li {
+        margin-left: 1rem;
+        padding-left: -1rem;
+    }
 }
 
 a {

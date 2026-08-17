@@ -1,13 +1,12 @@
 //@use "dev";
 
-// @use "../../node_modules/bourbon/core/bourbon";
-// @use "../../node_modules/sag-bourbon-neat/core/neat";
-//@use "bitters/base";
-
-@use "breakpoints";
-@use "colors";
 @use "fonts";
-@use "all_variables";
+@use "sass:color";
+@use "breakpoints";
+@use "variables";
+// @use "mixins";
+@use "animations";
+@use "base";
 
 // @use "animate";
 // @use "preloader";
@@ -43,7 +42,3 @@
 // @use "magnific";
 // @use "login-reception";
 // @use "permission";
-
-// Dev
-@use "chatbot";
-@use "selectLiterature";

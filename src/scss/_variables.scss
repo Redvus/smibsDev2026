@@ -1,0 +1,100 @@
+@use "sass:color";
+@use "breakpoints" as bp;
+
+// Тени
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+// Анимации
+$transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+// Layout
+:root {
+    --border_thin: 0.07rem;
+    --border_normal: 0.15rem;
+    --border_bold: 0.3rem;
+    --border_heavy: 0.6rem;
+
+    --base-duration: 0.2s;
+    --base-timing: 0.3s;
+
+    --header-height: 8rem;
+    --wrapperPadding: 7vw;
+
+    --marginBase: 1rem;
+
+    --galleryItemHeight: 50vh;
+    --galleryItemTopHeight: 75%;
+
+    --modalWidth: 85vw;
+    --modalTopHeight: 85vh;
+    --modalVideoTopHeight: 60vh;
+    --modalIndex: 1.35;
+    --modalVideoIndex: 1.77;
+    --modalThumbnailsHeight: 8vh;
+    --modalButtonsHeight: calc(var(--marginBase) * 2.5);
+    --modalBorderColor: var(--fourth-darken-30);
+    --modalBorderColorDark: var(--third);
+
+    --modalPadding: 5vmax;
+
+    --headerWaveBorder: 13rem;
+    --headerSocialTop: 9vmax;
+
+    --sectionWidthLeft: 40%;
+    --sectionWidthRight: calc(100% - var(--sectionWidthLeft));
+
+    //News
+    --newsWidthLeft: 45%;
+    --newsWidthRight: calc(100% - var(--sectionWidthLeft));
+
+    //Footer
+    --footerHeight: 5rem;
+    --footerWidthLeft: 30%;
+    --footerWidthRight: calc(100% - var(--footerWidthLeft));
+    --footerHeightTop: 12rem;
+    --footerHeightBottom: 5rem;
+    --footerHeightBlockBottom: 3rem;
+    --footerHeightBanner: 4rem;
+    --footerWidthCircle: 45vw;
+    --footerSizeLogoBack: 75vw;
+
+    --iconSVGSize: 1.1rem;
+
+    @include bp.media-up("XXLarge") {
+        --wrapperPadding: 12vw;
+        --modalPadding: 10vmax;
+
+        // --headerWaveBorder: 15vmax;
+        --headerSocialTop: 8.5vmax;
+    }
+
+    @include bp.media-up("XLarge") {
+        --wrapperPadding: 10vw;
+        --modalPadding: 6vmax;
+
+        // --headerWaveBorder: 13vmax;
+    }
+
+    @include bp.media-up("Large") {
+        --wrapperPadding: 8vw;
+        --modalPadding: 3vmax;
+
+        --headerWaveBorder: 12rem;
+        --headerSocialTop: 9vmax;
+    }
+
+    @include bp.media-up("Medium") {
+        --wrapperPadding: 1rem;
+
+        // --headerWaveBorder: 20vmax;
+    }
+}

@@ -1,6 +1,8 @@
 <head>
     <base href="{$_modx -> config.site_url}">
-    <title>{if $_modx->resource.id == 1}{$_modx -> config.site_name}{else}{$_modx->resource.pagetitle} | {$_modx -> config.site_name}{/if}
+    <title>{if $_modx->resource.id == 1}{$_modx -> config.site_name}
+        {else}{$_modx->resource.pagetitle} |
+        {$_modx -> config.site_name}{/if}
     </title>
     <meta charset="{$_modx -> config.modx_charset}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +35,8 @@
     <link rel="author" href="http://redvus.ru">
     <meta itemprop="title" content="{$_modx->resource.longtitle ?: $_modx->resource.pagetitle}" />
     <meta itemprop="description" content="{$_modx->resource.description}" />
-    [[*tv_image:notempty=`<meta itemprop="image" content="{$_modx -> config.site_url}[[*tv_image]]" />`]]
+    [[*tv_image:notempty=`
+    <meta itemprop="image" content="{$_modx -> config.site_url}[[*tv_image]]" />`]]
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -44,11 +47,13 @@
     {if $_modx->config.vite_dev_mode}
         <script type="module" src="http://localhost:5173/@vite/client"></script>
 
-        {* Старые стили *}
-        <link rel="stylesheet" href="http://localhost:5173/scss/oldSCSS/main_old.scss">
-
         {* Новые стили *}
         <link rel="stylesheet" href="http://localhost:5173/scss/main.scss">
+
+        {* Старые стили *}
+        {if $_modx -> resource.id == 6 || $_modx -> resource.id == 11}
+            <link rel="stylesheet" href="http://localhost:5173/scss/oldSCSS/main_old.scss">
+        {/if}
 
         {* <script type="module" src="http://localhost:5173/js/layoutOld.js"></script> *}
         <script type="module" src="http://localhost:5173/js/main.js"></script>

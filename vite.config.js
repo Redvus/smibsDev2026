@@ -17,6 +17,8 @@ export default defineConfig({
         hmr: {
             host: "localhost",
             port: 5173,
+            strictPort: true, // Добавьте эту опцию
+            origin: "http://localhost:5173", // Явно указываем origin
         },
         port: 5173,
         // Прокси запросов к MODX (чтобы работал API)
@@ -40,6 +42,8 @@ export default defineConfig({
         outDir: path.resolve(__dirname, "modx/assets/build"),
         emptyOutDir: true,
         cssCodeSplit: false,
+        minify: "terser",
+        sourcemap: false,
         rollupOptions: {
             input: {
                 main: path.resolve(__dirname, "src/js/main.js"), // главный JS файл
