@@ -1,8 +1,8 @@
 @use "sass:color";
 
 $colors: (
-    primary: #1b4669,
-    secondary: #1d71b8,
+    primary: #ed4c30,
+    secondary: #818181,
     third: #092330,
     fourth: #ffffff,
     five: #b81918,
@@ -87,8 +87,8 @@ $gradient-accent: linear-gradient(135deg, #000000 0%, #333333 100%);
 
 // Colors
 :root {
-    --layoutBackground: var(--primary);
-    --layoutBackgroundLight: var(--six);
+    --layoutBackground: var(--third);
+    --layoutBackgroundLight: var(--fourth);
     --elementBackground: var(--fourth);
 
     --headerBackgroundLight: var(--fourth);

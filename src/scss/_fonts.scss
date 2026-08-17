@@ -7,53 +7,20 @@
 /*=============================
 =            Fonts            =
 =============================*/
-@font-face {
-    font-family: 'Stolzl-Thin';
-    src: local('Stolzl-Thin'), url('./stolzl_thin/stolzl_thin.woff2') format('woff2-variations');
-    src: local('Stolzl-Thin'), url('./stolzl_thin/stolzl_thin.woff2') format('woff2') tech('variations');
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
-@font-face {
-    font-family: 'Stolzl-Light';
-    src: local('Stolzl-Light'), url('./stolzl_light/stolzl_light.woff2') format('woff2-variations');
-    src: local('Stolzl-Light'), url('./stolzl_light/stolzl_light.woff2') format('woff2') tech('variations');
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Stolzl-Book';
-    src: local('Stolzl-Book'), url('./stolzl_book/stolzl_book.woff2') format('woff2-variations');
-    src: local('Stolzl-Book'), url('./stolzl_book/stolzl_book.woff2') format('woff2') tech('variations');
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Stolzl-Regular';
-    src: local('Stolzl-Regular'), url('./stolzl_regular/stolzl_regular.woff2') format('woff2-variations');
-    src: local('Stolzl-Regular'), url('./stolzl_regular/stolzl_regular.woff2') format('woff2') tech('variations');
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Stolzl-Medium';
-    src: local('Stolzl-Medium'), url('./stolzl_medium/stolzl_medium.woff2') format('woff2-variations');
-    src: local('Stolzl-Medium'), url('./stolzl_medium/stolzl_medium.woff2') format('woff2') tech('variations');
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: 'Manrope';
+//     src: local('Manrope'), url('../fonts/Manrope/Manrope-VariableFont.woff') format('woff2-variations');
+//     src: local('Manrope'), url('../fonts/Manrope/Manrope-VariableFont.woff2') format('woff2') tech('variations');
+//     font-weight: 200 800;
+//     font-optical-sizing: auto;
+//     font-style: normal;
+//     font-display: swap;
+// }
 
 // Weight axis (typically 100-900)
-$font-weight-thin: 100;
+$font-weight-thin: 200;
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
@@ -65,9 +32,9 @@ $font-width-normal: 100%;
 $font-width-extended: 125%;
 
 :root {
-    --primary-font: "Stolzl-Book", sans-serif;
-    --heading-font: "Stolzl-Regular", sans-serif;
-    --heading-font-light: "Stolzl-Light", sans-serif;
+    --primary-font: "Manrope", sans-serif;
+    --heading-font: "Manrope", sans-serif;
+    --heading-font-light: "Manrope", sans-serif;
 
     --body-font-color: var(--third);
     --heading-font-color: var(--primary);
@@ -142,8 +109,8 @@ $font-width-extended: 125%;
 
     @if $size ==h1 {
         font-size: var(--font-size-h1);
-        font-weight: $font-weight-medium;
-        font-stretch: $font-width-normal;
+        font-weight: $font-weight-bold;
+        font-stretch: $font-width-extended;
     }
 
     @else if $size ==h2 {
