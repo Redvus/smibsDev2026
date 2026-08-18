@@ -1,6 +1,30 @@
+{if $_modx->resource.id == 1}
+    <script  type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttonSwitch = document.createElement('div');
+            const wrapper = document.querySelector('.wrapper');
+            const wrapperBack = document.querySelector('#prototypeFront');
 
+            if (wrapper && wrapperBack) {
+                buttonSwitch.style.position = 'fixed';
+                buttonSwitch.style.top = '0';
+                buttonSwitch.style.right = '0';
+                buttonSwitch.style.width = '50px';
+                buttonSwitch.style.height = '50px';
+                buttonSwitch.style.backgroundColor = '#fff';
+                buttonSwitch.style.zIndex = '1000';
+                buttonSwitch.style.cursor = 'pointer';
 
-{if $_modx->resource.id == 11}
+                wrapper.appendChild(buttonSwitch);
+
+                buttonSwitch.addEventListener('click', () => {
+                    wrapperBack.style.opacity = wrapperBack.style.opacity === '0' ? '0.1' : '0';
+                });
+            }
+        });
+    </script>
+
+{elseif $_modx->resource.id == 11}
     <script type="text/javascript">
         const teaserList = document.querySelector('.teaser-list');
         const examples = document.querySelector('.examples');
@@ -25,4 +49,3 @@
 
     {* <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script> *}
 {/if}
-

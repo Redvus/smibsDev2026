@@ -60,14 +60,14 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
     --footerHeight: 5rem;
     --footerWidthLeft: 30%;
     --footerWidthRight: calc(100% - var(--footerWidthLeft));
-    --footerHeightTop: 12rem;
+    --footerHeightTop: 15rem;
     --footerHeightBottom: 5rem;
     --footerHeightBlockBottom: 3rem;
     --footerHeightBanner: 4rem;
     --footerWidthCircle: 45vw;
     --footerSizeLogoBack: 75vw;
 
-    --iconSVGSize: 1.1rem;
+    --iconSVGSize: 2rem;
 
     @include bp.media-up("XXLarge") {
         --wrapperPadding: 12vw;
@@ -78,14 +78,14 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     @include bp.media-up("XLarge") {
-        --wrapperPadding: 10vw;
+        --wrapperPadding: 7vmax;
         --modalPadding: 6vmax;
 
         // --headerWaveBorder: 13vmax;
     }
 
     @include bp.media-up("Large") {
-        --wrapperPadding: 8vw;
+        --wrapperPadding: 3rem;
         --modalPadding: 3vmax;
 
         --headerWaveBorder: 12rem;

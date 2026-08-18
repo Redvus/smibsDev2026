@@ -4,14 +4,28 @@
 {'head'|chunk}
 <body>
 <div class="wrapper">
-    <h1>принимая во внимание, что пренебрежение и презрение к правам человека</h1>
-    <p>С другой стороны начало повседневной работы по формированию позиции напрямую зависит от поэтапного и последовательного развития общества. Задача организации, в особенности же начало повседневной работы по формированию позиции обеспечивает актуальность экономической целесообразности принимаемых изменений. Разнообразный и богатый опыт сложившаяся структура организации создаёт предпосылки качественно новых шагов для поставленных обществом и правительством задач.</p>
-</div>
     {* {'preloader'|chunk} *}
-    {* {'header'|chunk} *}
+    {'header'|chunk}
     {* {'nav-main'|chunk} *}
     {* {'main-content'|chunk} *}
-    {* {'footer'|chunk} *}
-    {* {'scripts'|chunk} *}
+
+    {var $idMain = $id | resource: 'id'}
+    {if $idMain == 1}
+        {'pdoResources' | snippet: [
+            'limit' => 0,
+            'depth' => 1,
+            'parents' => 1,
+            'tpl' => 'sectionsFrontTpl',
+            'includeContent' => 1,
+            'sortby' => 'menuindex',
+            'sortdir' => 'asc'
+        ]}
+    {/if}
+
+    {'prototypeBack'|chunk}
+</div>
+    {'footerBanners' | chunk}
+    {'footer'|chunk}
+    {'scripts'|chunk}
 </body>
 </html>
