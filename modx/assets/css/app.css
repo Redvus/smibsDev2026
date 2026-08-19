@@ -10951,25 +10951,25 @@ a {
   --six-lighten-30: hsl(0, 0%, 126.0784313725%);
   --six-lighten-40: hsl(0, 0%, 136.0784313725%);
   --six-lighten-50: hsl(0, 0%, 146.0784313725%);
-  --seven: #E6E8ED;
-  --seven-darken-5: rgb(215.1744186047, 218.3604651163, 226.3255813953);
-  --seven-darken-8: rgb(206.2790697674, 210.176744186, 219.9209302326);
-  --seven-darken-10: rgb(200.3488372093, 204.7209302326, 215.6511627907);
-  --seven-darken-13: rgb(191.4534883721, 196.5372093023, 209.2465116279);
-  --seven-darken-20: rgb(170.6976744186, 177.4418604651, 194.3023255814);
-  --seven-darken-30: rgb(141.0465116279, 150.1627906977, 172.9534883721);
-  --seven-darken-40: rgb(111.3953488372, 122.8837209302, 151.6046511628);
-  --seven-darken-50: rgb(88.7441860465, 98.6046511628, 123.2558139535);
-  --seven-darken-60: rgb(67.3953488372, 74.8837209302, 93.6046511628);
-  --seven-darken-70: rgb(46.0465116279, 51.1627906977, 63.9534883721);
-  --seven-darken-80: rgb(24.6976744186, 27.4418604651, 34.3023255814);
-  --seven-lighten-2: rgb(235.9302325581, 237.4558139535, 241.2697674419);
-  --seven-lighten-5: rgb(244.8255813953, 245.6395348837, 247.6744186047);
-  --seven-lighten-10: hsl(222.8571428571, 16.2790697674%, 101.568627451%);
-  --seven-lighten-20: hsl(222.8571428571, 16.2790697674%, 111.568627451%);
-  --seven-lighten-30: hsl(222.8571428571, 16.2790697674%, 121.568627451%);
-  --seven-lighten-40: hsl(222.8571428571, 16.2790697674%, 131.568627451%);
-  --seven-lighten-50: hsl(222.8571428571, 16.2790697674%, 141.568627451%);
+  --seven: rgba(129, 129, 129, 0.2941176471);
+  --seven-darken-5: rgba(116.25, 116.25, 116.25, 0.2941176471);
+  --seven-darken-8: rgba(108.6, 108.6, 108.6, 0.2941176471);
+  --seven-darken-10: rgba(103.5, 103.5, 103.5, 0.2941176471);
+  --seven-darken-13: rgba(95.85, 95.85, 95.85, 0.2941176471);
+  --seven-darken-20: rgba(78, 78, 78, 0.2941176471);
+  --seven-darken-30: rgba(52.5, 52.5, 52.5, 0.2941176471);
+  --seven-darken-40: rgba(27, 27, 27, 0.2941176471);
+  --seven-darken-50: rgba(1.5, 1.5, 1.5, 0.2941176471);
+  --seven-darken-60: hsla(0, 0%, -9.4117647059%, 0.2941176471);
+  --seven-darken-70: hsla(0, 0%, -19.4117647059%, 0.2941176471);
+  --seven-darken-80: hsla(0, 0%, -29.4117647059%, 0.2941176471);
+  --seven-lighten-2: rgba(134.1, 134.1, 134.1, 0.2941176471);
+  --seven-lighten-5: rgba(141.75, 141.75, 141.75, 0.2941176471);
+  --seven-lighten-10: rgba(154.5, 154.5, 154.5, 0.2941176471);
+  --seven-lighten-20: rgba(180, 180, 180, 0.2941176471);
+  --seven-lighten-30: rgba(205.5, 205.5, 205.5, 0.2941176471);
+  --seven-lighten-40: rgba(231, 231, 231, 0.2941176471);
+  --seven-lighten-50: hsla(0, 0%, 100.5882352941%, 0.2941176471);
 }
 
 :root {
@@ -11014,7 +11014,6 @@ body::-webkit-scrollbar {
 a {
   color: var(--primary);
   text-decoration: none;
-  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media (prefers-color-scheme: light) {
   a {
@@ -11023,17 +11022,6 @@ a {
 }
 .theme-dark a {
   color: var(--body-font-color);
-}
-a:hover {
-  color: var(--fourth);
-}
-@media (prefers-color-scheme: light) {
-  a:hover {
-    color: var(--fourth);
-  }
-}
-.theme-dark a:hover {
-  color: var(--fourth);
 }
 
 i {
@@ -11156,9 +11144,9 @@ button {
   min-height: 100vh;
   display: block;
   padding: 0 var(--wrapperPadding);
+  overflow: hidden;
   position: relative;
   z-index: 10;
-  height: 400vh;
 }
 .wrapper__content {
   width: var(--wrapperInsideWidth);
@@ -11185,29 +11173,6 @@ button {
   .wrapper {
     padding-top: calc(var(--header-height) * 2);
   }
-}
-
-.section {
-  width: 100%;
-  min-height: 50vh;
-  display: block;
-  position: relative;
-}
-.section__title {
-  width: 100%;
-  height: auto;
-  display: block;
-  position: relative;
-  margin-top: 2vh;
-  color: var(--primary);
-}
-.section__slider {
-  width: 100%;
-  height: calc((100vw - var(--wrapperPadding) * 2) / 2.2);
-  display: block;
-  position: relative;
-  margin-top: 4vmax;
-  background-color: var(--secondary);
 }
 
 #prototypeFront {
@@ -11548,7 +11513,7 @@ button {
   }
 }
 
-.nav {
+.nav-main {
   width: 100%;
   height: 100%;
   position: relative;
@@ -11557,22 +11522,60 @@ button {
   align-items: flex-start;
   justify-content: flex-start;
 }
-.nav li {
+.nav-main li {
   display: block;
   position: relative;
   padding: 0.3rem 1rem;
   margin: 0;
 }
-.nav li a {
+.nav-main li a {
   width: auto;
   display: block;
   position: relative;
 }
-.nav li.active {
+.nav-main li.active, .nav-main li:hover {
   background-color: var(--primary);
 }
-.nav li.active a {
+.nav-main li.active a, .nav-main li:hover a {
   color: var(--fourth);
+}
+.nav-main__children ul.submenu {
+  min-width: 10rem;
+  position: absolute;
+  margin-left: -1rem;
+  margin-top: 0.3rem;
+  background-color: var(--primary);
+  display: none;
+  opacity: 0;
+}
+.nav-main__children ul.submenu li {
+  width: 100%;
+  float: none;
+  padding: 0.3rem 1rem;
+  position: relative;
+  cursor: pointer;
+}
+.nav-main__children ul.submenu li.active {
+  background-color: var(--primary);
+}
+.nav-main__children ul.submenu li.active a {
+  color: var(--fourth);
+}
+.nav-main__children ul.submenu li:hover {
+  background-color: var(--primary-darken-10);
+}
+.nav-main__children ul.submenu li:hover a {
+  color: var(--fourth);
+}
+.nav-main__children:hover {
+  background-color: var(--primary);
+}
+.nav-main__children:hover a {
+  color: var(--fourth);
+}
+.nav-main__children:hover ul.submenu {
+  display: block;
+  opacity: 1;
 }
 .nav__mask {
   width: 100%;
@@ -11624,17 +11627,16 @@ button {
 
 .section {
   width: 100%;
-  min-height: 50vh;
+  min-height: 30vmax;
   display: block;
   position: relative;
-  margin-bottom: 6rem;
+  margin-bottom: 2vmax;
 }
 .section__title {
   width: 80%;
   height: auto;
   display: block;
   position: relative;
-  margin-top: 2vh;
 }
 .section__title h2 {
   position: relative;
@@ -11687,16 +11689,32 @@ button {
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 8rem;
+  padding: 2rem;
 }
 .section-news__grid {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--marginBase);
   margin-top: calc(var(--marginBase) * 1);
 }
-.section__slider {
+.section--border-1 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3840 1250'%3E%3Cpolygon points='3792.88 1250 0 1202.75 0 5.06 3840 0 3792.88 1250' fill='none' stroke-width='7' stroke='%23ed4c30'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.section--border-2 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3840 1180'%3E%3Cpolygon points='3840 1104.5 1925.6 1180 0 1154.75 0 0 3840 85.02 3840 1104.5' fill='rgba(129, 129, 129, 0.2)'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.section--border-3 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3840 1195'%3E%3Cpolygon points='3840 1195 0 1163.09 0 31.85 3506.84 0 3801.08 84.92 3840 1195' fill='none' stroke-width='7' stroke='%23ed4c30'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.slider {
   width: 100%;
   height: calc((100vw - var(--wrapperPadding) * 2) / 2.2);
   display: flex;
@@ -11707,39 +11725,39 @@ button {
   overflow: hidden;
   background-color: var(--secondary);
 }
-.section__slider_text {
+.slider_text {
   width: var(--sectionWidthLeft);
 }
-.section__slider_images {
+.slider_images {
   width: var(--sectionWidthRight);
 }
-.section__slider_images picture {
+.slider_images picture {
   width: 100%;
   height: 100%;
   display: block;
   position: relative;
 }
-.section__slider_images picture img {
+.slider_images picture img {
   width: 100%;
   height: 100%;
   object-position: center;
   object-fit: cover;
 }
-.section__slider_item {
+.slider_item {
   width: 100%;
 }
-.section__slider_item picture {
+.slider_item picture {
   width: 100%;
   height: 100%;
   display: block;
   position: relative;
 }
-.section__slider_item picture img {
+.slider_item picture img {
   width: 100%;
   height: 100%;
   object-position: center;
   object-fit: cover;
 }
-.section__slider-retail {
+.slider-retail {
   margin-top: var(--marginBase);
 }

@@ -18,7 +18,7 @@
             'sortby' => 'menuindex',
             'sortdir' => 'asc',
             'hereClass' => 'active',
-            'outerClass' => 'nav'
+            'outerClass' => 'nav-main'
         ]}
     </nav>
 

@@ -22,9 +22,8 @@
         ]}
     {/if}
 
-    {'prototypeBack'|chunk}
+    {* {'prototypeBack'|chunk} *}
 </div>
-    {'footerBanners' | chunk}
     {'footer'|chunk}
     {'scripts'|chunk}
 </body>

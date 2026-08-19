@@ -44,19 +44,23 @@ body {
 a {
     color: $color-accent;
     text-decoration: none;
-    transition: color $transition-fast;
+    // transition: color $transition-fast;
 
     @include dark-theme {
         color: var(--body-font-color);
     }
 
-    &:hover {
-        color: $color-accent-light;
+    // &:hover {
+    //     background-color: $color-accent;
 
-        @include dark-theme {
-            color: var(--fourth);
-        }
-    }
+    //     a {
+    //         color: $color-accent-light;
+    //     }
+
+    //     // @include dark-theme {
+    //     //     color: var(--fourth);
+    //     // }
+    // }
 }
 
 i {

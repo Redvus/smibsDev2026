@@ -7,7 +7,7 @@ $colors: (
     fourth: #ffffff,
     five: #b81918,
     six: #f5f5f5,
-    seven: #E6E8ED,
+    seven: #8181814b,
 );
 
 :root {
@@ -77,6 +77,7 @@ $color-amber-600: #9d742d;
 
 // Акцентные цвета (монохромные)
 $color-accent: var(--primary);
+$color-accent-hover: var(--primary-darken-10);
 $color-accent-light: var(--fourth);
 $color-accent-dark: #000000;
 

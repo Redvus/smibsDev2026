@@ -1,3 +1,4 @@
+{'footerBanners' | chunk}
 <footer class="footer">
     <div class="footer__top">
         <div class="footer__block">
