@@ -1,7 +1,10 @@
 <!doctype html>
 <!--[if IE 8]> <html lang="ru" class="ie8"> <![endif]-->
-<!--[if !IE]><!--> <html lang="rus"> <!--<![endif]-->
+<!--[if !IE]><!-->
+<html lang="rus">
+<!--<![endif]-->
 {'head'|chunk}
+
 <body>
     <div class="wrapper">
         {'header'|chunk}
@@ -15,21 +18,38 @@
                     {'breadcrumbs' | chunk}
                 </div>
             </div>
-            <div class="section-news__grid">
-                {'pdoResources' | snippet: [
-                    'limit' => 0,
-                    'depth' => 0,
-                    'tpl' => 'frontNewsTpl',
-                    'includeContent' => 1,
-                    'sortby' => 'publishedon',
-                    'sortdir' => 'desc',
-                    'includeTVs' => ''
-                ]}
+
+            {if $_modx -> resource.template == 8}
+                <div class="section-news__grid">
+                    {'pdoResources' | snippet: [
+                        'limit' => 0,
+                        'depth' => 0,
+                        'tpl' => 'frontNewsTpl',
+                        'includeContent' => 1,
+                        'sortby' => 'publishedon',
+                        'sortdir' => 'desc',
+                        'includeTVs' => ''
+                    ]}
+                </div>
+
+            {elseif $_modx -> resource.template == 10}
+                <div class="section-books__grid">
+                    {'pdoResources' | snippet: [
+                        'limit' => 0,
+                        'depth' => 0,
+                        'tpl' => 'frontReadTpl',
+                        'includeContent' => 1,
+                        'sortby' => 'publishedon',
+                        'sortdir' => 'desc',
+                        'includeTVs' => ''
+                    ]}
+                </div>
+            {/if}
             </div>
         </div>
-    </div>
 
-    {'footer'|chunk}
-    {'scripts'|chunk}
-</body>
-</html>
+        {'footer'|chunk}
+        {'scripts'|chunk}
+    </body>
+
+    </html>

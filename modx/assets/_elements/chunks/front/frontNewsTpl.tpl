@@ -9,23 +9,18 @@
             <div class="news-preview__date">
                 {$id | resource: 'publishedon' | date: 'd / m / y'}
             </div>
-            <div class="news-preview__count">
-                <i class="fas fa-eye"></i>
-                <span>12</span>
-            </div>
         </div>
         <div class="news-preview__description">
             <a href="{$id | url}" class="news-preview__title">
-                <h3>{$id | resource: "pagetitle"}</h3>
+                <h4>{$id | resource: "pagetitle"}</h4>
             </a>
             <div class="news-preview__text">
                 <p>{$id | resource: "introtext" | ellipsis: 180}</p>
             </div>
         </div>
-        <div class="news-preview__footer">
-            <a href="{$id | url}" class="news-single__link">
-                <i class="fas fa-circle-arrow-right"></i>
-            </a>
-        </div>
+        <a href="{$id | url}" class="news-preview__footer">
+            <span class="news-single__link">Подробнее</span>&nbsp;
+            <i class="fas fa-circle-arrow-right"></i>
+        </a>
     </div>
 </div>

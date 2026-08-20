@@ -37,7 +37,7 @@ $font-width-extended: 125%;
     --heading-font-light: "Manrope", sans-serif;
 
     --body-font-color: var(--third);
-    --heading-font-color: var(--primary);
+    --heading-font-color: var(--third);
 
     --body-font-size: 1rem;
     --body-font-weight: normal;
@@ -48,12 +48,12 @@ $font-width-extended: 125%;
     --font-size-large: calc(var(--font-size-base) + (var(--font-size-base) / 5));
     // --font-size-small:   calc(var(--font-size-base) - (var(--font-size-base) / 5));
     --font-size-small: calc(var(--font-size-base) * 0.875);
-    --font-size-h1: calc(var(--font-size-base) + 2vmax);
-    --font-size-h2: calc(var(--font-size-base) + 1.5vmax);
-    --font-size-h3: calc(var(--font-size-base) * 1.4);
-    --font-size-h4: calc(var(--font-size-base) + 0.7vmax);
-    --font-size-h5: calc(var(--font-size-base) + 0.5vmax);
-    --font-size-h6: calc(var(--font-size-base) + 0.3vmax);
+    --font-size-h1: calc(var(--font-size-base) + 1vmax);
+    --font-size-h2: calc(var(--font-size-base) + 0.7vmax);
+    --font-size-h3: calc(var(--font-size-base) * 0.6vmax);
+    --font-size-h4: calc(var(--font-size-base) + 0.2vmax);
+    --font-size-h5: calc(var(--font-size-base) + 0.2vmax);
+    --font-size-h6: calc(var(--font-size-base) + 0.1vmax);
 }
 
 // @include bp.media-up('XLarge') {
