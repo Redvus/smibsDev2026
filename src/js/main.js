@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+// import { createApp } from "vue";
 // if (import.meta.env.DEV) {
 //     import("./fonts-loader.js");
 // }
@@ -6,4 +6,4 @@ import { createApp } from "vue";
 // import "./forms/FormPaymentAll.js";
 
 // import gsap from "gsap";To
-import gsap from "gsap";
+// import gsap from "gsap";

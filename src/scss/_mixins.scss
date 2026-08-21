@@ -1,49 +1,5 @@
 @use "variables" as *;
 
-// Миксин для медиа запросов
-@mixin screen($breakpoint) {
-    @if $breakpoint ==sm {
-        @media (min-width: $breakpoint-sm) {
-            @content;
-        }
-    }
-
-    @else if $breakpoint ==md {
-        @media (min-width: $breakpoint-md) {
-            @content;
-        }
-    }
-
-    @else if $breakpoint ==lg {
-        @media (min-width: $breakpoint-lg) {
-            @content;
-        }
-    }
-
-    @else if $breakpoint ==xl {
-        @media (min-width: $breakpoint-xl) {
-            @content;
-        }
-    }
-
-    @else if $breakpoint ==2xl {
-        @media (min-width: $breakpoint-2xl) {
-            @content;
-        }
-    }
-}
-
-// Миксин для темной темы
-@mixin dark-theme {
-    @media (prefers-color-scheme: light) {
-        @content;
-    }
-
-    .theme-dark & {
-        @content;
-    }
-}
-
 // Миксин для сетки
 @mixin grid($columns: 1, $gap: 1rem) {
     display: grid;
@@ -81,51 +37,6 @@
     // transform: translateZ(0);
 }
 
-// Миксин для типографики
-@mixin typography($size: "base", $weight: 400) {
-    @if $size =="xs" {
-        font-size: 0.75rem;
-        line-height: 1rem;
-    }
-
-    @else if $size =="sm" {
-        font-size: 0.875rem;
-        line-height: 1.25rem;
-    }
-
-    @else if $size =="base" {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    @else if $size =="lg" {
-        font-size: 1.125rem;
-        line-height: 1.75rem;
-    }
-
-    @else if $size =="xl" {
-        font-size: 1.25rem;
-        line-height: 1.75rem;
-    }
-
-    @else if $size =="2xl" {
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
-
-    @else if $size =="3xl" {
-        font-size: 1.875rem;
-        line-height: 2.25rem;
-    }
-
-    @else if $size =="4xl" {
-        font-size: 2.25rem;
-        line-height: 2.5rem;
-    }
-
-    font-weight: $weight;
-}
-
 @mixin pictureBlock($height: 100%, $fit: cover) {
     picture {
         width: 100%;
@@ -139,5 +50,59 @@
             object-position: center;
             object-fit: $fit;
         }
+    }
+}
+
+@mixin input {
+    outline: none;
+    margin-bottom: 1rem;
+    font-family: var(--primary-font);
+    font-size: var(--font-size-base);
+    border: 0.15rem solid var(--primary);
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--secondary);
+    // -webkit-appearance: none;
+
+    &:focus {
+        background-color: var(--fourth);
+        border-color: var(--secondary);
+    }
+
+    &:focus::-webkit-input-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &:focus::-moz-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &:focus::-ms-input-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: var(--secondary);
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: var(--secondary);
+        opacity: 1;
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: var(--secondary);
+        opacity: 1;
+    }
+
+    &::-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: var(--secondary);
     }
 }

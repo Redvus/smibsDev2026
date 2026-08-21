@@ -76,9 +76,6 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
     @include bp.media-up("XXLarge") {
         --wrapperPadding: 12vw;
         --modalPadding: 10vmax;
-
-        // --headerWaveBorder: 15vmax;
-        --headerSocialTop: 8.5vmax;
     }
 
     @include bp.media-up("XLarge") {
@@ -93,16 +90,11 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
         --wrapperPadding: 3rem;
         --modalPadding: 3vmax;
 
-        --headerWaveBorder: 12rem;
-        --headerSocialTop: 9vmax;
-
         --frontGridBooks: repeat(7, 1fr);
-        --frontGridBooksHeight: 23vmax;
+        --frontGridBooksHeight: 21vmax;
     }
 
     @include bp.media-up("Medium") {
         --wrapperPadding: 1rem;
-
-        // --headerWaveBorder: 20vmax;
     }
 }

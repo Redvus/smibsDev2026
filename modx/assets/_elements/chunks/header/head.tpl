@@ -52,7 +52,7 @@
 
         {* Старые стили *}
         {if $_modx -> resource.id == 6 || $_modx -> resource.id == 11}
-            <link rel="stylesheet" href="http://localhost:5173/scss/oldSCSS/main_old.scss">
+            <link rel="stylesheet" href="http://localhost:5173/oldSCSS/main_old.scss">
         {/if}
 
         {* <script type="module" src="http://localhost:5173/js/layoutOld.js"></script> *}

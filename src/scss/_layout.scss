@@ -11,7 +11,7 @@
     padding: 0 var(--wrapperPadding);
     overflow: hidden;
     position: relative;
-    // background-color: var(--headerBackgroundLight);
+    background-color: var(--layoutBackground);
     z-index: 10;
     // height: 400vh;
 
@@ -26,10 +26,6 @@
         @include bp.media-up("Medium") {
             padding: 0 calc(var(--header-height) * 1.5);
         }
-    }
-
-    @include dark-theme {
-        background-color: var(--layoutBackground);
     }
 
     @include bp.media-up('XSmall') {

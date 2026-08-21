@@ -221,6 +221,131 @@
         }
     }
 
+    &-service {
+        min-height: 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__search {
+            width: 70%;
+            height: 3rem;
+            display: block;
+            position: relative;
+            float: left;
+            left: 0;
+            background-color: var(--fourth);
+            @include input;
+            margin-bottom: 2rem;
+            z-index: 5;
+
+            &-input {
+                width: calc(100% - var(--marginBase));
+                height: 100%;
+                border-radius: 0;
+                // border: $border_normal solid var(--primary);
+                border: none;
+                padding: 0 var(--marginBase);
+                font-size: var(--font-size-base);
+
+                // &--mobile {
+                //     width: calc(100% - #{$headerHeightMobile});
+                //     height: 100%;
+                //     border-radius: 0;
+                //     // border: $border_normal solid var(--primary);
+                //     border: none;
+                //     padding: 0 calc(var(--marginBase) / 2);
+                //     font-size: var(--font-size-base);
+                // }
+
+                &:focus,
+                &:active {
+                    outline: none;
+                }
+            }
+
+            &-button {
+                width: 5rem;
+                height: 2.8rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 0;
+                right: 0;
+                border: none;
+                outline: none;
+                background-color: var(--primary);
+                cursor: pointer;
+                // transform: translateX(-100%);
+
+                i {
+                    font-size: var(--font-size-base);
+                    color: var(--fourth);
+                }
+
+                // &--mobile {
+                //     width: $headerHeightMobile;
+                //     height: $headerHeightMobile;
+                //     display: flex;
+                //     align-items: center;
+                //     justify-content: center;
+                //     position: absolute;
+                //     top: 0;
+                //     right: 0;
+                //     border: none;
+                //     outline: none;
+                //     background-color: var(--secondary);
+                //     cursor: pointer;
+
+                //     i {
+                //         font-size: var(--font-size-large);
+                //         color: var(--fourth);
+                //     }
+                // }
+
+                // &:hover {
+                //     background-color: $navBackground;
+
+                //     i {
+                //         color: var(--third);
+                //     }
+                // }
+            }
+
+            // &:after {
+            // 	content: "";
+            // 	width: $headerHeightDesktop / 2;
+            // 	height: $headerHeightDesktop / 2;
+            // 	display: block;
+            // 	position: absolute;
+            // 	top: 0;
+            // 	right: 0;
+            // 	color: var(--secondary);
+            // 	background-color: var(--secondary);
+            // }
+
+            // &--mobile {
+            //     width: 100%;
+            //     height: $headerHeightMobile;
+            //     display: block;
+            //     position: relative;
+            //     float: left;
+            //     background-color: var(--fourth);
+            //     @extend %input;
+            //     border: none;
+            //     margin-bottom: 0;
+            //     // padding: 0 $paddingMobile;
+            // }
+        }
+
+        &__event {
+            width: 70%;
+            min-height: 3rem;
+            position: relative;
+        }
+    }
+
     &--border-1 {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3840 1250'%3E%3Cpolygon points='3792.88 1250 0 1202.75 0 5.06 3840 0 3792.88 1250' fill='none' stroke-width='7' stroke='%23ed4c30'/%3E%3C/svg%3E");
         background-size: contain;

@@ -10,6 +10,26 @@
         </div>
     </section>
 
+    <section class="section section-service">
+        {'!SimpleSearchForm' | snippet: [
+            'landing' => 69,
+            'tpl' => 'searchTpl'
+        ]}
+        <div class="section-service__event">
+            {'pdoResources' | snippet: [
+                'limit' => 1,
+                'depth' => 0,
+                'parents' => 35,
+                'tpl' => 'sectionEventTpl',
+                'includeContent' => 1,
+                'sortby' => 'publishedon',
+                'sortdir' => 'desc',
+                'includeTVs' => '',
+
+            ]}
+        </div>
+    </section>
+
 {elseif $idFront == 7}
     <section class="section section-books section--border-1">
         <div class="section__title">
