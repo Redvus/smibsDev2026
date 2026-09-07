@@ -30,6 +30,8 @@ $colors: (
         --#{$name}-lighten-20: #{color.adjust($color, $lightness: 20%)};
         --#{$name}-lighten-30: #{color.adjust($color, $lightness: 30%)};
         --#{$name}-lighten-40: #{color.adjust($color, $lightness: 40%)};
+        --#{$name}-lighten-42: #{color.adjust($color, $lightness: 42%)};
+        --#{$name}-lighten-45: #{color.adjust($color, $lightness: 45%)};
         --#{$name}-lighten-50: #{color.adjust($color, $lightness: 50%)};
     }
 }
@@ -39,6 +41,8 @@ $color-accent: var(--primary);
 $color-accent-hover: var(--primary-darken-10);
 $color-accent-light: var(--fourth);
 $color-accent-dark: var(--third);
+
+$colorBackgroundMain: var(--secondary-lighten-42);
 
 // Градиенты
 $gradient-dark: linear-gradient(135deg, #000000 0%, #262626 100%);
@@ -57,4 +61,6 @@ $gradient-accent: linear-gradient(135deg, #000000 0%, #333333 100%);
 
     --color-social: var(--secondary);
     --color-social-hover: var(--third);
+
+    --colorBackgroundMain: #{$colorBackgroundMain};
 }

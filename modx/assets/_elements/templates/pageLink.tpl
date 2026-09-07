@@ -15,18 +15,16 @@
                     {'breadcrumbs' | chunk}
                 </div>
             </div>
-            <div class="section-books__grid">
-                {'pdoResources' | snippet: [
-                    'limit' => 0,
-                    'depth' => 0,
-                    'parents' => '25,26',
-                    'tpl' => 'frontReadTpl',
-                    'includeContent' => 1,
-                    'sortby' => 'publishedon',
-                    'sortdir' => 'desc',
-                    'includeTVs' => ''
-                ]}
-            </div>
+            {'pdoResources' | snippet: [
+                'limit' => 0,
+                'depth' => 0,
+                'parents' => 20,
+                'tpl' => 'pageReadTpl',
+                'includeContent' => 1,
+                'sortby' => 'menuindex',
+                'sortdir' => 'asc',
+                'includeTVs' => ''
+            ]}
         </div>
     </div>
 

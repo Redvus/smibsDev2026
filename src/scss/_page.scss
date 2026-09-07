@@ -1,0 +1,26 @@
+@use "fonts" as *;
+@use "sass:color";
+@use "breakpoints" as bp;
+@use "variables" as *;
+@use "mixins" as *;
+
+.page {
+
+    &__title {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    &__description {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    &__grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: var(--frontGridBooks);
+        gap: var(--marginBase)
+    }
+
+}

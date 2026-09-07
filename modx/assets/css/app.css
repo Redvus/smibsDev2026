@@ -10752,11 +10752,14 @@ a {
   --iconSVGSize: 2rem;
   --frontGridBooks: repeat(7, 1fr);
   --frontGridBooksHeight: 22vmax;
+  --sliderNavWidth: 7vmin;
+  --sliderNavHeight: 21.5vmin;
 }
 @media (max-width: 3840px) {
   :root {
     --wrapperPadding: 12vw;
     --modalPadding: 10vmax;
+    --sliderNavHeight: 22vmin;
   }
 }
 @media (max-width: 1920px) {
@@ -10765,6 +10768,7 @@ a {
     --modalPadding: 6vmax;
     --frontGridBooks: repeat(7, 1fr);
     --frontGridBooksHeight: 22vmax;
+    --sliderNavHeight: 24.5vmin;
   }
 }
 @media (max-width: 1680px) {
@@ -10773,11 +10777,13 @@ a {
     --modalPadding: 3vmax;
     --frontGridBooks: repeat(7, 1fr);
     --frontGridBooksHeight: 21vmax;
+    --sliderNavHeight: 21.5vmin;
   }
 }
 @media (max-width: 1080px) {
   :root {
     --wrapperPadding: 1rem;
+    --sliderNavHeight: 21.5vmin;
   }
 }
 
@@ -10857,6 +10863,8 @@ a {
   --primary-lighten-20: rgb(245.16, 157.1466666667, 141.84);
   --primary-lighten-30: rgb(249.24, 197.72, 188.76);
   --primary-lighten-40: rgb(253.32, 238.2933333333, 235.68);
+  --primary-lighten-42: rgb(254.136, 246.408, 245.064);
+  --primary-lighten-45: hsl(8.8888888889, 84%, 100.8823529412%);
   --primary-lighten-50: hsl(8.8888888889, 84%, 105.8823529412%);
   --secondary: #818181;
   --secondary-darken-5: rgb(116.25, 116.25, 116.25);
@@ -10876,6 +10884,8 @@ a {
   --secondary-lighten-20: #b4b4b4;
   --secondary-lighten-30: rgb(205.5, 205.5, 205.5);
   --secondary-lighten-40: #e7e7e7;
+  --secondary-lighten-42: rgb(236.1, 236.1, 236.1);
+  --secondary-lighten-45: rgb(243.75, 243.75, 243.75);
   --secondary-lighten-50: hsl(0, 0%, 100.5882352941%);
   --third: #092330;
   --third-darken-5: rgb(4.9736842105, 19.3421052632, 26.5263157895);
@@ -10895,6 +10905,8 @@ a {
   --third-lighten-20: rgb(25.1052631579, 97.6315789474, 133.8947368421);
   --third-lighten-30: rgb(33.1578947368, 128.9473684211, 176.8421052632);
   --third-lighten-40: rgb(45.3157894737, 158.8947368421, 215.6842105263);
+  --third-lighten-42: rgb(53.9052631579, 162.8315789474, 217.2947368421);
+  --third-lighten-45: rgb(66.7894736842, 168.7368421053, 219.7105263158);
   --third-lighten-50: rgb(88.2631578947, 178.5789473684, 223.7368421053);
   --fourth: #ffffff;
   --fourth-darken-5: rgb(242.25, 242.25, 242.25);
@@ -10914,6 +10926,8 @@ a {
   --fourth-lighten-20: hsl(0, 0%, 120%);
   --fourth-lighten-30: hsl(0, 0%, 130%);
   --fourth-lighten-40: hsl(0, 0%, 140%);
+  --fourth-lighten-42: hsl(0, 0%, 142%);
+  --fourth-lighten-45: hsl(0, 0%, 145%);
   --fourth-lighten-50: hsl(0, 0%, 150%);
   --five: #b81918;
   --five-darken-5: rgb(161.4423076923, 21.9350961538, 21.0576923077);
@@ -10933,6 +10947,8 @@ a {
   --five-lighten-20: rgb(231.9230769231, 79.0384615385, 78.0769230769);
   --five-lighten-30: rgb(237.8076923077, 123.9086538462, 123.1923076923);
   --five-lighten-40: rgb(243.6923076923, 168.7788461538, 168.3076923077);
+  --five-lighten-42: rgb(244.8692307692, 177.7528846154, 177.3307692308);
+  --five-lighten-45: rgb(246.6346153846, 191.2139423077, 190.8653846154);
   --five-lighten-50: rgb(249.5769230769, 213.6490384615, 213.4230769231);
   --six: #f5f5f5;
   --six-darken-5: rgb(232.25, 232.25, 232.25);
@@ -10952,6 +10968,8 @@ a {
   --six-lighten-20: hsl(0, 0%, 116.0784313725%);
   --six-lighten-30: hsl(0, 0%, 126.0784313725%);
   --six-lighten-40: hsl(0, 0%, 136.0784313725%);
+  --six-lighten-42: hsl(0, 0%, 138.0784313725%);
+  --six-lighten-45: hsl(0, 0%, 141.0784313725%);
   --six-lighten-50: hsl(0, 0%, 146.0784313725%);
   --seven: rgba(129, 129, 129, 0.2941176471);
   --seven-darken-5: rgba(116.25, 116.25, 116.25, 0.2941176471);
@@ -10971,6 +10989,8 @@ a {
   --seven-lighten-20: rgba(180, 180, 180, 0.2941176471);
   --seven-lighten-30: rgba(205.5, 205.5, 205.5, 0.2941176471);
   --seven-lighten-40: rgba(231, 231, 231, 0.2941176471);
+  --seven-lighten-42: rgba(236.1, 236.1, 236.1, 0.2941176471);
+  --seven-lighten-45: rgba(243.75, 243.75, 243.75, 0.2941176471);
   --seven-lighten-50: hsla(0, 0%, 100.5882352941%, 0.2941176471);
 }
 
@@ -10982,6 +11002,7 @@ a {
   --colorLink: var(--seven);
   --color-social: var(--secondary);
   --color-social-hover: var(--third);
+  --colorBackgroundMain: var(--secondary-lighten-42);
 }
 
 * {
@@ -11587,12 +11608,17 @@ button {
   display: flex;
   flex-direction: column;
 }
-.section-books__grid {
+.section-books__main {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: calc(var(--marginBase) * 1.5);
+}
+.section-books__grid {
+  width: calc(100% - var(--sliderNavWidth));
   display: grid;
   grid-template-columns: var(--frontGridBooks);
   gap: var(--marginBase);
-  margin-top: calc(var(--marginBase) * 1.5);
 }
 .section-books__item {
   height: var(--frontGridBooksHeight);
@@ -11605,6 +11631,8 @@ button {
   position: relative;
   overflow: hidden;
   margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--colorBackgroundMain);
 }
 .section-books__item a picture {
   width: 100%;
@@ -11621,6 +11649,36 @@ button {
 .section-books__item span {
   line-height: 1;
 }
+.section-books__nav {
+  width: var(--sliderNavWidth);
+  height: var(--sliderNavHeight);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 1rem;
+}
+.section-books__nav_button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--colorBackgroundMain);
+}
+.section-books__nav_button--light {
+  background-color: var(--fourth);
+}
+.section-books__nav_button i {
+  font-size: var(--font-size-base);
+  color: var(--primary);
+}
+.section-books__nav_next {
+  height: 65%;
+  clip-path: polygon(0% 0%, 100% 5%, 100% 95%, 0% 100%);
+}
+.section-books__nav_prev {
+  height: 30%;
+  clip-path: polygon(0% 15%, 100% 5%, 100% 95%, 0% 85%);
+}
 .section-events {
   width: 100%;
   display: flex;
@@ -11631,7 +11689,6 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: calc(var(--marginBase) * 2);
-  margin-top: calc(var(--marginBase) * 1.5);
 }
 .section-events__item {
   height: 20vmax;
@@ -11805,7 +11862,7 @@ button {
   background-repeat: no-repeat;
 }
 .section--border-2 {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3840 1180'%3E%3Cpolygon points='3840 1104.5 1925.6 1180 0 1154.75 0 0 3840 85.02 3840 1104.5' fill='rgba(129, 129, 129, 0.15)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3840 1180' preserveAspectRatio='none'%3E%3Cpolygon points='3840 1104.5 1925.6 1180 0 1154.75 0 0 3840 85.02 3840 1104.5' fill='rgb(236, 236, 236)'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -11991,4 +12048,19 @@ button {
 .event__date {
   color: var(--primary);
   font-weight: 500;
+}
+
+.page__title {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.page__description {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.page__grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: var(--frontGridBooks);
+  gap: var(--marginBase);
 }

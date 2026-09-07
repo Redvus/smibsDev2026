@@ -107,12 +107,18 @@
         display: flex;
         flex-direction: column;
 
-        &__grid {
+        &__main {
             width: 100%;
+            display: flex;
+            flex-direction: row;
+            margin-top: calc(var(--marginBase) * 1.5);
+        }
+
+        &__grid {
+            width: calc(100% - var(--sliderNavWidth));
             display: grid;
             grid-template-columns: var(--frontGridBooks);
             gap: var(--marginBase);
-            margin-top: calc(var(--marginBase) * 1.5);
         }
 
         &__item {
@@ -126,6 +132,8 @@
                 position: relative;
                 overflow: hidden;
                 margin-bottom: 1rem;
+                padding: 1rem;
+                background-color: var(--colorBackgroundMain);
 
                 @include pictureBlock();
 
@@ -133,6 +141,42 @@
 
             span {
                 line-height: 1;
+            }
+        }
+
+        &__nav {
+            width: var(--sliderNavWidth);
+            height: var(--sliderNavHeight);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-left: 1rem;
+
+            &_button {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: var(--colorBackgroundMain);
+
+                &--light {
+                    background-color: var(--fourth);
+                }
+
+                i {
+                    font-size: var(--font-size-base);
+                    color: var(--primary);
+                }
+            }
+
+            &_next {
+                height: 65%;
+                clip-path: polygon(0% 0%, 100% 5%, 100% 95%, 0% 100%);
+            }
+
+            &_prev {
+                height: 30%;
+                clip-path: polygon(0% 15%, 100% 5%, 100% 95%, 0% 85%);
             }
         }
     }
@@ -147,7 +191,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: calc(var(--marginBase) * 2);
-            margin-top: calc(var(--marginBase) * 1.5);
+            //margin-top: calc(var(--marginBase) * 1.5);
         }
 
         &__item {
@@ -353,7 +397,7 @@
     }
 
     &--border-2 {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3840 1180'%3E%3Cpolygon points='3840 1104.5 1925.6 1180 0 1154.75 0 0 3840 85.02 3840 1104.5' fill='rgba(129, 129, 129, 0.15)'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3840 1180' preserveAspectRatio='none'%3E%3Cpolygon points='3840 1104.5 1925.6 1180 0 1154.75 0 0 3840 85.02 3840 1104.5' fill='rgb(236, 236, 236)'/%3E%3C/svg%3E");
         background-size: contain;
         background-repeat: no-repeat;
     }
