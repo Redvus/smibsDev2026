@@ -1,0 +1,38 @@
+@use "fonts" as *;
+@use "sass:color";
+@use "breakpoints" as bp;
+@use "variables" as *;
+@use "mixins" as *;
+
+.slider {
+    width: 100%;
+    height: calc((100vw - (var(--wrapperPadding) * 2)) / 2.2);
+    // height: calc(((100% - (var(--header-height) * 3)) * 0.6));
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 2rem;
+    background-color: var(--secondary);
+    overflow: hidden;
+    background-color: var(--secondary);
+
+    &_text {
+        width: var(--sectionWidthLeft);
+    }
+
+    &_images {
+        width: var(--sectionWidthRight);
+
+        @include pictureBlock();
+    }
+
+    &_item {
+        width: 100%;
+
+        @include pictureBlock();
+    }
+
+    &-retail {
+        margin-top: var(--marginBase);
+    }
+}

@@ -1,0 +1,108 @@
+@use "variables" as *;
+
+// Миксин для сетки
+@mixin grid($columns: 1, $gap: 1rem) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+}
+
+@mixin flex-wrap($columns: 1, $gap: 1rem) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: $gap;
+}
+
+@mixin flex-column($flex: 1rem) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    // grid-template-columns: repeat($columns, 1fr);
+    flex: $flex;
+    justify-content: space-between;
+}
+
+// Миксин для flexbox
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// Миксин для анимаций GSAP
+@mixin gsap-ready {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    // transform: translateZ(0);
+}
+
+@mixin pictureBlock($height: 100%, $fit: cover) {
+    picture {
+        width: 100%;
+        height: $height;
+        display: block;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            object-fit: $fit;
+        }
+    }
+}
+
+@mixin input {
+    outline: none;
+    margin-bottom: 1rem;
+    font-family: var(--primary-font);
+    font-size: var(--font-size-base);
+    border: 0.15rem solid var(--primary);
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--secondary);
+    // -webkit-appearance: none;
+
+    &:focus {
+        background-color: var(--fourth);
+        border-color: var(--secondary);
+    }
+
+    &:focus::-webkit-input-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &:focus::-moz-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &:focus::-ms-input-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: var(--secondary);
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: var(--secondary);
+        opacity: 1;
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: var(--secondary);
+        opacity: 1;
+    }
+
+    &::-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: var(--secondary);
+    }
+}
