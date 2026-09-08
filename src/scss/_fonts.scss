@@ -48,12 +48,12 @@ $font-width-extended: 125%;
     --font-size-large: calc(var(--font-size-base) + (var(--font-size-base) / 5));
     // --font-size-small:   calc(var(--font-size-base) - (var(--font-size-base) / 5));
     --font-size-small: calc(var(--font-size-base) * 0.875);
-    --font-size-h1: calc(var(--font-size-base) + 1vmax);
-    --font-size-h2: calc(var(--font-size-base) + 0.7vmax);
-    --font-size-h3: calc(var(--font-size-base) * 0.6vmax);
-    --font-size-h4: calc(var(--font-size-base) + 0.2vmax);
-    --font-size-h5: calc(var(--font-size-base) + 0.2vmax);
-    --font-size-h6: calc(var(--font-size-base) + 0.1vmax);
+    --font-size-h1: calc(var(--font-size-base) + 1.6vmin);
+    --font-size-h2: calc(var(--font-size-base) + 0.9vmin);
+    --font-size-h3: calc(var(--font-size-base) * 0.7vmin);
+    --font-size-h4: calc(var(--font-size-base) + 0.2vmin);
+    --font-size-h5: calc(var(--font-size-base) + 0.2vmin);
+    --font-size-h6: calc(var(--font-size-base) + 0.1vmin);
 }
 
 // @include bp.media-up('XLarge') {
@@ -62,11 +62,11 @@ $font-width-extended: 125%;
 //     }
 // }
 
-@include bp.media-up('Small') {
-    :root {
-        --font-size-small: 2.5vmin;
-    }
-}
+//@include bp.media-up('Small') {
+//    :root {
+//        --font-size-small: 2.5vmin;
+//    }
+//}
 
 // Base fonts styles
 @mixin px($size: base) {

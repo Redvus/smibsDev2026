@@ -8,19 +8,28 @@
 
     &__title {
         width: 100%;
-        margin-bottom: 2rem;
+        margin: 2rem 0 1rem;
+    }
+
+    &__subtitle {
+        margin-top: 1rem;
+
+        h1 {
+            color: var(--primary);
+        }
     }
 
     &__description {
         width: 100%;
-        margin-bottom: 2rem;
+        margin: 1rem 0 2rem;
     }
 
     &__grid {
         width: 100%;
         display: grid;
         grid-template-columns: var(--frontGridBooks);
-        gap: var(--marginBase)
+        gap: var(--marginBase);
+        margin-bottom: 6rem;
     }
 
 }

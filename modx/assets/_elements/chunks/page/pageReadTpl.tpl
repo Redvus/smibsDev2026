@@ -1,3 +1,6 @@
+<a href="{$id | url}" class="section__title">
+    <h2>{$id | resource: "pagetitle" ?: $id | resource: "longtitle"}</h2>
+</a>
 {var $idMain = $id | resource: 'id'}
 {if $idMain == 25}
     <div class="section-books__main">

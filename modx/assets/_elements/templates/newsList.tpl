@@ -38,8 +38,9 @@
                 'includeTVs' => ''
                 ]}
             </div>
+
         {elseif $_modx -> resource.template == 10}
-            <div class="page__grid">
+            <section class="page__grid">
                 {'pdoResources' | snippet: [
                 'limit' => 0,
                 'depth' => 0,
@@ -49,7 +50,41 @@
                 'sortdir' => 'desc',
                 'includeTVs' => ''
                 ]}
-            </div>
+            </section>
+
+            <section class="section section-books section--border-1">
+                <div class="section__title">
+                    <h2>Случайная подборка</h2>
+                    <a href="{'26' | url}">
+                        <span class="news-single__link">Показать все</span>&nbsp;
+                        <i class="fas fa-circle-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="section-books__main">
+                    <div class="section-books__grid">
+                        {'pdoResources' | snippet: [
+                        'limit' => 7,
+                        'depth' => 0,
+                        'parents' => 25,
+                        'tpl' => 'frontReadTpl',
+                        'includeContent' => 1,
+                        'sortby' => 'publishedon',
+                        'sortdir' => 'desc',
+                        'includeTVs' => ''
+                        ]}
+                    </div>
+
+                    <div class="section-books__nav">
+                        <button class="section-books__nav_button section-books__nav_next" id="sectionBooksNext">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="section-books__nav_button section-books__nav_prev"  id="sectionBooksPrev">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
         {/if}
     </div>
 </div>
