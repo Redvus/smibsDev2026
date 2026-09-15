@@ -8,7 +8,7 @@
     width: 100%;
     min-height: var(--header-height);
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 3fr 1.5fr;
     gap: calc(var(--marginBase) * 2);
     position: relative;
     top: 0;
@@ -59,14 +59,31 @@
         width: 100%;
         height: 100%;
         display: flex;
-        justify-content: flex-end;
+        flex-direction: column;
         position: relative;
         padding-top: calc(var(--marginBase) / 2);
         z-index: 2;
 
+        &_top {
+            width: 100%;
+            height: var(--headerSosialHeight);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &_bottom {
+            width: 100%;
+            height: var(--headerSosialHeight);
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-top: 1rem;
+        }
+
         a {
-            width: var(--iconSVGSize);
-            height: var(--iconSVGSize);
+            width: var(--headerSosialHeight);
+            height: var(--headerSosialHeight);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -74,7 +91,7 @@
         }
 
         i {
-            font-size: var(--font-size-h3);
+            font-size: var(--font-size-h2);
             color: var(--color-social);
 
             &:hover {
@@ -83,23 +100,38 @@
         }
 
         svg {
-            width: var(--iconSVGSize);
-            height: var(--iconSVGSize);
+            width: var(--headerSosialHeight);
+            height: var(--headerSosialHeight);
             display: block;
+
+            rect {
+                fill: var(--color-social);
+            }
 
             path {
                 fill: var(--color-social);
             }
 
             &:hover {
-                path {
+                path, rect {
                     fill: var(--color-social-hover);
                 }
             }
         }
 
+        &_icon {
+            &--wide {
+                width: var(--headerSosialWideWidth) !important;
+
+                svg {
+                    width: 100% !important;
+                    height: auto !important;
+                }
+            }
+        }
+
         span {
-            width: 2rem;
+            width: var(--headerSosialHeight);
             height: 100%;
             display: flex;
             align-items: center;
@@ -107,6 +139,34 @@
             font-family: var(--heading-font);
             font-size: var(--font-size-large);
             color: var(--primary);
+        }
+    }
+
+    &__icon {
+        &--inside {
+            fill: var(--color-social-light) !important;
+        }
+    }
+
+    // ============================================
+    // БЛОК ДЛЯ СЛАБОВИДЯЩИХ
+    // ============================================
+    &__blind {
+        //width: 10%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        margin-left: calc(var(--marginBase) / 3);
+        //top: var(--headerBlindTop);
+        //left: var(--headerBlindLeft);
+
+        &_wrapper {
+            top: 0;
+            position: absolute;
+            margin-right: calc(var(--marginBase) * 2);
+            z-index: 50;
         }
     }
 

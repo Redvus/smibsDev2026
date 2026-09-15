@@ -48,6 +48,8 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
     --headerWaveBorder: 13rem;
     --headerSocialTop: 9vmax;
+    --headerSosialHeight: 2rem;
+    --headerSosialWideWidth: 5rem;
 
     --sectionWidthLeft: 40%;
     --sectionWidthRight: calc(100% - var(--sectionWidthLeft));
@@ -72,14 +74,17 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
     // Front Books
     --frontGridBooks: repeat(7, 1fr);
     --frontGridBooksHeight: 22vmax;
+    --frontGridTextHeight: 7vmax;
     --sliderNavWidth: 7vmin;
-    --sliderNavHeight: 21.5vmin;
+    --sliderNavHeight: var(--frontGridBooksHeight);
+    --sliderTextHeightShort: 6vmax;
+    --sliderNavHeightShort: 20vmax;
 
     @include bp.media-up("XXLarge") {
         --wrapperPadding: 12vw;
         --modalPadding: 10vmax;
 
-        --sliderNavHeight: 22vmin;
+        //--sliderNavHeight: 22vmin;
     }
 
     @include bp.media-up("XLarge") {
@@ -87,8 +92,8 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
         --modalPadding: 6vmax;
 
         --frontGridBooks: repeat(7, 1fr);
-        --frontGridBooksHeight: 22vmax;
-        --sliderNavHeight: 24.5vmin;
+        //--frontGridBooksHeight: 22vmax;
+        //--sliderNavHeight: 24.5vmin;
     }
 
     @include bp.media-up("Large") {
@@ -96,13 +101,13 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
         --modalPadding: 3vmax;
 
         --frontGridBooks: repeat(7, 1fr);
-        --frontGridBooksHeight: 21vmax;
-        --sliderNavHeight: 21.5vmin;
+        //--frontGridBooksHeight: 21vmax;
+        //--sliderNavHeight: 21.5vmin;
     }
 
     @include bp.media-up("Medium") {
         --wrapperPadding: 1rem;
 
-        --sliderNavHeight: 21.5vmin;
+        //--sliderNavHeight: 21.5vmin;
     }
 }

@@ -1,12 +1,8 @@
 {var $idFront = $id | resource: 'id'}
 {if $idFront == 12}
     <section class="section section-intro">
-        <div class="slider" id="sliderIntro">
-            <div class="slider_item">
-                <picture>
-                    <img src="/assets/images/sliderIntro/bannerSlide_1.png" alt="">
-                </picture>
-            </div>
+        <div class="section__slider" id="sliderIntro">
+            {'sliderTopTpl' | chunk : ['id' => $id]}
         </div>
     </section>
 
@@ -40,10 +36,20 @@
             </a>
         </div>
 
-        <div class="section-books__main">
+        <div class="section-books__main"
+             data-book-slider
+             id="booksSlider_1"
+             data-infinite="false"
+             data-slides-per-view="7"
+             data-slides-per-view-large="7"
+             data-slides-per-view-medium="5"
+             data-slides-per-view-small="3"
+             data-gap="20"
+             data-autoplay="false"
+             data-autoplay-delay="4000">
             <div class="section-books__grid">
                 {'pdoResources' | snippet: [
-                'limit' => 7,
+                'limit' => 8,
                 'depth' => 0,
                 'parents' => 25,
                 'tpl' => 'frontReadTpl',
@@ -59,7 +65,7 @@
                     <i class="fas fa-arrow-right"></i>
                 </button>
                 <button class="section-books__nav_button section-books__nav_prev"  id="sectionBooksPrev">
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-left"></i>
                 </button>
             </div>
         </div>
@@ -75,8 +81,18 @@
             </a>
         </div>
 
-        <div class="section-books__main">
-            <div class="section-events__grid">
+        <div class="section-books__main"
+             data-book-slider
+             id="booksSlider_2"
+             data-infinite="false"
+             data-slides-per-view="7"
+             data-slides-per-view-large="7"
+             data-slides-per-view-medium="5"
+             data-slides-per-view-small="3"
+             data-gap="20"
+             data-autoplay="false"
+             data-autoplay-delay="4000">
+            <div class="section-books__grid section-events__grid">
                 {'pdoResources' | snippet: [
                 'limit' => 3,
                 'depth' => 0,
@@ -89,12 +105,12 @@
                 ]}
             </div>
 
-            <div class="section-books__nav">
+            <div class="section-books__nav section-books__nav--gray">
                 <button class="section-books__nav_button section-books__nav_next section-books__nav_button--light" id="sectionBooksNext">
                     <i class="fas fa-arrow-right"></i>
                 </button>
                 <button class="section-books__nav_button section-books__nav_prev section-books__nav_button--light"  id="sectionBooksPrev">
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-left"></i>
                 </button>
             </div>
         </div>
@@ -110,10 +126,20 @@
             </a>
         </div>
 
-        <div class="section-books__main">
+        <div class="section-books__main"
+             data-book-slider
+             id="booksSlider_3"
+             data-infinite="false"
+             data-slides-per-view="7"
+             data-slides-per-view-large="7"
+             data-slides-per-view-medium="5"
+             data-slides-per-view-small="3"
+             data-gap="20"
+             data-autoplay="false"
+             data-autoplay-delay="4000">
             <div class="section-books__grid">
                 {'pdoResources' | snippet: [
-                'limit' => 7,
+                'limit' => 8,
                 'depth' => 0,
                 'parents' => 25,
                 'tpl' => 'frontReadTpl',

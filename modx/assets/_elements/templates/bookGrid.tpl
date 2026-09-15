@@ -47,7 +47,16 @@
                 </a>
             </div>
 
-            <div class="section-books__main">
+            <div class="section-books__main"data-book-slider
+                 id="booksNew"
+                 data-infinite="false"
+                 data-slides-per-view="7"
+                 data-slides-per-view-large="7"
+                 data-slides-per-view-medium="5"
+                 data-slides-per-view-small="3"
+                 data-gap="20"
+                 data-autoplay="false"
+                 data-autoplay-delay="4000">
                 <div class="section-books__grid">
                     {'pdoResources' | snippet: [
                     'limit' => 7,

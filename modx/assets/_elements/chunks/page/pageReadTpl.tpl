@@ -3,7 +3,7 @@
 </a>
 {var $idMain = $id | resource: 'id'}
 {if $idMain == 25}
-    <div class="section-books__main">
+    <div class="section-books__main"
         <div class="section-books__grid">
             {'pdoResources' | snippet: [
             'limit' => 7,

@@ -1,5 +1,16 @@
 @use "variables" as *;
 
+// Миксин для темной темы
+@mixin dark-theme {
+    @media (prefers-color-scheme: light) {
+        @content;
+    }
+
+    .theme-dark & {
+        @content;
+    }
+}
+
 // Миксин для сетки
 @mixin grid($columns: 1, $gap: 1rem) {
     display: grid;

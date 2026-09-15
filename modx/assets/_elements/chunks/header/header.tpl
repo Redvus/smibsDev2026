@@ -27,3 +27,7 @@
     </div>
 
 </header>
+
+<div class="header__blind_wrapper">
+    {'headerBlind' | chunk}
+</div>

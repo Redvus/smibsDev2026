@@ -14,8 +14,12 @@
 @use "footer";
 @use "header";
 @use "nav";
+@use "blind";
+@use "preloader";
+
 @use "section";
 @use "slider";
+//@use "bookSlider";
 @use "news";
 @use "search";
 @use "events";

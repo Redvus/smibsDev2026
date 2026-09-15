@@ -44,7 +44,14 @@
         // mainForm.style.display = 'none';
     </script>
 
+    {if $_modx->config.vite_dev_mode}
+        <script type="module" src="http://localhost:5173/js/forms/forms.js"></script>
+    {else}
+        <script type="module" src="/assets/build/forms.js"></script>
+    {/if}
+
     {* 3. Подключаем FormIt JS *}
+
     <script src="assets/components/formit/js/web/formit.js" defer></script>
 
     {* <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script> *}
