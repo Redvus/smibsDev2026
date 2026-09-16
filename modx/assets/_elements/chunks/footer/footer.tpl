@@ -10,7 +10,7 @@
             </div>
             <div class="footer__block_bottom">
                 <div class="footer__block_social">
-                    {'socialBlock' | chunk}
+                    {'socialBlockFooter' | chunk}
                 </div>
             </div>
         </div>

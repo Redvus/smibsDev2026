@@ -1,4 +1,4 @@
-<div class="section-events__item">
+<li class="section-books__item">
     <div class="section-events__top">
         <picture>
             <img src="{$id | resource: 'readImage' | pthumb:'w=400&zc=1'}" alt="{$id | resource: 'pagetitle' ?: $id | resource: 'longtitle'}">
@@ -24,4 +24,4 @@
             <i class="fas fa-circle-arrow-right"></i>
         </a> *}
     </div>
-</div>
+</li>

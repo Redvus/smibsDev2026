@@ -64,4 +64,6 @@ $gradient-accent: linear-gradient(135deg, #000000 0%, #333333 100%);
     --color-social-hover: var(--third);
 
     --colorBackgroundMain: #{$colorBackgroundMain};
+
+    --shadowColorRGB: 0, 0, 0;
 }

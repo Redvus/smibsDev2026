@@ -15,8 +15,6 @@
     left: 0;
     padding: 1rem 0;
     z-index: 2000;
-    // overflow: hidden;
-    z-index: 100;
 
     &__logo {
         width: 80%;
@@ -69,7 +67,7 @@
             height: var(--headerSosialHeight);
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: flex-end;
         }
 
         &_bottom {
@@ -87,7 +85,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 calc(var(--marginBase) / 3);
+            margin: 0 calc(var(--marginBase) / 2);
         }
 
         i {

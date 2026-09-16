@@ -49,7 +49,7 @@
              data-autoplay-delay="4000">
             <div class="section-books__grid">
                 {'pdoResources' | snippet: [
-                'limit' => 8,
+                'limit' => 0,
                 'depth' => 0,
                 'parents' => 25,
                 'tpl' => 'frontReadTpl',
@@ -85,16 +85,16 @@
              data-book-slider
              id="booksSlider_2"
              data-infinite="false"
-             data-slides-per-view="7"
-             data-slides-per-view-large="7"
-             data-slides-per-view-medium="5"
-             data-slides-per-view-small="3"
+             data-slides-per-view="3"
+             data-slides-per-view-large="3"
+             data-slides-per-view-medium="2"
+             data-slides-per-view-small="1"
              data-gap="20"
              data-autoplay="false"
              data-autoplay-delay="4000">
-            <div class="section-books__grid section-events__grid">
+            <div class="section-books__grid">
                 {'pdoResources' | snippet: [
-                'limit' => 3,
+                'limit' => 0,
                 'depth' => 0,
                 'parents' => 35,
                 'tpl' => 'frontEventsTpl',
@@ -155,7 +155,7 @@
                     <i class="fas fa-arrow-right"></i>
                 </button>
                 <button class="section-books__nav_button section-books__nav_prev"  id="sectionBooksPrev">
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-left"></i>
                 </button>
             </div>
         </div>
