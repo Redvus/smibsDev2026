@@ -125,25 +125,26 @@
         }
 
         &__item {
-            height: var(--frontGridBooksHeight);
+            //height: var(--frontGridBooksHeight);
             display: flex;
             flex-direction: column;
             position: relative;
 
             a {
                 width: auto;
+                height: var(--frontGridImageHeight);
                 position: relative;
                 overflow: hidden;
                 margin-bottom: var(--marginBase);
                 padding: 1rem;
                 background-color: var(--colorBackgroundMain);
 
-                @include pictureBlock();
+                @include pictureBlock($fit: contain);
 
             }
 
             span {
-                height: var(--frontGridTextHeight);
+                //height: var(--frontGridTextHeight);
                 line-height: 1;
             }
         }
@@ -196,6 +197,24 @@
                 background-color: transparent;
             }
         }
+
+        &__description {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__name {
+            margin-bottom: 0.5rem;
+            font-size: var(--font-size-small);
+        }
+
+        &__image {
+
+            &--fixed {
+                height: var(--frontGridImageFixedHeight) !important;
+            }
+        }
     }
 
     &-events {
@@ -237,7 +256,7 @@
 
         &__header {
             width: 100%;
-            height: 4vmax;
+            height: 3vmax;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             align-items: center;

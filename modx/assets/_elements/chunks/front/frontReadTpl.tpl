@@ -4,4 +4,7 @@
             <img src="{$id | resource: 'readImage' | phpthumb:'w=210&h=300&zc=1'}" alt="{$id | resource: 'longtitle' ?: $id | resource: 'pagetitle'}">
         </picture>
     </a>
-    <span>{$id | resource: 'longtitle' ?: $id | resource: 'pagetitle'}</span>
+    <div class="section-books__description">
+        <span class="section-books__name">{$id | resource: 'introtext'}</span>
+        <span class="section-books__title">{$id | resource: 'pagetitle'}</span>
+    </div>

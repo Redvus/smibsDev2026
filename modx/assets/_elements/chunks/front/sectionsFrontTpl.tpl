@@ -40,6 +40,7 @@
              data-book-slider
              id="booksSlider_1"
              data-infinite="false"
+             data-draggable="false"
              data-slides-per-view="7"
              data-slides-per-view-large="7"
              data-slides-per-view-medium="5"
@@ -85,6 +86,7 @@
              data-book-slider
              id="booksSlider_2"
              data-infinite="false"
+             data-draggable="false"
              data-slides-per-view="3"
              data-slides-per-view-large="3"
              data-slides-per-view-medium="2"
@@ -116,8 +118,54 @@
         </div>
     </section>
 
-{elseif $idFront == 14}
+{elseif $idFront == 41}
     <section class="section section-books section--border-3">
+        <div class="section__title">
+            <h2>{'20' | resource: 'pagetitle'}</h2>
+            <a href="{'20' | url}">
+                <span class="news-single__link">Подробнее</span>&nbsp;
+                <i class="fas fa-circle-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="section-books__main"
+             data-book-slider
+             id="booksSlider_3"
+             data-infinite="false"
+             data-draggable="false"
+             data-slides-per-view="5"
+             data-slides-per-view-large="5"
+             data-slides-per-view-medium="3"
+             data-slides-per-view-small="1"
+             data-gap="20"
+             data-autoplay="false"
+             data-autoplay-delay="4000">
+            <div class="section-books__grid">
+                {'pdoResources' | snippet: [
+                'limit' => 0,
+                'depth' => 0,
+                'parents' => 20,
+                'tpl' => 'frontReadTpl',
+                'includeContent' => 1,
+                'sortby' => 'publishedon',
+                'sortdir' => 'desc',
+                'includeTVs' => ''
+                ]}
+            </div>
+
+            <div class="section-books__nav">
+                <button class="section-books__nav_button section-books__nav_next" id="sectionBooksNext">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <button class="section-books__nav_button section-books__nav_prev"  id="sectionBooksPrev">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+{elseif $idFront == 14}
+    <section class="section section-books section--border-1">
         <div class="section__title">
             <h2>{'26' | resource: 'pagetitle'}</h2>
             <a href="{'26' | url}">
@@ -128,8 +176,9 @@
 
         <div class="section-books__main"
              data-book-slider
-             id="booksSlider_3"
+             id="booksSlider_4"
              data-infinite="false"
+             data-draggable="false"Œ
              data-slides-per-view="7"
              data-slides-per-view-large="7"
              data-slides-per-view-medium="5"

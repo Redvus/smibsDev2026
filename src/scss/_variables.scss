@@ -81,12 +81,15 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
     // Front Books
     --frontGridBooks: repeat(7, 1fr);
-    --frontGridBooksHeight: 22vmax;
-    --frontGridTextHeight: 7vmax;
+    --frontGridBooksHeight: 21vmax;
+    --frontGridImageHeight: 14vmax;
+    --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
+    --frontGridImageFixedHeight: var(--frontGridImageHeight);
+
     --sliderNavWidth: 7vmin;
-    --sliderNavHeight: var(--frontGridBooksHeight);
-    --sliderTextHeightShort: 6vmax;
-    --sliderNavHeightShort: 20vmax;
+    --sliderNavHeight: calc(var(--frontGridBooksHeight) * 1.07);
+    --sliderTextHeightShort: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
+    --sliderNavHeightShort: var(--frontGridBooksHeight);
 
     @include bp.media-up("XXLarge") {
         --wrapperPadding: 12vw;
