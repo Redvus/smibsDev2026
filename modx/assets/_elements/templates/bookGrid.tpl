@@ -41,9 +41,9 @@
         <section class="section section-books section--border-1">
             <div class="section__title">
                 <h2>Случайная подборка</h2>
-                <a href="{'26' | url}">
-                    <span class="news-single__link">Показать все</span>&nbsp;
-                    <i class="fas fa-circle-arrow-right"></i>
+                <a href="{'26' | url}" class="section-books__link">
+                    <span>Показать все</span>&nbsp;
+                    <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
 
@@ -75,7 +75,7 @@
                         <i class="fas fa-arrow-right"></i>
                     </button>
                     <button class="section-books__nav_button section-books__nav_prev" id="sectionBooksPrev">
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-arrow-left"></i>
                     </button>
                 </div>
             </div>

@@ -1,6 +1,10 @@
-<a href="{$id | url}" class="section__title">
+<div class="section__title">
     <h2>{$id | resource: "pagetitle" ?: $id | resource: "longtitle"}</h2>
-</a>
+    <a href="{$id | url}" class="section-books__link">
+        <span>Показать все</span>&nbsp;
+        <i class="fas fa-arrow-right"></i>
+    </a>
+</div>
 {var $idMain = $id | resource: 'id'}
 {if $idMain == 25}
     <div class="section-books__main"

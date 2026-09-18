@@ -10757,9 +10757,9 @@ a {
   --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
   --frontGridImageFixedHeight: var(--frontGridImageHeight);
   --sliderNavWidth: 7vmin;
-  --sliderNavHeight: calc(var(--frontGridBooksHeight) * 1.07);
+  --sliderNavHeight: calc(var(--frontGridBooksHeight));
   --sliderTextHeightShort: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
-  --sliderNavHeightShort: var(--frontGridBooksHeight);
+  --sliderNavHeightShort: calc(var(--frontGridBooksHeight) * 0.94);
 }
 @media (max-width: 3840px) {
   :root {
@@ -11960,7 +11960,6 @@ button {
   display: flex;
   flex-direction: row;
   margin-top: calc(var(--marginBase) * 1.5);
-  margin-bottom: calc(var(--marginBase) * 3);
 }
 .section-books__grid {
   width: calc(100% - var(--sliderNavWidth));
@@ -12004,7 +12003,7 @@ button {
   flex-direction: column;
   justify-content: space-between;
   padding-left: 1rem;
-  padding-bottom: calc(var(--frontGridTextHeight) + var(--marginBase));
+  padding-bottom: calc(var(--frontGridTextHeight));
   background-color: var(--fourth);
   z-index: 100;
 }
@@ -12033,7 +12032,7 @@ button {
 .section-books__nav--gray {
   height: var(--sliderNavHeightShort);
   background-color: rgb(236, 236, 236);
-  padding-bottom: calc(var(--sliderTextHeightShort) + var(--marginBase));
+  padding-bottom: calc(var(--sliderTextHeightShort));
 }
 .section-books__nav--opacity {
   background-color: transparent;
@@ -12050,10 +12049,14 @@ button {
 .section-books__image--fixed {
   height: var(--frontGridImageFixedHeight) !important;
 }
+.section-books__link i {
+  color: var(--third);
+}
 .section-events {
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding-top: 2.5rem;
 }
 .section-events__grid {
   width: 100%;
@@ -12117,7 +12120,7 @@ button {
 }
 .section-events__description {
   width: 100%;
-  height: var(--sliderTextHeightShort);
+  height: 5vmax;
   display: grid;
   grid-template-columns: 2fr 1fr;
   align-items: flex-start;
@@ -12205,7 +12208,7 @@ button {
   outline: none;
 }
 .section-service__search-button {
-  width: 5rem;
+  width: 8rem;
   height: 2.8rem;
   display: flex;
   align-items: center;
@@ -12215,6 +12218,8 @@ button {
   right: 0;
   border: none;
   outline: none;
+  font-size: var(--font-size-base);
+  color: var(--fourth);
   background-color: var(--primary);
   cursor: pointer;
 }

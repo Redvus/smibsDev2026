@@ -30,9 +30,9 @@
     <section class="section section-books section--border-1">
         <div class="section__title">
             <h2>{'25' | resource: 'pagetitle'}</h2>
-            <a href="{'25' | url}">
-                <span class="news-single__link">Подробнее</span>&nbsp;
-                <i class="fas fa-circle-arrow-right"></i>
+            <a href="{'25' | url}" class="section-books__link">
+                <span>Показать все</span>&nbsp;
+                <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
@@ -70,15 +70,16 @@
                 </button>
             </div>
         </div>
+
     </section>
 
 {elseif $idFront == 13}
     <section class="section section-events section--border-2">
         <div class="section__title">
             <h2>{'35' | resource: 'pagetitle'}</h2>
-            <a href="{'35' | url}">
-                <span class="news-single__link">Подробнее</span>&nbsp;
-                <i class="fas fa-circle-arrow-right"></i>
+            <a href="{'35' | url}" class="section-books__link">
+                <span>Показать все</span>&nbsp;
+                <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
@@ -122,9 +123,9 @@
     <section class="section section-books section--border-3">
         <div class="section__title">
             <h2>{'20' | resource: 'pagetitle'}</h2>
-            <a href="{'20' | url}">
-                <span class="news-single__link">Подробнее</span>&nbsp;
-                <i class="fas fa-circle-arrow-right"></i>
+            <a href="{'20' | url}" class="section-books__link">
+                <span>Показать все</span>&nbsp;
+                <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
@@ -168,9 +169,9 @@
     <section class="section section-books section--border-1">
         <div class="section__title">
             <h2>{'26' | resource: 'pagetitle'}</h2>
-            <a href="{'26' | url}">
-                <span class="news-single__link">Подробнее</span>&nbsp;
-                <i class="fas fa-circle-arrow-right"></i>
+            <a href="{'26' | url}" class="section-books__link">
+                <span>Показать все</span>&nbsp;
+                <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
