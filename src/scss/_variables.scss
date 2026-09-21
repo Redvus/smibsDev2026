@@ -15,10 +15,23 @@ $shadow-1xl: 0.3rem 0.5rem 0.5rem rgba(var(--shadowColorRGB), 0.3);
 $shadow-1xr: -0.3rem 0.5rem 0.5rem rgba(var(--shadowColorRGB), 0.3);
 $shadow-2xl: 0.5rem 1rem 1rem rgba(var(--shadowColorRGB), 0.3);
 
+$marginBase: 2vmax;
+
 // Анимации
 $transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 $transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+// Section
+$sectionBookMinHeight-Large: 30vmax;
+$sectionBookMinHeight-XLarge: 30vmax;
+$sectionBookMinHeight-XXLarge: 20vmax;
+
+// Book Slider
+$bookItemPadding-Large: 2vmax;
+$bookItemPadding-XLarge: 1.5vmax;
+$bookItemPadding-XXLarge: 1.1vmax;
+$bookSliderNavIcon: 1vmax;
 
 // Layout
 :root {
@@ -33,7 +46,7 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
     --header-height: 8rem;
     --wrapperPadding: 7vw;
 
-    --marginBase: 1rem;
+    --marginBase: #{$marginBase};
 
     --galleryItemHeight: 50vh;
     --galleryItemTopHeight: 75%;
@@ -59,6 +72,7 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
     --shadow-1xr: #{$shadow-1xr};
     --shadow-2xl: #{$shadow-2xl};
 
+    --sectionBookMinHeight: 30vmax;
     --sectionWidthLeft: 40%;
     --sectionWidthRight: calc(100% - var(--sectionWidthLeft));
 
@@ -81,19 +95,23 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
     // Front Books
     --frontGridBooks: repeat(7, 1fr);
-    --frontGridBooksHeight: 21vmax;
+    --frontGridBooksHeight: 19vmax;
     --frontGridImageHeight: 14vmax;
     --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
     --frontGridImageFixedHeight: var(--frontGridImageHeight);
 
-    --sliderNavWidth: 7vmin;
+    --sliderNavWidth: 4.5vmax;
     --sliderNavHeight: calc(var(--frontGridBooksHeight));
-    --sliderTextHeightShort: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
-    --sliderNavHeightShort: calc(var(--frontGridBooksHeight) * 0.94);
+    --sliderTextHeightShort: calc((var(--frontGridBooksHeight) - var(--frontGridImageHeight)));
+    --sliderNavHeightShort: calc(var(--frontGridBooksHeight));
+    --bookSliderNavIcon: #{$bookSliderNavIcon};
 
     @include bp.media-up("XXLarge") {
         --wrapperPadding: 12vw;
         --modalPadding: 10vmax;
+
+        --sectionBookMinHeight: #{$sectionBookMinHeight-XXLarge};
+        --bookItemPadding: #{$bookItemPadding-XXLarge};
 
         //--sliderNavHeight: 22vmin;
     }
@@ -103,6 +121,8 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
         --modalPadding: 6vmax;
 
         --frontGridBooks: repeat(7, 1fr);
+        --sectionBookMinHeight: #{$sectionBookMinHeight-XLarge};
+        --bookItemPadding: #{$bookItemPadding-XLarge};
         //--frontGridBooksHeight: 22vmax;
         //--sliderNavHeight: 24.5vmin;
     }
@@ -111,7 +131,9 @@ $transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
         --wrapperPadding: 3rem;
         --modalPadding: 3vmax;
 
+        --sectionBookMinHeight: #{$sectionBookMinHeight-Large};
         --frontGridBooks: repeat(7, 1fr);
+        --bookItemPadding: #{$bookItemPadding-Large};
         //--frontGridBooksHeight: 21vmax;
         //--sliderNavHeight: 21.5vmin;
     }

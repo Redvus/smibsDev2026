@@ -15,7 +15,7 @@
         </div>
         <div class="section-events__description">
             <div href="{$id | url}" class="section-events__title">
-                <h4>{$id | resource: "pagetitle"}</h4>
+                <h3>{$id | resource: "pagetitle"}</h3>
             </div>
             <span class="section-events__place">{$id | resource: "description"}</span>
         </div>

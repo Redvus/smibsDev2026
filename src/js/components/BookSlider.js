@@ -19,8 +19,11 @@ export default class BookSlider {
 
         // DOM
         this.grid = this.container.querySelector(this.config.gridSelector);
-        this.prevBtn = this.container.querySelector(this.config.prevSelector);
-        this.nextBtn = this.container.querySelector(this.config.nextSelector);
+
+        // 🔥 Кнопки ищем через селекторы, указанные в data-атрибутах
+        // Если селектор начинается с '#' или '.', ищем по всему документу
+        this.prevBtn = this._findElement(this.config.prevSelector);
+        this.nextBtn = this._findElement(this.config.nextSelector);
 
         if (!this.grid) {
             console.warn('❌ BookSlider: grid не найден');
@@ -330,6 +333,29 @@ export default class BookSlider {
             this.container.addEventListener('mouseenter', this._onMouseEnter);
             this.container.addEventListener('mouseleave', this._onMouseLeave);
         }
+    }
+
+    /**
+     * 🔥 Поиск элемента (внутри контейнера или по всему документу)
+     * @param {string} selector
+     * @returns {HTMLElement|null}
+     * @private
+     */
+    _findElement(selector) {
+        if (!selector) return null;
+
+        // Если селектор начинается с 'document:' — ищем по всему документу
+        if (selector.startsWith('document:')) {
+            const realSelector = selector.replace('document:', '');
+            return document.querySelector(realSelector);
+        }
+
+        // По умолчанию — ищем внутри контейнера
+        const inside = this.container.querySelector(selector);
+        if (inside) return inside;
+
+        // 🔥 Если не нашли внутри — ищем по всему документу
+        return document.querySelector(selector);
     }
 
     /**
