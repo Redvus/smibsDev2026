@@ -1,0 +1,96 @@
+@use "fonts" as *;
+@use "colors" as *;
+@use "breakpoints" as bp;
+@use "variables" as *;
+@use "mixins" as *;
+
+// Базовые стили
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Дополнительные глобальные стили
+body {
+    font-family: var(--primary-font);
+    color: var(--body-font-color);
+    background-color: var(--layoutBackground);
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+    }
+}
+
+// Ссылки
+a {
+    color: $color-accent-dark;
+    text-decoration: none;
+
+    // &:hover {
+    //     background-color: $color-accent;
+
+    //     a {
+    //         color: $color-accent-light;
+    //     }
+
+    //     // @include dark-theme {
+    //     //     color: var(--fourth);
+    //     // }
+    // }
+}
+
+i {
+    color: var(--colorLink);
+    transition: all var(--base-duration);
+}
+
+// Кнопки
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+    transition: all $transition-fast;
+}
+
+// Анимации появления
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+// Ключевые кадры
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
