@@ -108,7 +108,7 @@
         width: 100%;
         display: flex;
         flex-direction: row;
-        margin-top: calc(var(--marginBase) * 1.5);
+        margin-top: var(--bookSliderMarginTop);
 
         &--list {
             padding-bottom: calc(var(--marginBase) * 1.3);
@@ -152,7 +152,7 @@
                 height: var(--frontGridImageHeight);
                 position: relative;
                 overflow: hidden;
-                margin-bottom: var(--marginBase);
+                margin-bottom: var(--bookItemMargin);
                 padding: var(--bookItemPadding);
                 background-color: var(--colorBackgroundMain);
 
@@ -225,7 +225,7 @@
         }
 
         &__name {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7vmin;
             //font-size: var(--font-size-small);
         }
 
@@ -244,8 +244,8 @@
 
         &__age {
             position: absolute;
-            bottom: 0.5vmax;
-            left: 0.5vmax;
+            bottom: 0.5vmin;
+            left: 0.5vmin;
             color: var(--primary);
         }
     }
@@ -290,7 +290,7 @@
 
         &__header {
             width: 100%;
-            height: 3vmax;
+            height: 2.5vmax;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             align-items: center;

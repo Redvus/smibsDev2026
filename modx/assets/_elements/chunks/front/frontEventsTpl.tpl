@@ -7,10 +7,10 @@
     <div class="section-events__bottom">
         <div class="section-events__header">
             <div class="section-events__text">
-                <p>{$id | resource: "introtext"}</p>
+                <span>{$id | resource: "introtext"}</span>
             </div>
             <div class="section-events__date">
-                {$id | resource: 'publishedon' | date: 'd / m / y'}
+                <span>{$id | resource: 'publishedon' | date: 'd / m / y'}</span>
             </div>
         </div>
         <div class="section-events__description">

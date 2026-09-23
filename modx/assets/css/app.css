@@ -10616,10 +10616,10 @@
   --heading-line-height: 1;
   --font-size-base: var(--body-font-size);
   --font-size-large: calc(var(--font-size-base) + (var(--font-size-base) / 5));
-  --font-size-small: calc(var(--font-size-base) * 0.875);
+  --font-size-small: 0.7vmax;
   --font-size-h1: calc(var(--font-size-base) + 1.6vmax);
   --font-size-h2: calc(var(--font-size-base) + 0.9vmax);
-  --font-size-h3: 1vmax;
+  --font-size-h3: 0.9vmax;
   --font-size-h4: 0.8vmax;
   --font-size-h5: calc(var(--font-size-base) + 0.2vmin);
   --font-size-h6: calc(var(--font-size-base) + 0.1vmin);
@@ -10753,10 +10753,6 @@ a {
   --footerSizeLogoBack: 75vw;
   --iconSVGSize: 2rem;
   --frontGridBooks: repeat(7, 1fr);
-  --frontGridBooksHeight: 19vmax;
-  --frontGridImageHeight: 14vmax;
-  --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
-  --frontGridImageFixedHeight: var(--frontGridImageHeight);
   --sliderNavWidth: 4.5vmax;
   --sliderNavHeight: calc(var(--frontGridBooksHeight));
   --sliderTextHeightShort: calc((var(--frontGridBooksHeight) - var(--frontGridImageHeight)));
@@ -10766,27 +10762,53 @@ a {
 @media (max-width: 3840px) {
   :root {
     --wrapperPadding: 12vw;
-    --modalPadding: 10vmax;
+    --frontGridBooksHeight: 19vmax;
+    --frontGridImageHeight: 30vmin;
+    --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
+    --frontGridImageFixedHeight: var(--frontGridImageHeight);
     --sectionBookMinHeight: 20vmax;
     --bookItemPadding: 1.1vmax;
+    --bookItemMargin: 1.7vmin;
+    --bookSliderMarginTop: calc(var(--marginBase) * 0.3);
+  }
+}
+@media (max-width: 2560px) {
+  :root {
+    --wrapperPadding: 12vw;
+    --frontGridBooksHeight: 19vmax;
+    --frontGridImageHeight: 23vmin;
+    --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
+    --frontGridImageFixedHeight: var(--frontGridImageHeight);
+    --sectionBookMinHeight: 20vmax;
+    --bookItemPadding: 1.1vmax;
+    --bookItemMargin: 1.7vmin;
+    --bookSliderMarginTop: calc(var(--marginBase) * 0.3);
   }
 }
 @media (max-width: 1920px) {
   :root {
     --wrapperPadding: 7vmax;
-    --modalPadding: 6vmax;
-    --frontGridBooks: repeat(7, 1fr);
+    --frontGridBooksHeight: 19vmax;
+    --frontGridImageHeight: 25vmin;
+    --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
+    --frontGridImageFixedHeight: var(--frontGridImageHeight);
     --sectionBookMinHeight: 30vmax;
     --bookItemPadding: 1.5vmax;
+    --bookItemMargin: 1.7vmin;
+    --bookSliderMarginTop: calc(var(--marginBase) * 0.5);
   }
 }
 @media (max-width: 1680px) {
   :root {
     --wrapperPadding: 3rem;
-    --modalPadding: 3vmax;
-    --sectionBookMinHeight: 30vmax;
-    --frontGridBooks: repeat(7, 1fr);
+    --frontGridBooksHeight: 19vmax;
+    --frontGridImageHeight: 23vmin;
+    --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
+    --frontGridImageFixedHeight: var(--frontGridImageHeight);
+    --sectionBookMinHeight: 32vmax;
     --bookItemPadding: 2vmax;
+    --bookItemMargin: 2vmin;
+    --bookSliderMarginTop: calc(var(--marginBase) * 0.7);
   }
 }
 @media (max-width: 1080px) {
@@ -11962,7 +11984,7 @@ button {
   width: 100%;
   display: flex;
   flex-direction: row;
-  margin-top: calc(var(--marginBase) * 1.5);
+  margin-top: var(--bookSliderMarginTop);
 }
 .section__slider--list {
   padding-bottom: calc(var(--marginBase) * 1.3);
@@ -11996,7 +12018,7 @@ button {
   height: var(--frontGridImageHeight);
   position: relative;
   overflow: hidden;
-  margin-bottom: var(--marginBase);
+  margin-bottom: var(--bookItemMargin);
   padding: var(--bookItemPadding);
   background-color: var(--colorBackgroundMain);
 }
@@ -12059,7 +12081,7 @@ button {
   flex-direction: column;
 }
 .section-books__name {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.7vmin;
 }
 .section-books__image--fixed {
   height: var(--frontGridImageFixedHeight) !important;
@@ -12069,8 +12091,8 @@ button {
 }
 .section-books__age {
   position: absolute;
-  bottom: 0.5vmax;
-  left: 0.5vmax;
+  bottom: 0.5vmin;
+  left: 0.5vmin;
   color: var(--primary);
 }
 .section-events {
@@ -12117,7 +12139,7 @@ button {
 }
 .section-events__header {
   width: 100%;
-  height: 3vmax;
+  height: 2.5vmax;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;

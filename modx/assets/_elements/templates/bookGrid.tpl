@@ -47,29 +47,31 @@
                 </a>
             </div>
 
-            <div class="section-books__main"data-book-slider
-                 id="booksNew"
-                 data-infinite="false"
-                 data-slides-per-view="7"
-                 data-slides-per-view-large="7"
-                 data-slides-per-view-medium="5"
-                 data-slides-per-view-small="3"
-                 data-gap="20"
-                 data-autoplay="false"
-                 data-autoplay-delay="4000">
-                <div class="section-books__grid">
-                    {'pdoResources' | snippet: [
-                    'limit' => 7,
-                    'depth' => 0,
-                    'parents' => 25,
-                    'tpl' => 'frontReadTpl',
-                    'includeContent' => 1,
-                    'sortby' => 'publishedon',
-                    'sortdir' => 'desc',
-                    'includeTVs' => ''
-                    ]}
+            <div class="section__slider">
+                <div class="section-books__main"
+                     data-book-slider
+                     id="booksNew"
+                     data-infinite="false"
+                     data-slides-per-view="7"
+                     data-slides-per-view-large="7"
+                     data-slides-per-view-medium="5"
+                     data-slides-per-view-small="3"
+                     data-gap="20"
+                     data-autoplay="false"
+                     data-autoplay-delay="4000">
+                    <div class="section-books__grid">
+                        {'pdoResources' | snippet: [
+                        'limit' => 7,
+                        'depth' => 0,
+                        'parents' => 25,
+                        'tpl' => 'frontReadTpl',
+                        'includeContent' => 1,
+                        'sortby' => 'publishedon',
+                        'sortdir' => 'desc',
+                        'includeTVs' => ''
+                        ]}
+                    </div>
                 </div>
-
                 <div class="section-books__nav">
                     <button class="section-books__nav_button section-books__nav_next" id="sectionBooksNext">
                         <i class="fas fa-arrow-right"></i>
