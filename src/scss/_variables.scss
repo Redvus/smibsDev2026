@@ -1,0 +1,188 @@
+@use "sass:color";
+@use "breakpoints" as bp;
+
+// Тени
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+$shadow-1xl: 0.3rem 0.5rem 0.5rem rgba(var(--shadowColorRGB), 0.3);
+$shadow-1xr: -0.3rem 0.5rem 0.5rem rgba(var(--shadowColorRGB), 0.3);
+$shadow-2xl: 0.5rem 1rem 1rem rgba(var(--shadowColorRGB), 0.3);
+
+$marginBase: 2vmax;
+
+// Анимации
+$transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+// Layout
+$wrapperPadding-Large: 3rem;
+$wrapperPadding-XLarge: 7vmax;
+$wrapperPadding-XXLarge: 12vw;
+$wrapperPadding-XXXLarge: 12vw;
+
+// Section
+$sectionBookMinHeight-Large: 32vmax;
+$sectionBookMinHeight-XLarge: 30vmax;
+$sectionBookMinHeight-XXLarge: 20vmax;
+$sectionBookMinHeight-XXXLarge: 20vmax;
+
+// Book Slider
+$frontGridImageHeight-Large: 23vmin;
+$frontGridImageHeight-XLarge: 25vmin;
+$frontGridImageHeight-XXLarge: 23vmin;
+$frontGridImageHeight-XXXLarge: 30vmin;
+$frontGridBooksHeight: 19vmax;
+
+$bookItemPadding-Large: 2vmax;
+$bookItemPadding-XLarge: 1.5vmax;
+$bookItemPadding-XXLarge: 1.1vmax;
+$bookItemPadding-XXXLarge: 1.1vmax;
+
+$bookItemMargin-Large: 2vmin;
+$bookItemMargin-XLarge: 1.7vmin;
+$bookItemMargin-XXLarge: 1.5vmin;
+$bookItemMargin-XXXLarge: 1.5vmin;
+
+$bookSliderNavIcon: 1vmax;
+$bookSliderMarginTop-Large: calc(var(--marginBase) * 0.7);
+$bookSliderMarginTop-XLarge: calc(var(--marginBase) * 0.5);
+$bookSliderMarginTop-XXLarge: calc(var(--marginBase) * 0.3);
+
+// Layout
+:root {
+    --border_thin: 0.07rem;
+    --border_normal: 0.15rem;
+    --border_bold: 0.3rem;
+    --border_heavy: 0.6rem;
+
+    --base-duration: 0.2s;
+    --base-timing: 0.3s;
+
+    --header-height: 8rem;
+    --wrapperPadding: 7vw;
+
+    --marginBase: #{$marginBase};
+
+    --galleryItemHeight: 50vh;
+    --galleryItemTopHeight: 75%;
+
+    --modalWidth: 85vw;
+    --modalTopHeight: 85vh;
+    --modalVideoTopHeight: 60vh;
+    --modalIndex: 1.35;
+    --modalVideoIndex: 1.77;
+    --modalThumbnailsHeight: 8vh;
+    --modalButtonsHeight: calc(var(--marginBase) * 2.5);
+    --modalBorderColor: var(--fourth-darken-30);
+    --modalBorderColorDark: var(--third);
+
+    --modalPadding: 5vmax;
+
+    --headerWaveBorder: 13rem;
+    --headerSocialTop: 9vmax;
+    --headerSosialHeight: 2rem;
+    --headerSosialWideWidth: 5rem;
+
+    --shadow-1xl: #{$shadow-1xl};
+    --shadow-1xr: #{$shadow-1xr};
+    --shadow-2xl: #{$shadow-2xl};
+
+    --sectionBookMinHeight: 30vmax;
+    --sectionWidthLeft: 40%;
+    --sectionWidthRight: calc(100% - var(--sectionWidthLeft));
+
+    //News
+    --newsWidthLeft: 45%;
+    --newsWidthRight: calc(100% - var(--sectionWidthLeft));
+
+    //Footer
+    --footerHeight: 5rem;
+    --footerWidthLeft: 30%;
+    --footerWidthRight: calc(100% - var(--footerWidthLeft));
+    --footerHeightTop: 15rem;
+    --footerHeightBottom: 5rem;
+    --footerHeightBlockBottom: 3rem;
+    --footerHeightBanner: 4rem;
+    --footerWidthCircle: 45vw;
+    --footerSizeLogoBack: 75vw;
+
+    --iconSVGSize: 2rem;
+
+    // Front Books
+    --frontGridBooks: repeat(7, 1fr);
+    --sliderNavWidth: 4.5vmax;
+    --sliderNavHeight: calc(var(--frontGridBooksHeight));
+    --sliderTextHeightShort: calc((var(--frontGridBooksHeight) - var(--frontGridImageHeight)));
+    --sliderNavHeightShort: calc(var(--frontGridBooksHeight));
+    --bookSliderNavIcon: #{$bookSliderNavIcon};
+
+    @include bp.media-up("XXXLarge") {
+        --wrapperPadding: #{$wrapperPadding-XXLarge};
+
+        --frontGridBooksHeight: #{$frontGridBooksHeight};
+        --frontGridImageHeight: #{$frontGridImageHeight-XXXLarge};
+        --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
+        --frontGridImageFixedHeight: var(--frontGridImageHeight);
+
+        --sectionBookMinHeight: #{$sectionBookMinHeight-XXXLarge};
+        --bookItemPadding: #{$bookItemPadding-XXXLarge};
+        --bookItemMargin: #{$bookItemMargin-XLarge};
+        --bookSliderMarginTop: #{$bookSliderMarginTop-XXLarge};
+
+        //--sliderNavHeight: 22vmin;
+    }
+
+    @include bp.media-up("XXLarge") {
+        --wrapperPadding: #{$wrapperPadding-XXLarge};
+
+        --frontGridBooksHeight: #{$frontGridBooksHeight};
+        --frontGridImageHeight: #{$frontGridImageHeight-XXLarge};
+        --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
+        --frontGridImageFixedHeight: var(--frontGridImageHeight);
+
+        --sectionBookMinHeight: #{$sectionBookMinHeight-XXLarge};
+        --bookItemPadding: #{$bookItemPadding-XXLarge};
+        --bookItemMargin: #{$bookItemMargin-XLarge};
+        --bookSliderMarginTop: #{$bookSliderMarginTop-XXLarge};
+    }
+
+    @include bp.media-up("XLarge") {
+        --wrapperPadding: #{$wrapperPadding-XLarge};
+
+        --frontGridBooksHeight: #{$frontGridBooksHeight};
+        --frontGridImageHeight: #{$frontGridImageHeight-XLarge};
+        --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
+        --frontGridImageFixedHeight: var(--frontGridImageHeight);
+
+        --sectionBookMinHeight: #{$sectionBookMinHeight-XLarge};
+        --bookItemPadding: #{$bookItemPadding-XLarge};
+        --bookItemMargin: #{$bookItemMargin-XLarge};
+        --bookSliderMarginTop: #{$bookSliderMarginTop-XLarge};
+    }
+
+    @include bp.media-up("Large") {
+        --wrapperPadding: #{$wrapperPadding-Large};
+
+        --frontGridBooksHeight: #{$frontGridBooksHeight};
+        --frontGridImageHeight: #{$frontGridImageHeight-Large};
+        --frontGridTextHeight: calc(var(--frontGridBooksHeight) - var(--frontGridImageHeight));
+        --frontGridImageFixedHeight: var(--frontGridImageHeight);
+
+        --sectionBookMinHeight: #{$sectionBookMinHeight-Large};
+        --bookItemPadding: #{$bookItemPadding-Large};
+        --bookItemMargin: #{$bookItemMargin-Large};
+        --bookSliderMarginTop: #{$bookSliderMarginTop-Large};
+    }
+
+    @include bp.media-up("Medium") {
+        --wrapperPadding: 1rem;
+    }
+}

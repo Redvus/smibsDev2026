@@ -1,0 +1,3 @@
+<li {$classes}>
+    <a href="{$link}">{$menutitle}</a>
+</li>
