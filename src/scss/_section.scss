@@ -463,6 +463,80 @@
         }
     }
 
+    &-line {
+        min-height: initial;
+        padding: 0;
+        margin-top: 3vmax;
+
+
+        &__block {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: calc(var(--marginBase) * 0.5);
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            //position: relative;
+            margin-left: 0;
+            margin-bottom: var(--marginBase);
+
+            span {
+                //height: var(--frontGridTextHeight);
+                line-height: 1;
+            }
+        }
+
+        &__link {
+            width: 100%;
+            height: calc(var(--frontGridImageHeight) * 1.2);
+            position: relative;
+            overflow: hidden;
+            //margin-bottom: var(--bookItemMargin);
+            padding: var(--bookItemPadding);
+            background-color: var(--colorBackgroundMain);
+
+            @include pictureBlock($fit: contain);
+
+        }
+
+        &__title {
+            position: absolute;
+            bottom: 0.7vmin;
+            right: 0.7vmin;
+            color: var(--color-accent);
+            font-size: calc(var(--font-size-h1) * 2.2);
+            font-weight: $font-weight-bold;
+        }
+
+        &__description {
+            width: 100%;
+            //height: calc(var(--marginBase) * 1);
+            display: flex;
+            align-items: center;
+            padding: calc(var(--marginBase) * 0.5) 0;
+        }
+
+        &__button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--marginBase) * 0.4) 0 calc(var(--marginBase) * 0.5);
+            background-color: var(--color-accent);
+            color: var(--color-accent-light);
+            font-size: var(--font-size-h3);
+            line-height: 1;
+
+            &:hover {
+                background-color: var(--color-accent-hover);
+            }
+        }
+    }
+
     &__border {
         width: 100%;
         height: 100%;

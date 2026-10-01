@@ -10,6 +10,7 @@ import BlindController from "./components/BlindController.js";
 // import MobileMenu from './components/MobileMenu.js';
 import Preloader from './components/Preloader.js';
 import BookSlider from './components/BookSlider.js';
+import MapComponent from './components/MapComponent.js';
 
 // ============================================
 // СОЗДАНИЕ ПРИЛОЖЕНИЯ
@@ -50,16 +51,6 @@ function createApp() {
         }),
     );
 
-    app.register(
-        "blind",
-        new BlindController({
-            toggleSelector: '#blindToggleMobile',
-            menuSelector: '#blindMenu',
-            resetSelector: '#blindReset',
-            overlaySelector: '.blind-menu__overlay'
-        }),
-    );
-
     // app.register(
     //     "mobileMenu",
     //     new MobileMenu({
@@ -72,14 +63,6 @@ function createApp() {
     //     }),
     // );
 
-    // app.register(
-    //     "maps",
-    //     new MapManager({
-    //         selector: '#mapGeography',
-    //         apiKey: 'ВАШ_API_КЛЮЧ',
-    //     }),
-    // );
-
     app.register(
         "preloader",
         new Preloader({
@@ -89,6 +72,17 @@ function createApp() {
             autoHide: true,
         }),
     );
+
+    if (document.getElementById('mapGeography')) {
+        app.register("map", new MapComponent({
+            mapSelector: '#mapGeography',
+            center: [53.225631, 50.180304],
+            zoom: 12,
+            apiKey: '298950da-e9d6-479e-9d02-22988d71a08c',
+            autoCreate: false,
+        }));
+    }
+
 
     // initMobile(app);
 
@@ -289,5 +283,5 @@ if (document.readyState === "loading") {
 // console.log("📌 App: window.app");
 // console.log("📌 Components: window.app?.getAll()");
 
-export { App, eventBus };
+export {App, eventBus};
 export default App;

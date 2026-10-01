@@ -1,3 +1,9 @@
+{if $_modx->config.vite_dev_mode}
+    <script type="module" src="http://localhost:5173/js/main.js"></script>
+{else}
+    <script type="module" src="/assets/build/main.js"></script>
+{/if}
+
 {if $_modx->resource.id == 1}
     <script  type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
@@ -44,6 +50,8 @@
         // mainForm.style.display = 'none';
     </script>
 
+    {* <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script> *}
+
     {if $_modx->config.vite_dev_mode}
         <script type="module" src="http://localhost:5173/js/forms/forms.js"></script>
     {else}
@@ -51,8 +59,5 @@
     {/if}
 
     {* 3. Подключаем FormIt JS *}
-
     <script src="assets/components/formit/js/web/formit.js" defer></script>
-
-    {* <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script> *}
 {/if}

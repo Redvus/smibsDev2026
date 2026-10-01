@@ -48,12 +48,13 @@
     // transform: translateZ(0);
 }
 
-@mixin pictureBlock($height: 100%, $fit: cover) {
+@mixin pictureBlock($height: 100%, $fit: cover, $background: var(--colorBackgroundImage)) {
     picture {
         width: 100%;
         height: $height;
         display: block;
         position: relative;
+        background-color: $background;
 
         img {
             width: 100%;

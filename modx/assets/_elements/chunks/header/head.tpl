@@ -51,14 +51,14 @@
 
         {if $_modx -> resource.id != 6 && $_modx -> resource.id != 11}
             <link rel="stylesheet" href="http://localhost:5173/scss/main.scss">
-            <script type="module" src="http://localhost:5173/js/main.js"></script>
+{*            <script type="module" src="http://localhost:5173/js/main.js"></script>*}
 {*             <script type="module" src="http://localhost:5173/js/layoutOld.js"></script> *}
         {else}
             <link rel="stylesheet" href="http://localhost:5173/scssOld/main.scss">
         {/if}
     {else}
         <link rel="stylesheet" href="/assets/build/main.css">
-        <script type="module" src="/assets/build/main.js"></script>
+{*        <script type="module" src="/assets/build/main.js"></script>*}
     {/if}
 
     {if $_modx -> resource.id == 6}

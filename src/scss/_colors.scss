@@ -43,6 +43,7 @@ $color-accent-light: var(--fourth);
 $color-accent-dark: var(--third);
 
 $colorBackgroundMain: var(--secondary-lighten-42);
+$colorBackgroundImage: var(--secondary-lighten-30);
 
 // Градиенты
 $gradient-dark: linear-gradient(135deg, #000000 0%, #262626 100%);
@@ -59,11 +60,16 @@ $gradient-accent: linear-gradient(135deg, #000000 0%, #333333 100%);
 
     --colorLink: var(--seven);
 
+    --color-accent: #{$color-accent};
+    --color-accent-hover: #{$color-accent-hover};
+    --color-accent-light: #{$color-accent-light};
+
     --color-social: var(--secondary);
     --color-social-light: var(--fourth);
     --color-social-hover: var(--third);
 
     --colorBackgroundMain: #{$colorBackgroundMain};
+    --colorBackgroundImage: #{$colorBackgroundImage};
 
     --shadowColorRGB: 0, 0, 0;
 }
