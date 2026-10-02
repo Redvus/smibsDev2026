@@ -75,7 +75,7 @@
         </div>
     </section>
 
-{elseif $idFront == 13}
+{elseif $idFront == 47}
     <section class="section section-events section--border-2">
         <div class="section__title">
             <h2>{'35' | resource: 'pagetitle'}</h2>

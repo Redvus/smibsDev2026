@@ -22,8 +22,16 @@
         ]}
 
     {elseif $idMain == 13}
+        <div class="page__header">
+            <div class="page__title">
+                <h1>{$_modx -> resource.longtitle}</h1>
+            </div>
+{*            <div class="page__breadcrumbs">*}
+{*                {'breadcrumbs' | chunk}*}
+{*            </div>*}
+        </div>
         <section class="section section-intro">
-            <div id="mapGeography" style="width:100%; height:50vh"></div>
+            <div id="mapGeography" style="width:100%; height:50vmin"></div>
         </section>
 
         <section class="section section-line">

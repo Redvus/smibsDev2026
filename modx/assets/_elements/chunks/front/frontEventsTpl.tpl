@@ -10,13 +10,13 @@
                 <span>{$id | resource: "introtext"}</span>
             </div>
             <div class="section-events__date">
-                <span>{$id | resource: 'publishedon' | date: 'd / m / y'}</span>
+                <span>{$id | resource: 'publishedon' | dateRu}</span>
             </div>
         </div>
         <div class="section-events__description">
-            <div href="{$id | url}" class="section-events__title">
-                <h3>{$id | resource: "pagetitle"}</h3>
-            </div>
+            <a href="{$id | url}" class="section-events__title">
+                <span>{$id | resource: "pagetitle"}</span>
+            </a>
             <span class="section-events__place">{$id | resource: "description"}</span>
         </div>
         {* <a href="{$id | url}" class="section-events__footer">

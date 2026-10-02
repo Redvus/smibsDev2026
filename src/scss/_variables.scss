@@ -34,6 +34,8 @@ $sectionBookMinHeight-XLarge: 30vmax;
 $sectionBookMinHeight-XXLarge: 20vmax;
 $sectionBookMinHeight-XXXLarge: 20vmax;
 
+$sectionGridPerson: 25vmax;
+
 // Book Slider
 $frontGridImageHeight-Large: 23vmin;
 $frontGridImageHeight-XLarge: 25vmin;
@@ -98,6 +100,8 @@ $bookSliderMarginTop-XXLarge: calc(var(--marginBase) * 0.3);
     --sectionBookMinHeight: 30vmax;
     --sectionWidthLeft: 40%;
     --sectionWidthRight: calc(100% - var(--sectionWidthLeft));
+
+    --sectionGridPerson: #{$sectionGridPerson};
 
     //News
     --newsWidthLeft: 45%;
