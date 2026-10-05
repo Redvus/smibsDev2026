@@ -185,8 +185,8 @@ function contactJs() {
 
 function libraryJs() {
     return gulp
-        .src([path.src.js + "library.js"])
-        .pipe(concat("library.js"))
+        .src([path.src.js + "MapComponent.js"])
+        .pipe(concat("MapComponent.js"))
         .pipe(terser())
         .pipe(rename({ suffix: "-min" }))
         .pipe(gulp.dest(path.dest.js));
@@ -357,7 +357,7 @@ function watchFiles() {
     gulp.watch(path.watch.js + "preloader.js", gulp.series(preloaderJs));
     gulp.watch(path.watch.js + "vendor.js", gulp.series(vendorJs));
     //   gulp.watch(path.watch.js + 'contact.js', gulp.series('contact-js'));
-    //   gulp.watch(path.watch.js + 'library.js', gulp.series('library-js'));
+    //   gulp.watch(path.watch.js + 'MapComponent.js', gulp.series('library-js'));
     //   gulp.watch(path.watch.js + 'info.js', gulp.series('info-js'));
     //   gulp.watch(path.watch.js + 'news.js', gulp.series('news-js'));
     //   gulp.watch(path.watch.js + 'snow_ny.js', gulp.series('snow-js'));
