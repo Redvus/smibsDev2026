@@ -10605,9 +10605,6 @@
 }
 
 :root {
-  --primary-font: "Manrope", sans-serif;
-  --heading-font: "Manrope", sans-serif;
-  --heading-font-light: "Manrope", sans-serif;
   --body-font-color: var(--third);
   --heading-font-color: var(--third);
   --body-font-size: 1rem;
@@ -10617,16 +10614,36 @@
   --font-size-base: var(--body-font-size);
   --font-size-large: calc(var(--font-size-base) + (var(--font-size-base) / 5));
   --font-size-small: 0.7vmax;
-  --font-size-h1: 2.5vmax;
-  --font-size-h2: 2vmax;
+  --font-size-h1: 2.2vmax;
+  --font-size-h2: 1.8vmax;
   --font-size-h3: 1.5vmax;
   --font-size-h4: 1vmax;
   --font-size-h5: 0.8vmax;
   --font-size-h6: 0.6vmax;
 }
+@media (max-width: 3840px) {
+  :root {
+    --body-font-size: 0.8vmax;
+  }
+}
+@media (max-width: 2560px) {
+  :root {
+    --body-font-size: 0.8vmax;
+  }
+}
+@media (max-width: 1920px) {
+  :root {
+    --body-font-size: 0.8vmax;
+  }
+}
+@media (max-width: 1680px) {
+  :root {
+    --body-font-size: 1rem;
+  }
+}
 
 h1 {
-  font-family: var(--heading-font);
+  font-family: "Manrope", sans-serif;
   font-weight: 400;
   color: var(--heading-font-color);
   display: block;
@@ -10638,7 +10655,7 @@ h1 {
 }
 
 h2 {
-  font-family: var(--heading-font);
+  font-family: "Manrope", sans-serif;
   font-weight: 400;
   color: var(--heading-font-color);
   display: block;
@@ -10650,7 +10667,7 @@ h2 {
 }
 
 h3 {
-  font-family: var(--heading-font);
+  font-family: "Manrope", sans-serif;
   font-weight: 400;
   color: var(--heading-font-color);
   display: block;
@@ -10662,7 +10679,7 @@ h3 {
 }
 
 h4 {
-  font-family: var(--heading-font);
+  font-family: "Manrope", sans-serif;
   font-weight: 400;
   color: var(--heading-font-color);
   display: block;
@@ -10672,7 +10689,7 @@ h4 {
 }
 
 h5 {
-  font-family: var(--heading-font);
+  font-family: "Manrope", sans-serif;
   font-weight: 400;
   color: var(--heading-font-color);
   display: block;
@@ -10682,7 +10699,7 @@ h5 {
 }
 
 h6 {
-  font-family: var(--heading-font);
+  font-family: "Manrope", sans-serif;
   font-weight: 400;
   color: var(--heading-font-color);
   display: block;
@@ -10702,10 +10719,15 @@ ul li {
 }
 
 a {
+  font-family: "Manrope", sans-serif;
   color: var(--secondary);
   text-decoration: none;
   transition: all var(--base-duration);
   outline: none;
+}
+
+span {
+  font-family: "Manrope", sans-serif;
 }
 
 :root {
@@ -11056,7 +11078,7 @@ html {
 }
 
 body {
-  font-family: var(--primary-font);
+  font-family: "Manrope", sans-serif;
   color: var(--body-font-color);
   background-color: var(--layoutBackground);
   overflow-y: scroll;
@@ -12195,6 +12217,21 @@ button {
   justify-content: flex-end;
   font-size: var(--font-size-small);
 }
+@media (max-width: 3840px) {
+  .section-events__title span {
+    font-size: var(--font-size-h5);
+  }
+}
+@media (max-width: 2560px) {
+  .section-events__title span {
+    font-size: var(--font-size-h5);
+  }
+}
+@media (max-width: 1920px) {
+  .section-events__title span {
+    font-size: var(--font-size-h4);
+  }
+}
 .section-service {
   min-height: 10rem;
   display: flex;
@@ -12515,6 +12552,14 @@ button {
 .section__library_post {
   font-size: var(--font-size-h5);
   color: var(--color-accent);
+}
+.section-gallery {
+  min-height: initial;
+  padding: 0;
+  margin: 6rem 0;
+}
+.section-gallery__main {
+  width: 100%;
 }
 
 .slider {

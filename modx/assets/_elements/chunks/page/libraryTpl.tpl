@@ -9,6 +9,6 @@
         </span>
     </a>
     <div class="section-line__description">
-        <h3 class="section-line__name">{$id | resource: 'introtext'}</h3>
+        <h4 class="section-line__name">{$id | resource: 'libraryAdress' ?: 'ул. Филиальная, д. 123'}</h4>
     </div>
     <a href="{$id | url}" class="section-line__button">о филиале</a>

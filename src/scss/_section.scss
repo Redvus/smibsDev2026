@@ -346,6 +346,30 @@
             justify-content: flex-end;
             font-size: var(--font-size-small);
         }
+
+        @include bp.media-up('XXXLarge') {
+            &__title {
+                span {
+                    font-size: var(--font-size-h5);
+                }
+            }
+        }
+
+        @include bp.media-up('XXLarge') {
+            &__title {
+                span {
+                    font-size: var(--font-size-h5);
+                }
+            }
+        }
+
+        @include bp.media-up('XLarge') {
+            &__title {
+                span {
+                    font-size: var(--font-size-h4);
+                }
+            }
+        }
     }
 
     &-service {
@@ -702,6 +726,16 @@
         &_post {
             font-size: var(--font-size-h5);
             color: var(--color-accent);
+        }
+    }
+
+    &-gallery {
+        min-height: initial;
+        padding: 0;
+        margin: 6rem 0;
+
+        &__main {
+            width: 100%;
         }
     }
 }

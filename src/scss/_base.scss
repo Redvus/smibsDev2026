@@ -20,7 +20,7 @@ html {
 
 // Дополнительные глобальные стили
 body {
-    font-family: var(--primary-font);
+    font-family: $primary-font;
     color: var(--body-font-color);
     background-color: var(--layoutBackground);
     overflow-y: scroll;

@@ -19,6 +19,10 @@
 //     font-display: swap;
 // }
 
+$primary-font: "Manrope", sans-serif;
+$heading-font: "Manrope", sans-serif;
+$heading-font-light: "Manrope", sans-serif;
+
 // Weight axis (typically 100-900)
 $font-weight-thin: 200;
 $font-weight-light: 300;
@@ -32,10 +36,6 @@ $font-width-normal: 100%;
 $font-width-extended: 125%;
 
 :root {
-    --primary-font: "Manrope", sans-serif;
-    --heading-font: "Manrope", sans-serif;
-    --heading-font-light: "Manrope", sans-serif;
-
     --body-font-color: var(--third);
     --heading-font-color: var(--third);
 
@@ -48,12 +48,28 @@ $font-width-extended: 125%;
     --font-size-large: calc(var(--font-size-base) + (var(--font-size-base) / 5));
     // --font-size-small:   calc(var(--font-size-base) - (var(--font-size-base) / 5));
     --font-size-small: 0.7vmax;
-    --font-size-h1: 2.5vmax;
-    --font-size-h2: 2vmax;
+    --font-size-h1: 2.2vmax;
+    --font-size-h2: 1.8vmax;
     --font-size-h3: 1.5vmax;
     --font-size-h4: 1vmax;
     --font-size-h5: 0.8vmax;
     --font-size-h6: 0.6vmax;
+
+    @include bp.media-up('XXXLarge') {
+        --body-font-size: 0.8vmax;
+    }
+
+    @include bp.media-up('XXLarge') {
+        --body-font-size: 0.8vmax;
+    }
+
+    @include bp.media-up('XLarge') {
+        --body-font-size: 0.8vmax;
+    }
+
+    @include bp.media-up('Large') {
+        --body-font-size: 1rem;
+    }
 }
 
 // @include bp.media-up('XLarge') {
@@ -70,7 +86,7 @@ $font-width-extended: 125%;
 
 // Base fonts styles
 @mixin px($size: base) {
-    font-family: var(--primary-font), serif;
+    font-family: $primary-font;
     font-weight: $font-weight-regular;
     font-stretch: $font-width-normal;
     line-height: var(--body-line-height);
@@ -100,7 +116,7 @@ $font-width-extended: 125%;
 
 // Headings mixin
 @mixin hx($size) {
-    font-family: var(--heading-font);
+    font-family: $heading-font;
     font-weight: $font-weight-regular;
     color: var(--heading-font-color);
     display: block;
@@ -174,6 +190,7 @@ ul {
 }
 
 a {
+    font-family: $heading-font;
     color: var(--secondary);
     text-decoration: none;
     transition: all var(--base-duration);
@@ -184,4 +201,8 @@ a {
     // &:hover {
     //     //color: $action-color;
     // }
+}
+
+span {
+    font-family: $heading-font;
 }

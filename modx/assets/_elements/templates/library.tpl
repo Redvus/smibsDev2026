@@ -21,20 +21,21 @@
                     <ul class="section__library_location">
                         <li class="section__library_address">
                             <span>Адрес:</span>
-                            {$_modx -> resource.introtext}
+                            {$_modx -> resource.libraryAdress ?: 'ул. Филиальная, д. 123'}
                         </li>
                         <li class="section__library_address">
                             <span>Телефон:</span>
-                            {$_modx -> resource.introtext}
+                            {$_modx -> resource.libraryPhone ?: '8 (846) 123-45-67'}
                         </li>
                         <li class="section__library_address">
                             <span>Электронная&nbsp;почта:</span>
-                            {$_modx -> resource.introtext}
+                            {$_modx -> resource.libraryEmail ?: 'info@library.ru'}
                         </li>
                     </ul>
                 </div>
                 <div class="section__grid_text">
-                    <p>{$_modx -> resource.content}</p>
+{*                    <p>{$_modx -> resource.content}</p>*}
+                    <p>{'49' | resource: "content"}</p>
                 </div>
             </div>
 
@@ -53,6 +54,36 @@
                 </span>
             </div>
         </div>
+
+        {* Фото библиотеки *}
+        <section class="section section-gallery">
+            <div class="section__slider">
+                <div class="section-books__main section-gallery__main"
+                     data-book-slider
+                     id="librarySlider_"
+                     data-infinite="false"
+                     data-draggable="false"
+                     data-slides-per-view="4"
+                     data-slides-per-view-large="4"
+                     data-slides-per-view-medium="4"
+                     data-slides-per-view-small="2"
+                     data-gap="20"
+                     data-autoplay="false">
+                    <div class="section-books__grid">
+                        {'pdoResources' | snippet: [
+                        'limit' => 0,
+                        'depth' => 0,
+                        'parents' => 35,
+                        'tpl' => 'libraryGalleryTpl',
+                        'includeContent' => 1,
+                        'sortby' => 'publishedon',
+                        'sortdir' => 'desc',
+                        'includeTVs' => ''
+                        ]}
+                    </div>
+                </div>
+            </div>
+        </section>
 
         {* События библиотеки *}
         <section class="section section-events section--border-2">
