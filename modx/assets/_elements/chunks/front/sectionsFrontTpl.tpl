@@ -19,7 +19,7 @@
                 'tpl' => 'sectionEventTpl',
                 'includeContent' => 1,
                 'sortby' => 'publishedon',
-                'sortdir' => 'desc',
+                'sortdir' => 'asc',
                 'includeTVs' => '',
 
             ]}
