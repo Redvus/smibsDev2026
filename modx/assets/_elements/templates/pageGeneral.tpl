@@ -1,52 +1,105 @@
 <!doctype html>
 <!--[if IE 8]> <html lang="ru" class="ie8"> <![endif]-->
-<!--[if !IE]><!--><html lang="rus"><!--<![endif]-->
+<!--[if !IE]><!--> <html lang="rus"> <!--<![endif]-->
 {'head'|chunk}
 <body>
-    {*'preloader'|chunk*}
-    <div class="wrapper">
-        {'header'|chunk}
+<div class="wrapper">
+{*     {'preloader'|chunk}*}
+    {'header'|chunk}
+    {* {'nav-main'|chunk} *}
+    {* {'main-content'|chunk} *}
 
-        <div class="main-content">
-            {'breadcrumbs'|chunk}
+    {var $idMain = $id | resource: 'id'}
+    {if $idMain == 1}
+        {'pdoResources' | snippet: [
+            'limit' => 0,
+            'depth' => 1,
+            'parents' => 1,
+            'tpl' => 'sectionsFrontTpl',
+            'includeContent' => 1,
+            'sortby' => 'menuindex',
+            'sortdir' => 'asc'
+        ]}
 
-            <div class="main-content__inside">
-                {if $_modx->resource.id != 8280}
-                    <div class="main-content__title">
-                        <h1>{$_modx->resource.longtitle ?: $_modx->resource.pagetitle}</h1>
-                    </div>
-                    <div class="main-content__text main-content__text--single">
-                        {$_modx -> resource.content}
-
-                        {if $_modx -> resource.id == 20}
-                            <div class="main-content__doc-block">
-                                <div class="main-content__subtitle">
-                                    <h2>{2525 | resource: 'pagetitle'}</h2>
-                                </div>
-                                <ul class="main-content__doc">
-                                    {set $rows = 2525 | resource: 'documents' | fromJSON}
-                                    {foreach $rows as $row}
-                                    <li>
-                                        <a href="assets/images/{$row.documentsLink}" target="_blank">
-                                            <picture>
-                                                <img src="assets/images/documents/documents_preview.jpg" alt="{$row.documentsTitle}" />
-                                            </picture>
-                                            <span>{$row.documentsTitle}</span>
-                                        </a>
-                                    </li>
-                                    {/foreach}
-                                </ul>
-                            </div>
-                        {/if}
-                    </div>
-                {/if}
+    {elseif $idMain == 13}
+        <div class="page__header">
+            <div class="page__title">
+                <h1>{$_modx -> resource.longtitle}</h1>
             </div>
+{*            <div class="page__breadcrumbs">*}
+{*                {'breadcrumbs' | chunk}*}
+{*            </div>*}
         </div>
-    </div>
+        <section class="section section-intro">
+            <div id="mapGeography" style="width:100%; height:50vmin"></div>
+        </section>
 
-    {'blind-menu'|chunk}
+        <section class="section section-line">
+            <ul class="section-line__block">
+                {'pdoResources' | snippet: [
+                'limit' => 0,
+                'depth' => 1,
+                'tpl' => 'libraryTpl',
+                'includeContent' => 1,
+                'sortby' => 'menuindex',
+                'sortdir' => 'asc'
+                ]}
+            </ul>
+        </section>
+
+        {* Случайная подборка *}
+        <section class="section section-books section--border-1">
+            <div class="section__title">
+                <h2>Случайная подборка</h2>
+                <a href="{'25' | url}" class="section-books__link">
+                    <span>Показать все</span>&nbsp;
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="section__slider">
+                <div class="section-books__main"
+                     data-book-slider
+                     id="booksNew"
+                     data-infinite="false"
+                     data-draggable="false"
+                     data-slides-per-view="7"
+                     data-slides-per-view-large="7"
+                     data-slides-per-view-medium="5"
+                     data-slides-per-view-small="3"
+                     data-gap="20"
+                     data-prev-selector="#sectionBooksPrev"
+                     data-next-selector="#sectionBooksNext"
+                     data-autoplay="false"
+                     data-autoplay-delay="4000">
+                    <div class="section-books__grid">
+                        {'pdoResources' | snippet: [
+                        'limit' => 0,
+                        'depth' => 0,
+                        'parents' => 25,
+                        'tpl' => 'frontReadTpl',
+                        'includeContent' => 1,
+                        'sortby' => 'publishedon',
+                        'sortdir' => 'desc',
+                        'includeTVs' => ''
+                        ]}
+                    </div>
+                </div>
+                <div class="section-books__nav">
+                    <button class="section-books__nav_button section-books__nav_next" id="sectionBooksNext">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="section-books__nav_button section-books__nav_prev" id="sectionBooksPrev">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    {/if}
+
+    {* {'prototypeBack'|chunk} *}
+</div>
     {'footer'|chunk}
-    {'footer-mobile'|chunk}
     {'scripts'|chunk}
 </body>
 </html>

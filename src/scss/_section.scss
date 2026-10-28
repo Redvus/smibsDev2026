@@ -9,7 +9,7 @@
     min-height: var(--sectionBookMinHeight);
     display: block;
     position: relative;
-    margin-bottom: 2vmax;
+    margin-bottom: var(--section-margin-bottom);
     padding: 2vmax;
 
     &__title {
@@ -504,7 +504,6 @@
         padding: 0;
         margin-top: 3vmax;
 
-
         &__block {
             width: 100%;
             display: grid;
@@ -573,6 +572,16 @@
         }
     }
 
+    &-page {
+        min-height: initial;
+        padding: 0;
+        margin-bottom: calc(var(--section-margin-bottom) * 2);
+
+        &__description {
+            width: 100%;
+        }
+    }
+
     &__border {
         width: 100%;
         height: 100%;
@@ -610,7 +619,7 @@
         grid-template-columns: 2fr 1fr;
         gap: calc(var(--marginBase) * 6);
         position: relative;
-        margin-top: 2rem;
+        margin: 2rem 0;
 
         &_image {
             padding: 3rem;

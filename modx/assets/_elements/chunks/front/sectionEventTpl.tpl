@@ -1,6 +1,6 @@
 <div class="event__item">
     <div class="event__left">
-        <h4 class="event__date">{$id | resource: 'publishedon' | date: 'd / m / y'}</h4>
+        <h4 class="event__date">{$id | resource: 'publishedon' | dateRu}</h4>
     </div>
     <div class="event__right">
         <div class="event__header">

@@ -10759,6 +10759,7 @@ span {
   --shadow-1xl: 0.3rem 0.5rem 0.5rem rgba(var(--shadowColorRGB), 0.3);
   --shadow-1xr: -0.3rem 0.5rem 0.5rem rgba(var(--shadowColorRGB), 0.3);
   --shadow-2xl: 0.5rem 1rem 1rem rgba(var(--shadowColorRGB), 0.3);
+  --section-margin-bottom: 2vmax;
   --sectionBookMinHeight: 30vmax;
   --sectionWidthLeft: 40%;
   --sectionWidthRight: calc(100% - var(--sectionWidthLeft));
@@ -11086,6 +11087,13 @@ body {
 body::-webkit-scrollbar {
   width: 0;
   background: transparent;
+}
+
+p {
+  margin: calc(var(--marginBase) / 2) 0;
+}
+p:first-child {
+  margin-top: 0;
 }
 
 a {
@@ -11932,7 +11940,7 @@ button {
   min-height: var(--sectionBookMinHeight);
   display: block;
   position: relative;
-  margin-bottom: 2vmax;
+  margin-bottom: var(--section-margin-bottom);
   padding: 2vmax;
 }
 .section__title {
@@ -12399,6 +12407,14 @@ button {
 .section-line__button:hover {
   background-color: var(--color-accent-hover);
 }
+.section-page {
+  min-height: initial;
+  padding: 0;
+  margin-bottom: calc(var(--section-margin-bottom) * 2);
+}
+.section-page__description {
+  width: 100%;
+}
 .section__border {
   width: 100%;
   height: 100%;
@@ -12432,7 +12448,7 @@ button {
   grid-template-columns: 2fr 1fr;
   gap: calc(var(--marginBase) * 6);
   position: relative;
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 .section__grid_image {
   padding: 3rem;

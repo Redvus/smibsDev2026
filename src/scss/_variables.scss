@@ -29,6 +29,7 @@ $wrapperPadding-XXLarge: 12vw;
 $wrapperPadding-XXXLarge: 12vw;
 
 // Section
+$sectionMarginBottom: 2vmax;
 $sectionBookMinHeight-Large: 32vmax;
 $sectionBookMinHeight-XLarge: 30vmax;
 $sectionBookMinHeight-XXLarge: 20vmax;
@@ -97,6 +98,7 @@ $bookSliderMarginTop-XXLarge: calc(var(--marginBase) * 0.3);
     --shadow-1xr: #{$shadow-1xr};
     --shadow-2xl: #{$shadow-2xl};
 
+    --section-margin-bottom: #{$sectionMarginBottom};
     --sectionBookMinHeight: 30vmax;
     --sectionWidthLeft: 40%;
     --sectionWidthRight: calc(100% - var(--sectionWidthLeft));
