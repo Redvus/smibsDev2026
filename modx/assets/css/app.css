@@ -10763,6 +10763,7 @@ span {
   --sectionBookMinHeight: 30vmax;
   --sectionWidthLeft: 40%;
   --sectionWidthRight: calc(100% - var(--sectionWidthLeft));
+  --section-page-padding-right: 10vmax;
   --sectionGridPerson: 25vmax;
   --newsWidthLeft: 45%;
   --newsWidthRight: calc(100% - var(--sectionWidthLeft));
@@ -12413,7 +12414,34 @@ button {
   margin-bottom: calc(var(--section-margin-bottom) * 2);
 }
 .section-page__description {
+  width: calc(100% - var(--section-page-padding-right));
+  padding-right: var(--section-page-padding-right);
+}
+.section-page__image-grid {
   width: 100%;
+  min-height: 20vh;
+  display: grid;
+  gap: calc(var(--marginBase) * 0.5);
+  margin: calc(var(--section-margin-bottom) * 1) 0;
+}
+.section-page__image-grid--1 {
+  grid-template-columns: 0.75fr;
+}
+.section-page__image-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.section-page__image-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.section-page__image-item {
+  display: block;
+}
+.section-page__image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: relative;
 }
 .section__border {
   width: 100%;

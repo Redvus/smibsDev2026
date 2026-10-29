@@ -578,7 +578,42 @@
         margin-bottom: calc(var(--section-margin-bottom) * 2);
 
         &__description {
-            width: 100%;
+            width: calc(100% - var(--section-page-padding-right));
+            padding-right: var(--section-page-padding-right);
+        }
+
+        &__image {
+            &-grid {
+                width: 100%;
+                min-height: 20vh;
+                display: grid;
+                gap: calc(var(--marginBase) * 0.5);
+                margin: calc(var(--section-margin-bottom) * 1) 0;
+
+                &--1 {
+                    grid-template-columns: 0.75fr;
+                }
+
+                &--2 {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                &--3 {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            &-item {
+                display: block;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    position: relative;
+                }
+            }
         }
     }
 
