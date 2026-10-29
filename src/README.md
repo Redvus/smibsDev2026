@@ -1,105 +1,130 @@
-MODX Docker Project by Pixmill
----
 
-Download project from Gitlab:
+```markdown
+# MODX Docker Project by Pixmill
 
-```
+## Скачивание проекта из Gitlab
+
+```bash
 git clone https://github.com/bezumkin/modx-docker.git ./NewProject
 ```
 
-### Prepare Docker
+---
 
-If you have no Docker, please install it with
-```
+## Подготовка Docker
+
+Если у вас нет Docker, установите его с помощью команды:
+
+```bash
 brew install docker --cask
 ```
-Then launch Docker desktop application from Applications.
 
-Go to Docker directory:
-```
+Затем запустите приложение Docker Desktop из папки `Applications`.
+
+Перейдите в директорию Docker:
+
+```bash
 cd ./NewProject/docker
 ```
 
-Prepare environment variables:
-```
+Подготовьте переменные окружения:
+
+```bash
 cp .env.dist .env
 ```
 
-Don't forget to specify unique project name in `COMPOSE_PROJECT_NAME` variable.
+Не забудьте указать уникальное имя проекта в переменной `COMPOSE_PROJECT_NAME`.
 
-And run containers:
-```
+И запустите контейнеры:
+
+```bash
 ./start.sh
 ```
 
-First launch will take about 5-10 minutes while docker download images and build containers.
+Первый запуск займет около 5–10 минут, пока Docker загружает образы и собирает контейнеры.
 
-### Install MODX
+---
 
-If you have run this project for the first time, you need to install MODX with default settings. Run
-```
+## Установка MODX
+
+Если вы запускаете этот проект впервые, вам необходимо установить MODX с настройками по умолчанию. Выполните:
+
+```bash
 ./modx-install.sh
 ```
 
-This will install MODX of the version specified in `MODX_VERSION` variable, default packages and create special `Assets` plugin.
+Это установит MODX версии, указанной в переменной `MODX_VERSION`, стандартные пакеты и создаст специальный плагин `Assets`.
 
-### MODX 2.8.5+ notice
+---
 
-There is a problem in MODX 2.8.5+ versions because of [this PR](https://github.com/modxcms/revolution/pull/16201). 
-If you installed this version, you need go to the `core/config/config.inc.php` and change the line `66` to make port checking not so strict.
+## ⚠️ Важно для MODX 2.8.5+
 
-Before
-```
+В версиях MODX 2.8.5 и выше есть проблема, связанная с [этим PR](https://github.com/modxcms/revolution/pull/16201).
+
+Если вы установили эту версию, откройте файл `core/config/config.inc.php` и измените строку `66`, чтобы проверка порта была не такой строгой.
+
+**Было:**
+
+```php
 if ($_SERVER['SERVER_PORT'] !== 80) {
 ```
 
-After
-```
+**Стало:**
+
+```php
 if ($_SERVER['SERVER_PORT'] != 80) {
 ```
 
-This will solve the problem with wrong addresses.
+Это решит проблему с некорректными адресами.
 
-### How to develop
+---
 
-Open http://127.0.0.1:8080 - you will see the MODX website. 
+## Как вести разработку
 
-Your frontend assets are in the `NewProject/assets` directory, handled by Vite in development mode. 
-When you change files, frontend will rebuild assets and reload. 
+Откройте в браузере [http://127.0.0.1:8080](http://127.0.0.1:8080) — вы увидите сайт на MODX.
 
-If you want to change something in MODX, feel free to go to the `/manager` using login `admin` and password `adminadmin`.
+Ваши фронтенд-ресурсы находятся в директории `NewProject/assets` и обрабатываются Vite в режиме разработки. При изменении файлов фронтенд будет пересобираться и перезагружаться автоматически.
 
-When you finish your work, run 
-```
+Если вам нужно что-то изменить в MODX, зайдите в `/manager`, используя логин `admin` и пароль `adminadmin`.
+
+Когда закончите работу, выполните:
+
+```bash
 ./modx-backup.sh
 ```
-to save your changes for Git.
 
-Then you can stop your containers by
-```
+чтобы сохранить изменения для Git.
+
+Затем вы можете остановить контейнеры командой:
+
+```bash
 ./stop.sh
 ```
 
-### Production Build
+---
 
-If you want to upload compiled assets to production web-server, run
-```
+## Сборка для продакшена
+
+Если вы хотите выгрузить собранные файлы на продакшен-сервер, выполните:
+
+```bash
 ./modx-build.sh
 ```
 
-This should compile frontend bundle and copy PHP sources with Gitify data files to the root `/dist` directory.
+Это соберет фронтенд-бандл и скопирует PHP-исходники с файлами данных Gitify в корневую папку `/dist`.
 
-Now you are ready to upload the content of `/dist` directory to the root of MODX website on server.
+Теперь вы можете загрузить содержимое папки `/dist` в корень сайта MODX на сервере.
 
-## Windows notice
+---
 
-Although Docker works well on Windows, you can't run a bash script without installing WSL 2 or other complexities.
+## Замечание для Windows
 
-That is why you will need to run it directly inside PHP container. Open Docker Desktop, click on context menu of 
-`php-fpm` container and use commands from scripts.
+Хотя Docker хорошо работает на Windows, запустить bash-скрипт без установки WSL 2 или других дополнительных инструментов не получится.
 
-For example, here is all-in-one commands to install MODX:
-```shell
+Поэтому вам потребуется выполнять команды напрямую внутри контейнера PHP. Откройте Docker Desktop, нажмите на контекстное меню контейнера `php-fpm` и используйте команды из скриптов.
+
+Например, вот единая команда для установки MODX (все в одной строке):
+
+```bash
 export $(cat ./.env | sed 's/\r$//')
 
 gitify modx:download 2.8.4-pl
@@ -110,8 +135,9 @@ php setup/cli-install.php --database_server=mariadb \
   --context_mgr_path=/modx/manager/ --context_mgr_url=/manager/ \
   --context_connectors_path=/modx/connectors/ --context_connectors_url=/connectors/ \
   --context_web_path=/modx/
-  
+
 rm -rf ./core/cache && gitify build
 
 gitify package:install --all
+```
 ```

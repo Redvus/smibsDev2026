@@ -1,0 +1,58 @@
+@use "fonts" as *;
+@use "sass:color";
+@use "breakpoints" as bp;
+@use "variables" as *;
+@use "mixins" as *;
+
+/*=============================================
+=                   Search                   =
+=============================================*/
+
+.post-preview {
+    margin-bottom: var(--marginBase);
+    border-bottom: var(--border_thin) solid var(--secondary);
+
+    &__top {
+
+        a {
+
+            h3 {
+                border-bottom: none;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // &__content {
+
+    // }
+
+    &__bottom {
+        margin-top: var(--marginVert);
+    }
+
+    &__date {
+        display: inline-block;
+        background-color: var(--secondary);
+        color: var(--fourth);
+        font-size: var(--font-size-small);
+        padding: var(--marginVert);
+        // margin-right: var(--marginVertBase);
+    }
+
+    &__link {
+        height: 100%;
+        display: inline-block;
+        background-color: var(--primary);
+        // color: var(--fourth);
+        font-size: var(--font-size-small);
+        padding: var(--marginVert);
+        // margin-right: var(--marginVertBase);
+
+        // &:hover {
+        //     background-color: $navBackground;
+        // }
+    }
+}
+
+/*============  End of Search  =============*/

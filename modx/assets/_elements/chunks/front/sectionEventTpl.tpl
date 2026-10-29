@@ -1,0 +1,15 @@
+<div class="event__item">
+    <div class="event__left">
+        <h4 class="event__date">{$id | resource: 'publishedon' | dateRu}</h4>
+    </div>
+    <div class="event__right">
+        <div class="event__header">
+            <a href="{$id | url}">
+                <h4 class="event__title">{$id | resource: "pagetitle"}</h4>
+            </a>
+            <div class="event__text">
+                <p>{$id | resource: "content"}</p>
+            </div>
+        </div>
+    </div>
+</div>
