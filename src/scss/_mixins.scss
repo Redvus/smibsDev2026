@@ -17,11 +17,18 @@
     grid-template-columns: repeat($columns, 1fr);
     gap: $gap;
 }
-
 @mixin flex-wrap($columns: 1, $gap: 1rem) {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: $gap;
+}
+
+@mixin flex-row($gap: 1rem, $justify: flex-start) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+    flex-direction: row;
     gap: $gap;
 }
 

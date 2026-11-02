@@ -60,7 +60,7 @@
             <div class="section__slider">
                 <div class="section-books__main section-gallery__main"
                      data-book-slider
-                     id="librarySlider_"
+                     id="librarySlider_1"
                      data-infinite="false"
                      data-draggable="false"
                      data-slides-per-view="4"
