@@ -1,0 +1,25 @@
+@use "fonts" as *;
+@use "sass:color";
+@use "breakpoints" as bp;
+@use "variables" as *;
+@use "mixins" as *;
+
+.filter-block {
+    @include flex-column(0);
+
+    &__title {
+        font-size: var(--font-size-small);
+        color: var(--color-accent);
+        margin-bottom: 0.3rem;
+    }
+
+    &__select {
+        height: 2rem;
+        padding: 0 1rem;
+        text-align: left;
+        //color: var(--secondary);
+        border: .07rem solid var(--color-accent);
+        background: none;
+        font-size: var(--font-size-base);
+    }
+}
