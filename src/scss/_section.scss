@@ -254,6 +254,79 @@
         }
     }
 
+    &-line {
+        min-height: initial;
+        padding: 0;
+        margin-top: 3vmax;
+
+        &__block {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: calc(var(--marginBase) * 0.5);
+        }
+
+        &__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            //position: relative;
+            margin-left: 0;
+            margin-bottom: var(--marginBase);
+
+            span {
+                //height: var(--frontGridTextHeight);
+                line-height: 1;
+            }
+        }
+
+        &__link {
+            width: 100%;
+            height: calc(var(--frontGridImageHeight) * 1.2);
+            position: relative;
+            overflow: hidden;
+            //margin-bottom: var(--bookItemMargin);
+            padding: var(--bookItemPadding);
+            background-color: var(--colorBackgroundMain);
+
+            @include pictureBlock($fit: contain);
+
+        }
+
+        &__title {
+            position: absolute;
+            bottom: 0.7vmin;
+            right: 0.7vmin;
+            color: var(--color-accent);
+            font-size: calc(var(--font-size-h1) * 1.7);
+            font-weight: $font-weight-bold;
+        }
+
+        &__description {
+            width: 100%;
+            //height: calc(var(--marginBase) * 1);
+            display: flex;
+            align-items: center;
+            padding: calc(var(--marginBase) * 0.5) 0;
+        }
+
+        &__button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--marginBase) * 0.4) 0 calc(var(--marginBase) * 0.5);
+            background-color: var(--color-accent);
+            color: var(--color-accent-light);
+            font-size: var(--font-size-h4);
+            line-height: 1;
+
+            &:hover {
+                background-color: var(--color-accent-hover);
+            }
+        }
+    }
+
     &-events {
         width: 100%;
         display: flex;
@@ -380,6 +453,7 @@
                     margin: 0;
                     padding: 0 0.5rem;
                     font-size: var(--font-size-large);
+                    cursor: pointer;
 
                     span {
                         font-size: var(--font-size-base);
@@ -387,8 +461,7 @@
                 }
 
                 &--active {
-                    background-color: var(--color-accent);
-                    color: var(--color-accent-light);
+                    opacity: 1;
                 }
 
                 &--weekend {
@@ -397,6 +470,16 @@
                     span {
                         color: var(--color-accent);
                     }
+                }
+
+                &--muted {
+                    opacity: .35;
+                }
+
+                &--selected {
+                    background-color: var(--color-accent);
+                    color: var(--color-accent-light);
+                    border-radius: 4px;
                 }
             }
         }
@@ -466,7 +549,7 @@
         }
 
         &_button {
-            width: 30%;
+            width: 30% !important;
             margin-top: 2rem;
         }
 
@@ -608,79 +691,6 @@
             width: 70%;
             min-height: 3rem;
             position: relative;
-        }
-    }
-
-    &-line {
-        min-height: initial;
-        padding: 0;
-        margin-top: 3vmax;
-
-        &__block {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: calc(var(--marginBase) * 0.5);
-        }
-
-        &__item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            //position: relative;
-            margin-left: 0;
-            margin-bottom: var(--marginBase);
-
-            span {
-                //height: var(--frontGridTextHeight);
-                line-height: 1;
-            }
-        }
-
-        &__link {
-            width: 100%;
-            height: calc(var(--frontGridImageHeight) * 1.2);
-            position: relative;
-            overflow: hidden;
-            //margin-bottom: var(--bookItemMargin);
-            padding: var(--bookItemPadding);
-            background-color: var(--colorBackgroundMain);
-
-            @include pictureBlock($fit: contain);
-
-        }
-
-        &__title {
-            position: absolute;
-            bottom: 0.7vmin;
-            right: 0.7vmin;
-            color: var(--color-accent);
-            font-size: calc(var(--font-size-h1) * 1.7);
-            font-weight: $font-weight-bold;
-        }
-
-        &__description {
-            width: 100%;
-            //height: calc(var(--marginBase) * 1);
-            display: flex;
-            align-items: center;
-            padding: calc(var(--marginBase) * 0.5) 0;
-        }
-
-        &__button {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: calc(var(--marginBase) * 0.4) 0 calc(var(--marginBase) * 0.5);
-            background-color: var(--color-accent);
-            color: var(--color-accent-light);
-            font-size: var(--font-size-h4);
-            line-height: 1;
-
-            &:hover {
-                background-color: var(--color-accent-hover);
-            }
         }
     }
 

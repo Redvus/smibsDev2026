@@ -11,6 +11,7 @@ import BlindController from "./components/BlindController.js";
 import Preloader from './components/Preloader.js';
 import BookSlider from './components/BookSlider.js';
 import MapComponent from './components/MapComponent.js';
+import EventFilter from './components/EventFilter_2.js';
 
 // ============================================
 // СОЗДАНИЕ ПРИЛОЖЕНИЯ
@@ -82,6 +83,31 @@ function createApp() {
             autoCreate: false,
         }));
     }
+
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     const eventFilter = new EventFilter();
+    //     eventFilter.setupListeners();
+    //
+    //     // Применяем фильтр при старте (на случай предзаполненных select)
+    //     eventFilter.applyFilters();
+    // });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (document.querySelector('.section-books__item')) {
+            app.register(
+                'eventFilter',
+                new EventFilter({
+                    filters: [
+                        { key: 'place', selector: '#filterEventPlace', attr: 'place' },
+                        { key: 'type',  selector: '#filterEventType',  attr: 'type'  },
+                        { key: 'card',  selector: '#filterEventCard',  attr: 'card'  },
+                        // 🔽 легко добавить новые:
+                        // { key: 'age', selector: '#filterEventAge', attr: 'age' },
+                    ],
+                }),
+            );
+        }
+    });
 
 
     // initMobile(app);
