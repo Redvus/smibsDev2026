@@ -35,12 +35,7 @@
                 </div>
                 <select class="filter-block__select" id="filterEventPlace">
                     <option>Выбрать филиал</option>
-                    <option>ЦГБ</option>
-                    <option>Филиал №1</option>
-                    <option>Филиал №2</option>
-                    <option>Филиал №3</option>
-                    <option>Филиал №4</option>
-                    <option>Филиал №5</option>
+                    {$_modx->runSnippet('getBranchOptions', ['parents' => 13, 'mode' => 'select'])}
                 </select>
             </div>
             <div class="filter-block">
@@ -48,18 +43,19 @@
                     Вид события
                 </div>
                 <select class="filter-block__select" id="filterEventType">
-                    <option>Выбрать тип события</option>
-                    <option>Лекции и лектории</option>
-                    <option>Прогулки</option>
-                    <option>Интерактивные программы</option>
-                    <option>Творческие лаборатории и мастер-классы</option>
-                    <option>Встречи и беседы</option>
-                    <option>Клубы и объединения</option>
-                    <option>Массовые мероприятия</option>
-                    <option>Выставки</option>
-                    <option>Акции и конкурсы</option>
-                    <option>Тематические уроки</option>
-                    <option>Другие</option>
+                    {$_modx->runSnippet('getEventTypesOptions', ['tv' => 'calendarEventsTermsList'])}
+{*                    <option>Выбрать тип события</option>*}
+{*                    <option>Лекции и лектории</option>*}
+{*                    <option>Прогулки</option>*}
+{*                    <option>Интерактивные программы</option>*}
+{*                    <option>Творческие лаборатории и мастер-классы</option>*}
+{*                    <option>Встречи и беседы</option>*}
+{*                    <option>Клубы и объединения</option>*}
+{*                    <option>Массовые мероприятия</option>*}
+{*                    <option>Выставки</option>*}
+{*                    <option>Акции и конкурсы</option>*}
+{*                    <option>Тематические уроки</option>*}
+{*                    <option>Другие</option>*}
                 </select>
             </div>
             <div class="filter-block">
@@ -86,7 +82,7 @@
             'processTVs' => 1,
             'sortby' => 'publishedon',
             'sortdir' => 'desc',
-            'includeTVs' => 'eventPlace,eventType,eventCard,eventDate',
+            'includeTVs' => 'eventPlace,eventType,eventDate',
             'where' => ['template != 8']
             ]}
         </div>

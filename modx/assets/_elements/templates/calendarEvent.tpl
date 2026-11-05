@@ -12,37 +12,66 @@
     {* {'main-content'|chunk} *}
 
     <div class="page">
-        <div class="page__title">
-            <h1>{$_modx -> resource.pagetitle}</h1>
-        </div>
-        <div class="section__event">
-            <div class="section__event_description">
-                <ul class="section__event_adress">
-                    <li class="section__event_adress_item">
-                        <span>Где:</span>
-                        {$_modx -> resource.libraryAdress ?: 'ул. Филиальная, д. 123'}
-                    </li>
-                    <li class="section__event_adress_item">
-                        <span>Когда:</span>
-                        {$_modx -> resource.libraryPhone ?: '8 (846) 123-45-67'}
-                    </li>
-                    <li class="section__event_adress_item">
-                        <a href="{$id | url}" class="section-line__button section__event_button">о филиале</a>
-                    </li>
-                </ul>
-                <div class="section__library_person">
-                    <picture>
-                        <img src="{$_modx -> resource.readImage}"
-                             alt="{$_modx -> resource.pagetitle}. {$_modx -> resource.introtext}">
-                    </picture>
+        {set $needle = $.get.event | intval}
+        {if $needle < 1}
+            <p>Событие не указано</p>
+        {else}
+            {set $rows = $_modx->resource.calendarEvents | fromJSON}
+
+            {set $row = null}
+            {foreach $rows as $r}
+                {if $r.MIGX_id == $needle}
+                    {set $row = $r}
+                    {break}
+                {/if}
+            {/foreach}
+
+            {if $row}
+                {set $branch = $row.calendarEventsPlace | resource}
+                {set $when = $row.calendarEventsDate | dateRu}
+                {set $addr = $branch.id | resource: 'libraryAdress'}
+
+                <div class="page__title">
+                    <h1>{$row.calendarEventsTitle}</h1>
                 </div>
-            </div>
+                <div class="section__event">
+                    <div class="section__event_description">
+                        <ul class="section__event_adress">
+                            {if $branch}
+                                <li class="section__event_adress_item">
+                                    <span>Где:</span>
+                                    {$addr ?: 'Адрес не указан'}
+                                </li>
+                                <li class="section__event_adress_item">
+                                    <span>Когда:</span>
+                                    {$when ?: 'Дата не указана'}
+                                </li>
+                                <li class="section__event_adress_item">
+                                    <a href="{$branch.id | url}"
+                                       class="section-line__button section__event_button">о филиале</a>
+                                </li>
+                            {else}
+                                <li class="section__event_adress_item">
+                                    <span>Филиал не указан</span>
+                                </li>
+                            {/if}
+                        </ul>
+                        <div class="section__library_person">
+                            <picture>
+                                <img src="{$row.calendarEventsImage | pthumb:'w=400&zc=1'}"
+                                     alt="{$row.calendarEventsTitle}">
+                            </picture>
+                        </div>
+                    </div>
 
-            <div class="section__event_text">
-                <p>{$_modx ->  resource.content}</p>
-            </div>
-
-        </div>
+                    <div class="section__event_text">
+                        <p>{$row.calendarEventsContent | nl2br}</p>
+                    </div>
+                </div>
+            {else}
+                <p>Событие не найдено</p>
+            {/if}
+        {/if}
 
         {* События библиотеки *}
         <section class="section section-events section--border-2">
@@ -71,14 +100,14 @@
                      data-autoplay-delay="4000">
                     <div class="section-books__grid">
                         {'pdoResources' | snippet: [
-                            'limit' => 0,
-                            'depth' => 0,
-                            'parents' => 35,
-                            'tpl' => 'frontEventsTpl',
-                            'includeContent' => 1,
-                            'sortby' => 'publishedon',
-                            'sortdir' => 'desc',
-                            'includeTVs' => ''
+                        'limit' => 0,
+                        'depth' => 0,
+                        'parents' => 35,
+                        'tpl' => 'frontEventsTpl',
+                        'includeContent' => 1,
+                        'sortby' => 'publishedon',
+                        'sortdir' => 'desc',
+                        'includeTVs' => ''
                         ]}
                     </div>
                 </div>
@@ -122,14 +151,14 @@
                      data-autoplay-delay="4000">
                     <div class="section-books__grid">
                         {'pdoResources' | snippet: [
-                            'limit' => 8,
-                            'depth' => 0,
-                            'parents' => 25,
-                            'tpl' => 'frontReadTpl',
-                            'includeContent' => 1,
-                            'sortby' => 'publishedon',
-                            'sortdir' => 'desc',
-                            'includeTVs' => ''
+                        'limit' => 8,
+                        'depth' => 0,
+                        'parents' => 25,
+                        'tpl' => 'frontReadTpl',
+                        'includeContent' => 1,
+                        'sortby' => 'publishedon',
+                        'sortdir' => 'desc',
+                        'includeTVs' => ''
                         ]}
                     </div>
                 </div>

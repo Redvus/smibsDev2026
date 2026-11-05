@@ -16,20 +16,20 @@
             <div class="section__grid_description">
                 <div class="section__grid_header">
                     <div class="page__title section__grid_title">
-                        <h1>Библиотека&nbsp;{$_modx -> resource.pagetitle}</h1>
+                        <h1>Филиал&nbsp;{$_modx -> resource.pagetitle}</h1>
                     </div>
                     <ul class="section__library_location">
                         <li class="section__library_address">
                             <span>Адрес:</span>
-                            {$_modx -> resource.libraryAdress ?: 'ул. Филиальная, д. 123'}
+                            {$_modx -> resource.libraryAdress ?: 'Адрес не указан'}
                         </li>
                         <li class="section__library_address">
                             <span>Телефон:</span>
-                            {$_modx -> resource.libraryPhone ?: '8 (846) 123-45-67'}
+                            {$_modx -> resource.libraryPhone ?: 'Телефон не указан'}
                         </li>
                         <li class="section__library_address">
                             <span>Электронная&nbsp;почта:</span>
-                            {$_modx -> resource.libraryEmail ?: 'info@library.ru'}
+                            {$_modx -> resource.libraryEmail ?: 'Почта не указана'}
                         </li>
                     </ul>
                 </div>
