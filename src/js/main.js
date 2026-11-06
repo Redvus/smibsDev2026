@@ -101,6 +101,8 @@ function createApp() {
                         { key: 'place', selector: '#filterEventPlace', attr: 'place' },
                         { key: 'type',  selector: '#filterEventType',  attr: 'type'  },
                         { key: 'card',  selector: '#filterEventCard',  attr: 'card'  },
+                        { key: 'entrance',  selector: '#filterEventEntrance',  attr: 'entrance'  },
+                        { key: 'age',  selector: '#filterEventAge',  attr: 'age'  },
                         // 🔽 легко добавить новые:
                         // { key: 'age', selector: '#filterEventAge', attr: 'age' },
                     ],

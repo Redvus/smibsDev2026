@@ -12363,11 +12363,15 @@ button {
 }
 .section-events__calendar_days--muted {
   opacity: 0.35;
+  cursor: default !important;
 }
 .section-events__calendar_days--selected {
   background-color: var(--color-accent);
   color: var(--color-accent-light);
   border-radius: 4px;
+}
+.section-events__calendar_days--selected span {
+  color: var(--color-accent-light);
 }
 @media (max-width: 3840px) {
   .section-events__title span {

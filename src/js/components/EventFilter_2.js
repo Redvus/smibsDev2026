@@ -160,23 +160,51 @@ export default class EventFilter {
         return true;
     }
 
+    // Выделение на дне остается, если выбран фильтр, у которого событий нет
+    // applyFilters() {
+    //     const visibleDates = new Set();
+    //
+    //     this.elements.items.forEach(item => {
+    //         const ok = this.matchItem(item);
+    //         item.style.display = ok ? '' : 'none';
+    //
+    //         if (ok && item.dataset.date) {
+    //             visibleDates.add(item.dataset.date);
+    //         }
+    //     });
+    //
+    //     // если выбран конкретный день — сузим до него
+    //     if (this.state.selectedDate) {
+    //         this.elements.items.forEach(item => {
+    //             const match = item.dataset.date === this.state.selectedDate;
+    //             if (!match) item.style.display = 'none';
+    //         });
+    //     }
+    //
+    //     this.updateCalendarHighlight(visibleDates);
+    // }
+
+    // Выделение снимается с дня
     applyFilters() {
         const visibleDates = new Set();
-
         this.elements.items.forEach(item => {
             const ok = this.matchItem(item);
             item.style.display = ok ? '' : 'none';
-
-            if (ok && item.dataset.date) {
-                visibleDates.add(item.dataset.date);
-            }
+            if (ok && item.dataset.date) visibleDates.add(item.dataset.date);
         });
 
-        // если выбран конкретный день — сузим до него
+        // если выбранная дата «опустела» — снимаем выбор
+        if (this.state.selectedDate && !visibleDates.has(this.state.selectedDate)) {
+            this.state.selectedDate = null;
+            document.querySelectorAll(this.options.daySelector).forEach(el =>
+                el.classList.remove(this.options.selectedClass));
+        }
+
         if (this.state.selectedDate) {
             this.elements.items.forEach(item => {
-                const match = item.dataset.date === this.state.selectedDate;
-                if (!match) item.style.display = 'none';
+                if (item.dataset.date !== this.state.selectedDate) {
+                    item.style.display = 'none';
+                }
             });
         }
 
@@ -199,6 +227,9 @@ export default class EventFilter {
         if (event) event.stopPropagation();
         const date = li.dataset.date;
         if (!date) return;
+
+        // 🔒 блокируем клик по «пустым» дням
+        if (li.classList.contains(this.options.mutedClass)) return;
 
         const alreadySelected = li.classList.contains(this.options.selectedClass);
 

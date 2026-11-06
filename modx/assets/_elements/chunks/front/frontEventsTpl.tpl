@@ -1,8 +1,12 @@
 {set $rows = $id | resource: 'calendarEvents' | fromJSON}
 {foreach $rows as $i => $row}
+    {set $branch = $row.calendarEventsPlace | resource}
+
     <li class="section-books__item"
         data-place="{$row.calendarEventsPlace ?: 'none'}"
         data-type="{$row.calendarEventsTerms ?: 'none'}"
+        data-entrance="{$row.calendarEventsEntrance ?: 'none'}"
+        data-age="{$row.calendarEventsAge ?: 'none'}"
         data-card="{$eventCard ?: 'none'}"
         data-date="{$row.calendarEventsDate | date:'Y-m-d'}">
         <div class="section-events__top">
@@ -15,7 +19,7 @@
         <div class="section-events__bottom">
             <div class="section-events__header">
                 <div class="section-events__text">
-                    <span></span>
+                    <span>{$row.calendarEventsTerms}</span>
                 </div>
                 <div class="section-events__date">
                     <span>{$row.calendarEventsDate | dateRu}</span>
@@ -26,7 +30,7 @@
                     <span>{$row.calendarEventsTitle}</span>
                 </a>
                 <span class="section-events__place">
-                    {$row.calendarEventsDateContent}
+                    Филиал&nbsp;{$branch.pagetitle}
                 </span>
             </div>
         </div>

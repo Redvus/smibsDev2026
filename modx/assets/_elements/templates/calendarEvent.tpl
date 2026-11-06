@@ -28,8 +28,9 @@
 
             {if $row}
                 {set $branch = $row.calendarEventsPlace | resource}
-                {set $when = $row.calendarEventsDate | dateRu}
                 {set $addr = $branch.id | resource: 'libraryAdress'}
+                {set $whenDate = $row.calendarEventsDate | dateRu}
+                {set $whenTime = $row.calendarEventsDate | date:'H:i'}
 
                 <div class="page__title">
                     <h1>{$row.calendarEventsTitle}</h1>
@@ -40,15 +41,17 @@
                             {if $branch}
                                 <li class="section__event_adress_item">
                                     <span>Где:</span>
-                                    {$addr ?: 'Адрес не указан'}
+                                    Филиал&nbsp;{$branch.pagetitle}<br>{$addr ?: 'Адрес не указан'}
                                 </li>
                                 <li class="section__event_adress_item">
                                     <span>Когда:</span>
-                                    {$when ?: 'Дата не указана'}
+                                    {$whenDate ?: 'Дата не указана'}{if $whenTime && $whenTime != '00:00'}, {$whenTime}{/if}
                                 </li>
                                 <li class="section__event_adress_item">
                                     <a href="{$branch.id | url}"
-                                       class="section-line__button section__event_button">о филиале</a>
+                                       class="section-line__button section__event_button">
+                                        О филиале&nbsp;{$branch.pagetitle}
+                                    </a>
                                 </li>
                             {else}
                                 <li class="section__event_adress_item">

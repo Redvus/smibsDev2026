@@ -38,37 +38,45 @@
                     {$_modx->runSnippet('getBranchOptions', ['parents' => 13, 'mode' => 'select'])}
                 </select>
             </div>
+
             <div class="filter-block">
                 <div class="filter-block__title">
                     Вид события
                 </div>
                 <select class="filter-block__select" id="filterEventType">
                     {$_modx->runSnippet('getEventTypesOptions', ['tv' => 'calendarEventsTermsList'])}
-{*                    <option>Выбрать тип события</option>*}
+                </select>
+            </div>
+
+            <div class="filter-block">
+                <div class="filter-block__title">
+                    Условия участия
+                </div>
+                <select class="filter-block__select" id="filterEventEntrance">
+                    {$_modx->runSnippet('getEventTypesOptions', ['tv' => 'calendarEventsEntranceList'])}
+                </select>
+            </div>
+
+            <div class="filter-block">
+                <div class="filter-block__title">
+                    Возраст участников
+                </div>
+                <select class="filter-block__select" id="filterEventAge">
+                    {$_modx->runSnippet('getEventTypesOptions', ['tv' => 'calendarEventsAgeList'])}
+                </select>
+            </div>
+
+{*            <div class="filter-block">*}
+{*                <div class="filter-block__title">*}
+{*                    Пушкинская карта*}
+{*                </div>*}
+{*                <select class="filter-block__select" id="filterEventCard">*}
+{*                    <option>Выбрать карту</option>*}
 {*                    <option>Лекции и лектории</option>*}
 {*                    <option>Прогулки</option>*}
 {*                    <option>Интерактивные программы</option>*}
-{*                    <option>Творческие лаборатории и мастер-классы</option>*}
-{*                    <option>Встречи и беседы</option>*}
-{*                    <option>Клубы и объединения</option>*}
-{*                    <option>Массовые мероприятия</option>*}
-{*                    <option>Выставки</option>*}
-{*                    <option>Акции и конкурсы</option>*}
-{*                    <option>Тематические уроки</option>*}
-{*                    <option>Другие</option>*}
-                </select>
-            </div>
-            <div class="filter-block">
-                <div class="filter-block__title">
-                    Пушкинская карта
-                </div>
-                <select class="filter-block__select" id="filterEventCard">
-                    <option>Выбрать карту</option>
-                    <option>Лекции и лектории</option>
-                    <option>Прогулки</option>
-                    <option>Интерактивные программы</option>
-                </select>
-            </div>
+{*                </select>*}
+{*            </div>*}
 
         </div>
 
