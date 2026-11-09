@@ -1,5 +1,6 @@
 <?php
-$tvName = $modx->getOption('tv', $scriptProperties, 'calendarEventsTermsList');
+$tvName      = $modx->getOption('tv', $scriptProperties, 'calendarEventsTermsList');
+$placeholder = $modx->getOption('placeholder', $scriptProperties, 'Выберите поле');
 
 $tv = $modx->getObject('modTemplateVar', ['name' => $tvName]);
 if (!$tv) return '';
@@ -8,7 +9,12 @@ $value = $tv->get('elements');
 if (empty($value)) return '';
 
 $items = explode('||', $value);
-$out = '<option value="">Выберите поле</option>';   // ← добавляем вручную
+
+$out = '';
+if ($placeholder !== '') {
+    $out .= '<option value="">' . htmlspecialchars($placeholder) . '</option>';
+}
+
 foreach ($items as $item) {
     $item = trim($item);
     if ($item === '') continue;
