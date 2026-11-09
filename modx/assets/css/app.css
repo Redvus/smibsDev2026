@@ -12368,7 +12368,6 @@ button {
 .section-events__calendar_days--selected {
   background-color: var(--color-accent);
   color: var(--color-accent-light);
-  border-radius: 4px;
 }
 .section-events__calendar_days--selected span {
   color: var(--color-accent-light);
@@ -13526,6 +13525,7 @@ textarea {
   margin-bottom: 0.3rem;
 }
 .filter-block__select {
+  min-width: 11vmax;
   height: 2rem;
   padding: 0 1rem;
   text-align: left;

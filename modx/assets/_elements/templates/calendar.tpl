@@ -59,7 +59,7 @@
 
             <div class="filter-block">
                 <div class="filter-block__title">
-                    Возраст участников
+                    Возрастное&nbsp;ограничение
                 </div>
                 <select class="filter-block__select" id="filterEventAge">
                     {$_modx->runSnippet('getEventTypesOptions', ['tv' => 'calendarEventsAgeList'])}
